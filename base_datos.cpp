@@ -166,6 +166,10 @@ void cargarBaseDatos(Anfitrion*& anfitriones, int& cantAnfitriones,
     reservas = new Reserva[capRes];
 
     while (getline(archRes, linea)) {
+        // 1) Saltar líneas totalmente vacías
+        if (linea.empty())
+            continue;
+
         stringstream ss(linea);
         string cod, codAloj, docHuesp, fechaIn, durStr, metodo, fechaPag, montoStr, nota;
 

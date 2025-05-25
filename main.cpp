@@ -47,9 +47,6 @@ void guardarReservaIndividual(const Reserva& r) {
         return;
     }
 
-    archivo.seekp(0, ios::end);
-    if (archivo.tellp() != 0) archivo << '\n'; // Forzar salto de línea si no está vacío
-
     archivo << r.getCodigo() << ";"
             << r.getAlojamiento()->getCodigo() << ";"
             << r.getHuesped()->getDocumento() << ";"
@@ -62,7 +59,7 @@ void guardarReservaIndividual(const Reserva& r) {
             << setfill('0') << setw(2) << r.getFechaPago().getMes() << "/"
             << r.getFechaPago().getAnio() << ";"
             << (int)r.getMonto() << ";"
-            << r.getAnotacion(); //<< "\n";
+            << r.getAnotacion() << "\n";
 
     archivo.close();
 }
