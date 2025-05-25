@@ -152,7 +152,6 @@ void cargarBaseDatos(Anfitrion*& anfitriones, int& cantAnfitriones,
     }
     archHuesp.close();
 
-
     // ---------- RESERVAS ----------
     ifstream archRes("reservas.txt");
     if (!archRes.is_open()) {
@@ -166,10 +165,6 @@ void cargarBaseDatos(Anfitrion*& anfitriones, int& cantAnfitriones,
     reservas = new Reserva[capRes];
 
     while (getline(archRes, linea)) {
-        // 1) Saltar líneas totalmente vacías
-        if (linea.empty())
-            continue;
-
         stringstream ss(linea);
         string cod, codAloj, docHuesp, fechaIn, durStr, metodo, fechaPag, montoStr, nota;
 
@@ -233,32 +228,11 @@ void cargarBaseDatos(Anfitrion*& anfitriones, int& cantAnfitriones,
             reservas = temp;
         }
 
-        // Crear reserva temporal
-        Reserva nueva(cod, alo, h, entrada, dur, metodo, pago, monto, nota);
-
-        // Verificar si hay conflicto con las fechas ANTES de guardar
-        if (h->hayConflicto(entrada, dur)) {
-            cout << "Reserva " << cod << " NO agregada al huésped por conflicto de fechas." << endl;
-            continue;
-        }
-
-        // Redimensionar arreglo si es necesario
-        if (cantReservas >= capRes) {
-            capRes *= 2;
-            Reserva* temp = new Reserva[capRes];
-            capacidad = capRes;
-            for (int i = 0; i < cantReservas; ++i)
-                temp[i] = reservas[i];
-            delete[] reservas;
-            reservas = temp;
-        }
-
-        // Guardar reserva definitivamente
-        reservas[cantReservas] = nueva;
+        // Crear reserva, asignar a huésped y marcar días ocupados
+        reservas[cantReservas] = Reserva(cod, alo, h, entrada, dur, metodo, pago, monto, nota);
         h->agregarReserva(&reservas[cantReservas]);
         alo->reservarDias(entrada, dur);
         cantReservas++;
-
     }
 
     archRes.close();

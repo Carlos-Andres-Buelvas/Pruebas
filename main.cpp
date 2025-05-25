@@ -201,18 +201,8 @@ void buscarYReservarAlojamiento(Huesped* h,
     aloj->reservarDias(entrada, noches);
     guardarReservaIndividual(*ptrReserva);
 
-    // Mostrar comprobante
-    Fecha salida = entrada.sumarDias(noches); // o 'dur' en el otro caso
-    Fecha hoySistema = getFechaSistema();
-
-    cout << "\n=== COMPROBANTE DE RESERVA ===\n";
-    cout << "Código de reserva: " << codigo << endl;
-    cout << "Nombre del huésped: " << h->getNombre() << endl;
-    cout << "Código del alojamiento: " << aloj->getCodigo() << endl;
-    cout << "Fecha de entrada: "; entrada.mostrarExtendido();
-    cout << "Fecha de salida: "; salida.mostrarExtendido();
-    cout << "Fecha de reserva: "; hoySistema.mostrarExtendido();
-    cout << "==============================\n";
+    // Mostrar comprobante usando método encapsulado
+    ptrReserva->mostrarComprobante();
 }
 
 void reservarAlojamiento(Huesped* h, Alojamiento* alojamientos, int& cantAlojamientos,
@@ -319,18 +309,8 @@ void reservarAlojamiento(Huesped* h, Alojamiento* alojamientos, int& cantAlojami
     // 8) Limpieza del temporal:
     delete nueva;
 
-    // Mostrar comprobante
-    Fecha salida = entrada.sumarDias(dur); // o 'dur' en el otro caso
-    Fecha hoySistema = getFechaSistema();
-
-    cout << "\n=== COMPROBANTE DE RESERVA ===\n";
-    cout << "Código de reserva: " << codigo << endl;
-    cout << "Nombre del huésped: " << h->getNombre() << endl;
-    cout << "Código del alojamiento: " << aloj->getCodigo() << endl;
-    cout << "Fecha de entrada: "; entrada.mostrarExtendido();
-    cout << "Fecha de salida: "; salida.mostrarExtendido();
-    cout << "Fecha de reserva: "; hoySistema.mostrarExtendido();
-    cout << "==============================\n";
+    // Mostrar comprobante usando método encapsulado
+    reservas[cantReservas - 1].mostrarComprobante();
 }
 
 void mostrarMenuAnfitrion(Anfitrion* a, Reserva*& reservas, int& cantReservas) {

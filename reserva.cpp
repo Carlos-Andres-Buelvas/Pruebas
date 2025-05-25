@@ -41,13 +41,19 @@ float Reserva::getMonto() const { return monto; }
 string Reserva::getAnotacion() const { return string(anotacion); }
 
 void Reserva::mostrarComprobante() const {
+    Fecha salida = fechaEntrada.sumarDias(duracion);
+    Fecha hoySistema = getFechaSistema();
+
     cout << "------------------------------" << endl;
+    cout << "\n=== COMPROBANTE DE REESERVA ===\n";
     cout << "Reserva: " << codigo << endl;
+    cout << "Nombre del huésped: " << (huesped ? huesped->getNombre(): "N/A") << endl;
     cout << "Alojamiento: " << (alojamiento ? alojamiento->getCodigo() : "N/A") << endl;
     cout << "Duración: " << duracion << " noche(s)" << endl;
     cout << "Entrada: "; fechaEntrada.mostrarExtendido();
+    cout << "Salida: "; salida.mostrarExtendido();
     cout << "Método de pago: " << metodoPago << endl;
-    cout << "Pago realizado el: "; fechaPago.mostrarExtendido();
+    cout << "Pago realizado el: "; hoySistema.mostrarExtendido();
     cout << "Monto: $" << monto << endl;
     cout << "Anotación: " << anotacion << endl;
     cout << "------------------------------" << endl;
