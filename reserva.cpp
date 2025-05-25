@@ -11,12 +11,12 @@ Reserva::Reserva() {
     huesped = nullptr;
     duracion = 0;
     metodoPago = "";
-    monto = 0.0;
+    monto = 0;
     anotacion[0] = '\0';
 }
 
 Reserva::Reserva(string cod, Alojamiento* alo, Huesped* h, Fecha entrada,
-                 int dur, string metodo, Fecha pago, float m, const string& nota) {
+                 int dur, string metodo, Fecha pago, int m, const string& nota) {
     codigo = cod;
     alojamiento = alo;
     huesped = h;
@@ -37,7 +37,7 @@ Alojamiento* Reserva::getAlojamiento() const { return alojamiento; }
 Huesped* Reserva::getHuesped() const { return huesped; }
 Fecha Reserva::getFechaEntrada() const { return fechaEntrada; }
 Fecha Reserva::getFechaPago() const { return fechaPago; }
-float Reserva::getMonto() const { return monto; }
+int Reserva::getMonto() const { return monto; }
 string Reserva::getAnotacion() const { return string(anotacion); }
 
 void Reserva::mostrarComprobante() const {
@@ -45,7 +45,7 @@ void Reserva::mostrarComprobante() const {
     Fecha hoySistema = getFechaSistema();
 
     cout << "------------------------------" << endl;
-    cout << "\n=== COMPROBANTE DE REESERVA ===\n";
+    cout << "=== COMPROBANTE DE RESERVA ===\n";
     cout << "Reserva: " << codigo << endl;
     cout << "Nombre del huésped: " << (huesped ? huesped->getNombre(): "N/A") << endl;
     cout << "Alojamiento: " << (alojamiento ? alojamiento->getCodigo() : "N/A") << endl;

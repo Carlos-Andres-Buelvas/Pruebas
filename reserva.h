@@ -18,13 +18,13 @@ private:
     int duracion;
     string metodoPago;
     Fecha fechaPago;
-    float monto;
+    int monto;
     char anotacion[1001];
 
 public:
     Reserva();
     Reserva(string cod, Alojamiento* alo, Huesped* h,
-            Fecha entrada, int dur, string metodo, Fecha pago, float monto, const string& nota);
+            Fecha entrada, int dur, string metodo, Fecha pago, int monto, const string& nota);
 
     // Getters
     string getCodigo() const;
@@ -34,7 +34,7 @@ public:
     Alojamiento* getAlojamiento() const;
     Huesped* getHuesped() const;
     Fecha getFechaPago() const;
-    float getMonto() const;
+    int getMonto() const;
     string getAnotacion() const;
 
 

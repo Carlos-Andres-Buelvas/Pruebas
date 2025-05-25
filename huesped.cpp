@@ -76,6 +76,16 @@ void Huesped::mostrar() const {
     cout << "Huésped: " << documento
          << " | Antigüedad: " << antiguedad
          << " meses | Puntuación: " << puntuacion << endl;
+
+    if (cantidadReservas == 0) {
+        cout << "No tiene reservaciones registradas.\n";
+        return;
+    }
+
+    cout << "--- Reservaciones ---\n";
+    for (int i = 0; i < cantidadReservas; ++i) {
+        reservas[i]->mostrarComprobante();
+    }
 }
 
 bool Huesped::agregarReserva(Reserva* nueva) {

@@ -269,7 +269,7 @@ void reservarAlojamiento(Huesped* h, Alojamiento* alojamientos, int& cantAlojami
     string codigo = "RSV" + to_string(cantReservas + 1);
     Fecha fechaPago = entrada; // Simulación de pago en fecha de entrada
     float monto = dur * aloj->getPrecio();
-  */
+    */
     // ... justo antes de crear la Reserva
     extern int siguienteNumeroReserva; // si está fuera del main()
     std::ostringstream oss;
@@ -334,10 +334,48 @@ void mostrarMenuAnfitrion(Anfitrion* a, Reserva*& reservas, int& cantReservas) {
             cout << "Puntuación: " << a->getPuntuacion() << "/5.0\n";
             break;
         case 3: {
-            string cod;
-            cout << "Código de la reservación a anular: ";
-            cin >> cod;
-            anularReservacion(cod, nullptr, a, reservas, cantReservas);
+            cout << "--- Reservaciones activas de sus alojamientos ---\n";
+
+            // Recolectar reservas activas del anfitrión
+            int totalReservasMostradas = 0;
+            for (int i = 0; i < cantReservas; ++i) {
+                Reserva& r = reservas[i];
+                Alojamiento* aloj = r.getAlojamiento();
+                if (aloj != nullptr && aloj->getAnfitrion() == a) {
+                    cout << "[" << totalReservasMostradas + 1 << "] ";
+                    r.mostrarComprobante();
+                    totalReservasMostradas++;
+                }
+            }
+
+            if (totalReservasMostradas == 0) {
+                cout << "No tiene reservaciones activas.\n";
+                break;
+            }
+
+            // Preguntar si desea anular alguna
+            int opcionAnular;
+            cout << "Ingrese el número de la reservación que desea anular (0 para cancelar): ";
+            cin >> opcionAnular;
+
+            if (opcionAnular >= 1 && opcionAnular <= totalReservasMostradas) {
+                // Buscar la reserva N-ésima asociada a este anfitrión
+                int contador = 0;
+                for (int i = 0; i < cantReservas; ++i) {
+                    Reserva& r = reservas[i];
+                    if (r.getAlojamiento() != nullptr && r.getAlojamiento()->getAnfitrion() == a) {
+                        contador++;
+                        if (contador == opcionAnular) {
+                            string codAnular = r.getCodigo();
+                            anularReservacion(codAnular, nullptr, a, reservas, cantReservas);
+                            break;
+                        }
+                    }
+                }
+            } else {
+                cout << "Operación cancelada.\n";
+            }
+
             break;
         }
         case 0:
@@ -382,10 +420,40 @@ void mostrarMenuHuesped(Huesped* h,
             cout << "Puntuación: " << h->getPuntuacion() << "/5.0\n";
             break;
         case 5: {
-            string cod;
-            cout << "Código de la reservación a anular: ";
-            cin >> cod;
-            anularReservacion(cod, h, nullptr, reservas, cantReservas);
+            // 1. Mostrar todas las reservas activas del huésped
+            const int MAX_RSV = 500;
+            Reserva* reservasMostradas[MAX_RSV];
+            int totalMostradas = 0;
+
+            cout << "\n--- Reservaciones activas ---\n";
+
+            for (int i = 0; i < cantReservas; ++i) {
+                if (reservas[i].getHuesped() == h) {
+                    cout << totalMostradas + 1 << ". ";
+                    reservas[i].mostrarComprobante();
+                    reservasMostradas[totalMostradas] = &reservas[i];
+                    totalMostradas++;
+                }
+            }
+
+            if (totalMostradas == 0) {
+                cout << "No tiene reservaciones activas.\n";
+                break;
+            }
+
+            // 2. Elegir cuál anular
+            int opcion;
+            cout << "Seleccione el número de la reserva a anular (0 para cancelar): ";
+            cin >> opcion;
+
+            if (opcion <= 0 || opcion > totalMostradas) {
+                cout << "Cancelado.\n";
+                break;
+            }
+
+            // 3. Anular usando el código
+            string codigo = reservasMostradas[opcion - 1]->getCodigo();
+            anularReservacion(codigo, h, nullptr, reservas, cantReservas);
             break;
         }
         case 0:

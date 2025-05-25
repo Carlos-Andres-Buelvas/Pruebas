@@ -179,7 +179,7 @@ void cargarBaseDatos(Anfitrion*& anfitriones, int& cantAnfitriones,
         getline(ss, nota, ';');
 
         int dur = stoi(durStr);
-        float monto = stof(montoStr);
+        int monto = stoi(montoStr);
         int d, m, a;
 
         sscanf(fechaIn.c_str(), "%d/%d/%d", &d, &m, &a);

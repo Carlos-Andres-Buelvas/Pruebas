@@ -36,6 +36,15 @@ public:
     // Funciones
     void agregarAlojamiento(Alojamiento* nuevo);
     void mostrar() const;
+    int getCantidadAlojamientos() const {
+        return cantidadAlojamientos;
+    }
+
+    Alojamiento* getAlojamiento(int i) const {
+        if (i >= 0 && i < cantidadAlojamientos)
+            return alojamientos[i];
+        return nullptr;
+    }
 
     // Destructor
     ~Anfitrion();
