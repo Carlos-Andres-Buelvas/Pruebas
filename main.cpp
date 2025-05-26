@@ -14,29 +14,23 @@ using namespace std;
 
 int siguienteNumeroReserva = 1;
 
-void menuBuscarAlojamiento(Alojamiento* alojamientos, int cantAlojamientos);
-void reservarAlojamiento(Huesped* h, Alojamiento* alojamientos, int& cantAlojamientos,
-                         Reserva*& reservas, int& cantReservas, int& capReservas);
-void anularReservacion(const string& codigo, Huesped* huesped, Anfitrion* anfitrion,
-                       Reserva*& reservas, int& cantReservas);
+void sobrescribirArchivoReservas(Reserva* reservas, int cantReservas);
+
 int obtenerSiguienteNumeroReserva() {
     ifstream archivo("reservas.txt");
     if (!archivo.is_open()) return 1;
 
-    string linea;
-    string ultimoCodigo;
+    string linea, ultimoCodigo;
     while (getline(archivo, linea)) {
         if (linea.empty()) continue;
         size_t pos = linea.find(';');
         if (pos != string::npos)
-            ultimoCodigo = linea.substr(0, pos);  // RSV###
+            ultimoCodigo = linea.substr(0, pos);
     }
     archivo.close();
 
     if (ultimoCodigo.size() < 4) return 1;
-
-    string numeroStr = ultimoCodigo.substr(3); // desde posición 3
-    int numero = stoi(numeroStr);
+    int numero = stoi(ultimoCodigo.substr(3));
     return numero + 1;
 }
 
@@ -51,18 +45,21 @@ void guardarReservaIndividual(const Reserva& r) {
             << r.getAlojamiento()->getCodigo() << ";"
             << r.getHuesped()->getDocumento() << ";"
             << setfill('0') << setw(2) << r.getFechaEntrada().getDia() << "/"
-            << setfill('0') << setw(2) << r.getFechaEntrada().getMes() << "/"
+            << setw(2) << r.getFechaEntrada().getMes() << "/"
             << r.getFechaEntrada().getAnio() << ";"
             << r.getDuracion() << ";"
             << r.getMetodoPago() << ";"
             << setfill('0') << setw(2) << r.getFechaPago().getDia() << "/"
-            << setfill('0') << setw(2) << r.getFechaPago().getMes() << "/"
+            << setw(2) << r.getFechaPago().getMes() << "/"
             << r.getFechaPago().getAnio() << ";"
             << (int)r.getMonto() << ";"
             << r.getAnotacion() << "\n";
 
     archivo.close();
 }
+
+void anularReservacion(const string& codigo, Huesped* huesped, Anfitrion* anfitrion,
+                       Reserva*& reservas, int& cantReservas);
 
 void buscarYReservarAlojamiento(Huesped* h,
                                 Alojamiento* alojamientos, int cantAlojamientos,
@@ -313,79 +310,8 @@ void reservarAlojamiento(Huesped* h, Alojamiento* alojamientos, int& cantAlojami
     reservas[cantReservas - 1].mostrarComprobante();
 }
 
-void mostrarMenuAnfitrion(Anfitrion* a, Reserva*& reservas, int& cantReservas) {
-    int opcion;
-    do {
-        cout << "\n=== MENÚ ANFITRIÓN ===\n";
-        cout << "Bienvenido, " << a->getNombre() << " (documento: " << a->getDocumento() << ")\n";
-        cout << "1. Mostrar mis alojamientos\n";
-        cout << "2. Ver antigüedad y puntuación\n";
-        cout << "3. Anular una reservación asociada a mis alojamientos\n";
-        cout << "0. Cerrar sesión\n";
-        cout << "Opción: ";
-        cin >> opcion;
-
-        switch (opcion) {
-        case 1:
-            a->mostrar();
-            break;
-        case 2:
-            cout << "Antigüedad: " << a->getAntiguedad() << " meses\n";
-            cout << "Puntuación: " << a->getPuntuacion() << "/5.0\n";
-            break;
-        case 3: {
-            cout << "--- Reservaciones activas de sus alojamientos ---\n";
-
-            // Recolectar reservas activas del anfitrión
-            int totalReservasMostradas = 0;
-            for (int i = 0; i < cantReservas; ++i) {
-                Reserva& r = reservas[i];
-                Alojamiento* aloj = r.getAlojamiento();
-                if (aloj != nullptr && aloj->getAnfitrion() == a) {
-                    cout << "[" << totalReservasMostradas + 1 << "] ";
-                    r.mostrarComprobante();
-                    totalReservasMostradas++;
-                }
-            }
-
-            if (totalReservasMostradas == 0) {
-                cout << "No tiene reservaciones activas.\n";
-                break;
-            }
-
-            // Preguntar si desea anular alguna
-            int opcionAnular;
-            cout << "Ingrese el número de la reservación que desea anular (0 para cancelar): ";
-            cin >> opcionAnular;
-
-            if (opcionAnular >= 1 && opcionAnular <= totalReservasMostradas) {
-                // Buscar la reserva N-ésima asociada a este anfitrión
-                int contador = 0;
-                for (int i = 0; i < cantReservas; ++i) {
-                    Reserva& r = reservas[i];
-                    if (r.getAlojamiento() != nullptr && r.getAlojamiento()->getAnfitrion() == a) {
-                        contador++;
-                        if (contador == opcionAnular) {
-                            string codAnular = r.getCodigo();
-                            anularReservacion(codAnular, nullptr, a, reservas, cantReservas);
-                            break;
-                        }
-                    }
-                }
-            } else {
-                cout << "Operación cancelada.\n";
-            }
-
-            break;
-        }
-        case 0:
-            cout << "Sesión finalizada.\n";
-            break;
-        default:
-            cout << "Opción inválida.\n";
-        }
-    } while (opcion != 0);
-}
+void mostrarHistorico();  // Declaración requerida si se llama en main
+void depurarReservas(Reserva*& reservas, int& cantReservas, const Fecha& corte); // También
 
 void mostrarMenuHuesped(Huesped* h,
                         Alojamiento* alojamientos, int cantAlojamientos,
@@ -409,32 +335,24 @@ void mostrarMenuHuesped(Huesped* h,
             buscarYReservarAlojamiento(h, alojamientos, cantAlojamientos, reservas, cantReservas, capReservas);
             break;
         case 2:
-            reservarAlojamiento(h, alojamientos, cantAlojamientos,
-                                reservas, cantReservas, capReservas);
+            reservarAlojamiento(h, alojamientos, cantAlojamientos, reservas, cantReservas, capReservas);
             break;
         case 3:
-            h->mostrar(); // Mostrar reservas del huésped
+            h->mostrar();
             break;
         case 4:
             cout << "Antigüedad: " << h->getAntiguedad() << " meses\n";
             cout << "Puntuación: " << h->getPuntuacion() << "/5.0\n";
             break;
         case 5: {
-            // 1. Mostrar todas las reservas activas del huésped
-            //const int MAX_RSV = 500;
-            //Reserva* reservasMostradas[MAX_RSV];
-            //int totalMostradas = 0;
-
             cout << "\n--- Reservaciones activas ---\n";
-            int seleccionables[100]; // índice real de cada reserva mostrada
-            int totalMostrar = 0;
+            int seleccionables[100], totalMostrar = 0;
 
             for (int i = 0; i < cantReservas; ++i) {
                 if (reservas[i].getHuesped()->getDocumento() == h->getDocumento()) {
                     cout << (totalMostrar + 1) << ". ";
                     reservas[i].mostrarComprobante();
-                    seleccionables[totalMostrar] = i;
-                    totalMostrar++;
+                    seleccionables[totalMostrar++] = i;
                 }
             }
 
@@ -443,19 +361,98 @@ void mostrarMenuHuesped(Huesped* h,
                 break;
             }
 
-            // Solicitar cuál anular
             int eleccion;
             cout << "Seleccione el número de la reserva a anular (0 para cancelar): ";
             cin >> eleccion;
-            if (eleccion < 1 || eleccion > totalMostrar) {
-                cout << "Operación cancelada.\n";
-                break;
-            }
+            if (eleccion < 1 || eleccion > totalMostrar) break;
 
-            int idxReserva = seleccionables[eleccion - 1];
-            anularReservacion(reservas[idxReserva].getCodigo(), h, nullptr, reservas, cantReservas);
+            int idx = seleccionables[eleccion - 1];
+            anularReservacion(reservas[idx].getCodigo(), h, nullptr, reservas, cantReservas);
             break;
         }
+        case 0:
+            cout << "Sesión finalizada.\n";
+            break;
+        default:
+            cout << "Opción inválida.\n";
+        }
+    } while (opcion != 0);
+}
+
+void mostrarMenuAnfitrion(Anfitrion* a, Reserva*& reservas, int& cantReservas)
+{
+    int opcion;
+    do {
+        cout << "\n=== MENÚ ANFITRIÓN ===\n";
+        cout << "Bienvenido, " << a->getNombre() << " (documento: " << a->getDocumento() << ")\n";
+        cout << "1. Mostrar mis alojamientos\n";
+        cout << "2. Ver antigüedad y puntuación\n";
+        cout << "3. Anular una reservación asociada a mis alojamientos\n";
+        cout << "4. Consultar reservaciones en rango de fechas\n";
+        cout << "5. Actualizar histórico de reservas\n";
+        cout << "6. Mostrar histórico de reservas\n";
+        cout << "0. Cerrar sesión\n";
+        cout << "Opción: ";
+        cin >> opcion;
+
+        switch (opcion) {
+        case 1:
+            a->mostrar();
+            break;
+        case 2:
+            cout << "Antigüedad: " << a->getAntiguedad() << " meses\n";
+            cout << "Puntuación: " << a->getPuntuacion() << "/5.0\n";
+            break;
+        case 3: {
+            string cod;
+            cout << "Código de la reservación a anular: ";
+            cin >> cod;
+            anularReservacion(cod, nullptr, a, reservas, cantReservas);
+            break;
+        }
+        case 4: {
+            int d1, m1, a1, d2, m2, a2;
+            cout << "Ingrese fecha inicial (D M A): ";
+            cin >> d1 >> m1 >> a1;
+            cout << "Ingrese fecha final (D M A): ";
+            cin >> d2 >> m2 >> a2;
+            Fecha ini(d1, m1, a1), fin(d2, m2, a2);
+
+            int total = 0;
+            for (int i = 0; i < cantReservas; ++i) {
+                Reserva& r = reservas[i];
+                if (r.getAlojamiento()->getAnfitrion() == a &&
+                    r.getFechaEntrada().esMayorQue(ini) &&
+                    r.getFechaEntrada().esMenorQue(fin)) {
+                    cout << "\n[" << ++total << "] ";
+                    r.mostrarComprobante();
+                }
+            }
+
+            if (total == 0)
+                cout << "No se encontraron reservaciones en ese rango.\n";
+
+            break;
+        }
+        case 5: {
+            int d, m, a;
+            cout << "--- Actualizar histórico ---\n";
+            cout << "Ingrese fecha de corte (D M A): ";
+            cin >> d >> m >> a;
+            Fecha fechaCorte(d, m, a);
+
+            // Ejecutar depuración
+            depurarReservas(reservas, cantReservas, fechaCorte);
+
+            // Actualizar archivo reservas.txt después de depurar
+            sobrescribirArchivoReservas(reservas, cantReservas);
+
+            cout << "Histórico actualizado. Solo se conservaron reservas desde la fecha indicada.\n";
+            break;
+        }
+        case 6:
+            mostrarHistorico();
+            break;
         case 0:
             cout << "Sesión finalizada.\n";
             break;
@@ -494,36 +491,28 @@ void iniciarSesion(Huesped* huespedes, int cantHuespedes,
     cout << "Documento o clave incorrectos.\n";
 }
 
-// Main principal
 int main() {
-    // Variables principales
     Anfitrion* anfitriones = nullptr;
     Alojamiento* alojamientos = nullptr;
     Huesped* huespedes = nullptr;
     Reserva* reservas = nullptr;
 
-    int cantAnfitriones = 0;
-    int cantAlojamientos = 0;
-    int cantHuespedes = 0;
-    int cantReservas = 0;
-    int capReservas = 10; // capacidad inicial
-    reservas = new Reserva[capReservas];
+    int cantAnfitriones = 0, cantAlojamientos = 0;
+    int cantHuespedes = 0, cantReservas = 0;
+    int capReservas = 10;
 
-    siguienteNumeroReserva =
-        obtenerSiguienteNumeroReserva();
-    // Cargar datos desde archivos
+    reservas = new Reserva[capReservas];
+    siguienteNumeroReserva = obtenerSiguienteNumeroReserva();
+
     cargarBaseDatos(anfitriones, cantAnfitriones,
                     alojamientos, cantAlojamientos,
                     huespedes, cantHuespedes,
                     reservas, cantReservas, capReservas);
 
-    // Menú principal
     int opcion;
     do {
         cout << "\n===== MENÚ PRINCIPAL =====\n";
         cout << "1. Iniciar sesión\n";
-        cout << "2. Mostrar histórico de reservas\n";
-        cout << "3. Aplicar fecha de corte (depurar reservas)\n";
         cout << "0. Salir\n";
         cout << "Opción: ";
         cin >> opcion;
@@ -535,18 +524,6 @@ int main() {
                           alojamientos, cantAlojamientos,
                           reservas, cantReservas, capReservas);
             break;
-        case 2:
-            mostrarHistorico();
-            break;
-        case 3: {
-            int d, m, a;
-            cout << "Ingrese fecha de corte (D M A): ";
-            cin >> d >> m >> a;
-            Fecha corte(d, m, a);
-            depurarReservas(reservas, cantReservas, corte);
-            cout << "Reservas depuradas.\n";
-            break;
-        }
         case 0:
             cout << "Gracias por usar el sistema. ¡Hasta luego!\n";
             break;
@@ -556,7 +533,6 @@ int main() {
 
     } while (opcion != 0);
 
-    // Liberar memoria
     delete[] reservas;
     delete[] huespedes;
     delete[] alojamientos;

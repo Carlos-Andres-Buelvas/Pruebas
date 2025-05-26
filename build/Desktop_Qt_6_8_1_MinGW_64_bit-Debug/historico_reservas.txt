@@ -1,1 +1,13 @@
 codigoReserva;codAlojamiento;docHuesped;fechaEntrada;duracion;metodoPago;fechaPago;monto;anotacion
+RSV001;ALOJ001;20000020;17/5/2025;5;PSE;14/5/2025;896515;¿Tiene aire acondicionado?
+RSV002;ALOJ002;20000012;29/5/2025;4;TCredito;24/5/2025;607244;Sin comentarios
+RSV003;ALOJ003;20000014;27/5/2025;2;TCredito;26/5/2025;373760;¿Tiene aire acondicionado?
+RSV004;ALOJ003;20000002;2/5/2025;4;TCredito;1/5/2025;569064;¿Tiene aire acondicionado?
+RSV008;ALOJ005;20000007;6/5/2025;2;PSE;1/5/2025;269228;Sin comentarios
+RSV012;ALOJ006;20000011;18/5/2025;4;TCredito;17/5/2025;622916;¿Tiene aire acondicionado?
+RSV014;ALOJ008;20000013;26/5/2025;3;PSE;21/5/2025;553809;Sin comentarios
+RSV022;ALOJ011;20000013;17/5/2025;1;TCredito;13/5/2025;135226;¿Se permite fumar?
+RSV026;ALOJ012;20000014;11/5/2025;5;TCredito;10/5/2025;1180800;Llegaré tarde
+RSV027;ALOJ013;20000003;1/5/2025;1;TCredito;27/4/2025;90925;Por favor dejar instrucciones para ingreso.
+RSV030;ALOJ014;20000011;15/5/2025;3;TCredito;14/5/2025;457305;Por favor dejar instrucciones para ingreso.
+RSV031;ALOJ015;20000018;2/5/2025;2;PSE;27/4/2025;263214;Sin comentarios
