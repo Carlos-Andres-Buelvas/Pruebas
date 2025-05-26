@@ -2,9 +2,9 @@
 #define HUESPED_H
 
 #include <string>
-#include "fecha.h"
 using namespace std;
 
+class Fecha;
 class Reserva;
 
 class Huesped {
@@ -13,10 +13,13 @@ private:
     string nombre;
     int antiguedad;
     float puntuacion;
-    Reserva** reservas; // arreglo de punteros a reservas
+    string clave;
+
+    Reserva** reservas;
     int cantidadReservas;
     int capacidadReservas;
-    string clave;
+
+    void redimensionarReservas();  // Nuevo: para encapsular la expansión del arreglo
 
 public:
     Huesped();
@@ -35,20 +38,19 @@ public:
     void setPuntuacion(float punt);
     void setClave(const string& c);
 
-    // Métodos
+    // Funciones de reservas
     bool agregarReserva(Reserva* nueva);
     bool hayConflicto(const Fecha& entrada, int duracion) const;
     void eliminarReserva(Reserva* r);
-    void mostrar() const;
     void eliminarReservaPorCodigo(const string& codigo);
 
-    // Constructor de copia
-    Huesped(const Huesped& otro);
+    // Utilidades
+    void mostrar() const;
 
-    // Operador de asignación
+    // Copia profunda
+    Huesped(const Huesped& otro);
     Huesped& operator=(const Huesped& otro);
 
-    // Repara punteros luego de redimensionar reservas[]
     void repararPunterosReservas(Reserva* nuevoArreglo, int cantReservas);
 
     ~Huesped();

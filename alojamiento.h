@@ -3,24 +3,24 @@
 
 #include <string>
 #include "fecha.h"
-using namespace std;
 
 // Declaración adelantada para evitar ciclo de inclusión
 class Anfitrion;
 
 class Alojamiento {
 private:
-    string codigo;
-    string departamento;
-    string municipio;
-    string nombre;
-    string tipo;
-    string direccion;
+    std::string codigo;
+    std::string departamento;
+    std::string municipio;
+    std::string nombre;
+    std::string tipo;
+    std::string direccion;
     Anfitrion* anfitrion;
     float precioNoche;
-    bool amenidades[6];
+    static const int NUM_AMENIDADES = 6;
+    bool amenidades[NUM_AMENIDADES]; // Ej: {wifi, baño privado, cocina, tv, parqueadero, mascotas}
 
-    // Nuevo reemplazo para diasReservados
+    // Fechas reservadas
     Fecha* fechasOcupadas;
     int cantFechas;
     int capFechas;
@@ -30,31 +30,33 @@ private:
     void agregarFecha(const Fecha& f);
 
 public:
+    // Constructores
     Alojamiento();
-    Alojamiento(string cod, string dep, string mun, string nom, string tipo, string dir,
-                Anfitrion* anfitrion, float precio, const bool amen[6]);
+    Alojamiento(std::string cod, std::string dep, std::string mun, std::string nom, std::string tipo, std::string dir,
+                Anfitrion* anfitrion, float precio, const bool amen[NUM_AMENIDADES]);
 
-    // Getters y Setters
-    string getCodigo() const;
-    void setCodigo(const string& cod);
-    float getPrecio() const;
+    // Constructor de copia y operador de asignación (manejo seguro de memoria dinámica)
+    Alojamiento(const Alojamiento& otro);
+    Alojamiento& operator=(const Alojamiento& otro);
 
+    // Destructor
+    ~Alojamiento();
+
+    // Getters y setters
+    std::string getCodigo() const;
+    void setCodigo(const std::string& cod);
+    std::string getMunicipio() const;
     float getPrecioNoche() const;
     void setPrecioNoche(float precio);
-
-    string getMunicipio() const;
     Anfitrion* getAnfitrion() const;
 
-    // Funciones
+    // Funciones relacionadas con disponibilidad
     bool estaDisponible(const Fecha& entrada, int duracion) const;
     void reservarDias(const Fecha& entrada, int duracion);
     void liberarDias(const Fecha& inicio, int noches);
+
+    // Utilidad
     void mostrar() const;
-
-    Alojamiento(const Alojamiento& otro);                // Constructor de copia
-    Alojamiento& operator=(const Alojamiento& otro);     // Operador de asignación
-
-    ~Alojamiento();
 };
 
 #endif // ALOJAMIENTO_H

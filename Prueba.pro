@@ -10,6 +10,7 @@ SOURCES += \
         alojamiento.cpp \
         anfitrion.cpp \
         base_datos.cpp \
+        controlador.cpp \
         fecha.cpp \
         huesped.cpp \
         main.cpp \
@@ -24,6 +25,7 @@ HEADERS += \
     alojamiento.h \
     anfitrion.h \
     base_datos.h \
+    controlador.h \
     fecha.h \
     huesped.h \
     reserva.h

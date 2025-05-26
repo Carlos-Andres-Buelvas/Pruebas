@@ -1,54 +1,36 @@
 #include "alojamiento.h"
 #include "anfitrion.h"
 #include <iostream>
-using namespace std;
 
-Alojamiento::Alojamiento() {
-    codigo = "";
-    departamento = "";
-    municipio = "";
-    nombre = "";
-    tipo = "";
-    direccion = "";
-    anfitrion = nullptr;
-    precioNoche = 0.0f;
-    for (int i = 0; i < 6; ++i)
-        amenidades[i] = false;
+Alojamiento::Alojamiento() : anfitrion(nullptr), precioNoche(0.0f),
+    cantFechas(0), capFechas(30), fechasOcupadas(new Fecha[30]) {
 
-    capFechas = 30;
-    cantFechas = 0;
-    fechasOcupadas = new Fecha[capFechas];
+    amenidades[0] = amenidades[1] = amenidades[2] = false;
+    amenidades[3] = amenidades[4] = amenidades[5] = false;
 }
 
-Alojamiento::Alojamiento(string cod, string dep, string mun, string nom, string tipo_,
-                         string dir, Anfitrion* a, float precio, const bool amen[6]) {
-    codigo = cod;
-    departamento = dep;
-    municipio = mun;
-    nombre = nom;
-    tipo = tipo_;
-    direccion = dir;
-    anfitrion = a;
-    precioNoche = precio;
-    for (int i = 0; i < 6; ++i)
+Alojamiento::Alojamiento(std::string cod, std::string dep, std::string mun, std::string nom,
+                         std::string tipo_, std::string dir, Anfitrion* a, float precio,
+                         const bool amen[NUM_AMENIDADES]) :
+    codigo(cod), departamento(dep), municipio(mun), nombre(nom), tipo(tipo_),
+    direccion(dir), anfitrion(a), precioNoche(precio),
+    cantFechas(0), capFechas(30), fechasOcupadas(new Fecha[30]) {
+
+    for (int i = 0; i < NUM_AMENIDADES; ++i)
         amenidades[i] = amen[i];
-
-    capFechas = 30;
-    cantFechas = 0;
-    fechasOcupadas = new Fecha[capFechas];
 }
 
-string Alojamiento::getMunicipio() const { return municipio; }
-Anfitrion* Alojamiento::getAnfitrion() const { return anfitrion; }
+// Getters y setters
+std::string Alojamiento::getCodigo() const { return codigo; }
+void Alojamiento::setCodigo(const std::string& cod) { codigo = cod; }
 
-string Alojamiento::getCodigo() const { return codigo; }
-void Alojamiento::setCodigo(const string& cod) { codigo = cod; }
-
+std::string Alojamiento::getMunicipio() const { return municipio; }
 float Alojamiento::getPrecioNoche() const { return precioNoche; }
 void Alojamiento::setPrecioNoche(float precio) { precioNoche = precio; }
 
-float Alojamiento::getPrecio() const { return precioNoche; }
+Anfitrion* Alojamiento::getAnfitrion() const { return anfitrion; }
 
+// Funciones auxiliares
 bool Alojamiento::contieneFecha(const Fecha& f) const {
     for (int i = 0; i < cantFechas; ++i) {
         if (fechasOcupadas[i].toEntero() == f.toEntero())
@@ -72,12 +54,11 @@ void Alojamiento::agregarFecha(const Fecha& f) {
     fechasOcupadas[cantFechas++] = f;
 }
 
+// Disponibilidad
 bool Alojamiento::estaDisponible(const Fecha& entrada, int duracion) const {
-    for (int i = 0; i < duracion; ++i) {
-        Fecha f = entrada.sumarDias(i);
-        if (contieneFecha(f))
+    for (int i = 0; i < duracion; ++i)
+        if (contieneFecha(entrada.sumarDias(i)))
             return false;
-    }
     return true;
 }
 
@@ -93,61 +74,54 @@ void Alojamiento::liberarDias(const Fecha& inicio, int noches) {
             if (fechasOcupadas[j].toEntero() == f.toEntero()) {
                 for (int k = j; k < cantFechas - 1; ++k)
                     fechasOcupadas[k] = fechasOcupadas[k + 1];
-                cantFechas--;
+                --cantFechas;
                 break;
             }
         }
     }
 }
 
+// Mostrar información
 void Alojamiento::mostrar() const {
-    cout << "Código: " << codigo << endl;
-    cout << "Nombre: " << nombre << endl;
-    cout << "Ubicación: " << departamento << ", " << municipio << endl;
-    cout << "Tipo: " << tipo << " | Dirección: " << direccion << endl;
-    cout << "Precio por noche: $" << precioNoche << endl;
-    cout << "Amenidades: ";
+    std::cout << "Código: " << codigo << '\n'
+              << "Nombre: " << nombre << '\n'
+              << "Ubicación: " << departamento << ", " << municipio << '\n'
+              << "Tipo: " << tipo << " | Dirección: " << direccion << '\n'
+              << "Precio por noche: $" << precioNoche << '\n'
+              << "Amenidades: ";
 
-    const string nombres[6] = {
+    const std::string nombres[NUM_AMENIDADES] = {
         "ascensor", "piscina", "aire acondicionado",
         "caja fuerte", "parqueadero", "patio"
     };
 
     bool hayAlguna = false;
-    for (int i = 0; i < 6; ++i) {
+    for (int i = 0; i < NUM_AMENIDADES; ++i) {
         if (amenidades[i]) {
-            if (hayAlguna) cout << ", ";
-            cout << nombres[i];
+            if (hayAlguna) std::cout << ", ";
+            std::cout << nombres[i];
             hayAlguna = true;
         }
     }
-
-    if (!hayAlguna) cout << "ninguna";
-    cout << endl;
+    if (!hayAlguna) std::cout << "ninguna";
+    std::cout << '\n';
 }
 
-// Constructor de copia
-Alojamiento::Alojamiento(const Alojamiento& otro) {
-    codigo = otro.codigo;
-    departamento = otro.departamento;
-    municipio = otro.municipio;
-    nombre = otro.nombre;
-    tipo = otro.tipo;
-    direccion = otro.direccion;
-    precioNoche = otro.precioNoche;
-    anfitrion = otro.anfitrion;
+// Copia y asignación
+Alojamiento::Alojamiento(const Alojamiento& otro) :
+    codigo(otro.codigo), departamento(otro.departamento), municipio(otro.municipio),
+    nombre(otro.nombre), tipo(otro.tipo), direccion(otro.direccion),
+    anfitrion(otro.anfitrion), precioNoche(otro.precioNoche),
+    capFechas(otro.capFechas), cantFechas(otro.cantFechas),
+    fechasOcupadas(new Fecha[otro.capFechas]) {
 
-    for (int i = 0; i < 6; ++i)
+    for (int i = 0; i < NUM_AMENIDADES; ++i)
         amenidades[i] = otro.amenidades[i];
 
-    capFechas = otro.capFechas;
-    cantFechas = otro.cantFechas;
-    fechasOcupadas = new Fecha[capFechas];
     for (int i = 0; i < cantFechas; ++i)
         fechasOcupadas[i] = otro.fechasOcupadas[i];
 }
 
-// Operador de asignación
 Alojamiento& Alojamiento::operator=(const Alojamiento& otro) {
     if (this != &otro) {
         delete[] fechasOcupadas;
@@ -158,10 +132,10 @@ Alojamiento& Alojamiento::operator=(const Alojamiento& otro) {
         nombre = otro.nombre;
         tipo = otro.tipo;
         direccion = otro.direccion;
-        precioNoche = otro.precioNoche;
         anfitrion = otro.anfitrion;
+        precioNoche = otro.precioNoche;
 
-        for (int i = 0; i < 6; ++i)
+        for (int i = 0; i < NUM_AMENIDADES; ++i)
             amenidades[i] = otro.amenidades[i];
 
         capFechas = otro.capFechas;
@@ -173,6 +147,7 @@ Alojamiento& Alojamiento::operator=(const Alojamiento& otro) {
     return *this;
 }
 
+// Destructor
 Alojamiento::~Alojamiento() {
     delete[] fechasOcupadas;
 }

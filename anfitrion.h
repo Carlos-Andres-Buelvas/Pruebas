@@ -3,13 +3,12 @@
 
 #include <string>
 #include "alojamiento.h"
-using namespace std;
 
 class Anfitrion {
 private:
-    string documento;
-    string nombre;
-    string clave;
+    std::string documento;
+    std::string nombre;
+    std::string clave;
     int antiguedad;
     float puntuacion;
     Alojamiento** alojamientos;
@@ -17,41 +16,39 @@ private:
     int capacidadAlojamientos;
 
 public:
+    // Constructores
     Anfitrion();
-    Anfitrion(string documento, string nombre, int antiguedad, float puntuacion);
+    Anfitrion(const std::string& documento, const std::string& nombre, int antiguedad, float puntuacion);
 
-    // Getters
-    string getDocumento() const;
-    string getNombre() const;
-    int getAntiguedad() const;
-    float getPuntuacion() const;
-    string getClave() const;
-
-    // Setters
-    void setDocumento(const string& doc);
-    void setAntiguedad(int antig);
-    void setPuntuacion(float punt);
-    void setClave(const string& c);
-
-    // Funciones
-    void agregarAlojamiento(Alojamiento* nuevo);
-    void mostrar() const;
-    int getCantidadAlojamientos() const {
-        return cantidadAlojamientos;
-    }
-
-    Alojamiento* getAlojamiento(int i) const {
-        if (i >= 0 && i < cantidadAlojamientos)
-            return alojamientos[i];
-        return nullptr;
-    }
+    // Constructor de copia y operador de asignación
+    Anfitrion(const Anfitrion& otro);
+    Anfitrion& operator=(const Anfitrion& otro);
 
     // Destructor
     ~Anfitrion();
 
-    Anfitrion(const Anfitrion& otro);                 // Constructor de copia
-    Anfitrion& operator=(const Anfitrion& otro);      // Operador de asignación
+    // Getters
+    std::string getDocumento() const;
+    std::string getNombre() const;
+    int getAntiguedad() const;
+    float getPuntuacion() const;
+    std::string getClave() const;
 
+    // Setters
+    void setDocumento(const std::string& doc);
+    void setAntiguedad(int antig);
+    void setPuntuacion(float punt);
+    void setClave(const std::string& c);
+
+    // Funciones
+    void agregarAlojamiento(Alojamiento* nuevo);
+    void mostrar() const;
+
+    int getCantidadAlojamientos() const { return cantidadAlojamientos; }
+
+    Alojamiento* getAlojamiento(int i) const {
+        return (i >= 0 && i < cantidadAlojamientos) ? alojamientos[i] : nullptr;
+    }
 };
 
 #endif // ANFITRION_H
