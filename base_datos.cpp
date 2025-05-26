@@ -331,12 +331,42 @@ void buscarAlojamientosDisponibles(Alojamiento* alojamientos, int cantA,
         cout << "No se encontraron alojamientos disponibles que cumplan con los criterios." << endl;
 }
 
+void sobrescribirArchivoReservas(Reserva* reservas, int cantReservas) {
+    ofstream archivo("reservas.txt");
+    if (!archivo.is_open()) {
+        cout << "[ERROR] No se pudo sobrescribir reservas.txt\n";
+        return;
+    }
+
+    // Encabezado opcional
+    archivo << "codigoReserva;codAlojamiento;docHuesped;fechaEntrada;duracion;metodoPago;fechaPago;monto;anotacion\n";
+
+    for (int i = 0; i < cantReservas; ++i) {
+        const Reserva& r = reservas[i];
+        archivo << r.getCodigo() << ";"
+                << r.getAlojamiento()->getCodigo() << ";"
+                << r.getHuesped()->getDocumento() << ";"
+                << setfill('0') << setw(2) << r.getFechaEntrada().getDia() << "/"
+                << setfill('0') << setw(2) << r.getFechaEntrada().getMes() << "/"
+                << r.getFechaEntrada().getAnio() << ";"
+                << r.getDuracion() << ";"
+                << r.getMetodoPago() << ";"
+                << setfill('0') << setw(2) << r.getFechaPago().getDia() << "/"
+                << setfill('0') << setw(2) << r.getFechaPago().getMes() << "/"
+                << r.getFechaPago().getAnio() << ";"
+                << (int)r.getMonto() << ";"
+                << r.getAnotacion() << "\n";
+    }
+
+    archivo.close();
+}
+
 void anularReservacion(const string& codigo, Huesped* huesped, Anfitrion* anfitrion,
                        Reserva*& reservas, int& cantReservas)
 {
     for (int i = 0; i < cantReservas; ++i) {
         if (reservas[i].getCodigo() == codigo) {
-            // Validación según tipo de usuario
+            // Validación de autorización
             bool autorizado = false;
 
             if (huesped && reservas[i].getHuesped()->getDocumento() == huesped->getDocumento()) {
@@ -350,11 +380,16 @@ void anularReservacion(const string& codigo, Huesped* huesped, Anfitrion* anfitr
                 return;
             }
 
-            // Eliminar reserva
+            // PASO CLAVE: eliminar también del arreglo interno del huésped
+            if (huesped)
+                huesped->eliminarReservaPorCodigo(codigo);
+
+            // Compactar arreglo global
             for (int j = i; j < cantReservas - 1; ++j)
                 reservas[j] = reservas[j + 1];
-
             cantReservas--;
+
+            sobrescribirArchivoReservas(reservas, cantReservas);
             cout << "Reservación anulada con éxito.\n";
             return;
         }

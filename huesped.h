@@ -40,6 +40,7 @@ public:
     bool hayConflicto(const Fecha& entrada, int duracion) const;
     void eliminarReserva(Reserva* r);
     void mostrar() const;
+    void eliminarReservaPorCodigo(const string& codigo);
 
     // Constructor de copia
     Huesped(const Huesped& otro);

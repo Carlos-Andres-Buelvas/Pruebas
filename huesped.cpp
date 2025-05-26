@@ -77,15 +77,17 @@ void Huesped::mostrar() const {
          << " | Antigüedad: " << antiguedad
          << " meses | Puntuación: " << puntuacion << endl;
 
-    if (cantidadReservas == 0) {
-        cout << "No tiene reservaciones registradas.\n";
-        return;
+    bool tiene = false;
+    for (int i = 0; i < cantidadReservas; ++i) {
+        if (reservas[i] != nullptr && reservas[i]->getHuesped()->getDocumento() == documento) {
+            cout << i + 1 << ". ";
+            reservas[i]->mostrarComprobante();
+            tiene = true;
+        }
     }
 
-    cout << "--- Reservaciones ---\n";
-    for (int i = 0; i < cantidadReservas; ++i) {
-        reservas[i]->mostrarComprobante();
-    }
+    if (!tiene)
+        cout << "No tiene reservaciones activas.\n";
 }
 
 bool Huesped::agregarReserva(Reserva* nueva) {
@@ -148,6 +150,20 @@ void Huesped::setClave(const string& c) {
 
 string Huesped::getClave() const {
     return clave;
+}
+
+void Huesped::eliminarReservaPorCodigo(const string& codigo) {
+    for (int i = 0; i < cantidadReservas; ++i) {
+        if (reservas[i] && reservas[i]->getCodigo() == codigo) {
+            // Compactar arreglo
+            for (int j = i; j < cantidadReservas - 1; ++j) {
+                reservas[j] = reservas[j + 1];
+            }
+            reservas[cantidadReservas - 1] = nullptr;
+            cantidadReservas--;
+            return;
+        }
+    }
 }
 
 void Huesped::repararPunterosReservas(Reserva* nuevoArreglo, int cantReservas) {

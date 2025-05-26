@@ -421,39 +421,39 @@ void mostrarMenuHuesped(Huesped* h,
             break;
         case 5: {
             // 1. Mostrar todas las reservas activas del huésped
-            const int MAX_RSV = 500;
-            Reserva* reservasMostradas[MAX_RSV];
-            int totalMostradas = 0;
+            //const int MAX_RSV = 500;
+            //Reserva* reservasMostradas[MAX_RSV];
+            //int totalMostradas = 0;
 
             cout << "\n--- Reservaciones activas ---\n";
+            int seleccionables[100]; // índice real de cada reserva mostrada
+            int totalMostrar = 0;
 
             for (int i = 0; i < cantReservas; ++i) {
-                if (reservas[i].getHuesped() == h) {
-                    cout << totalMostradas + 1 << ". ";
+                if (reservas[i].getHuesped()->getDocumento() == h->getDocumento()) {
+                    cout << (totalMostrar + 1) << ". ";
                     reservas[i].mostrarComprobante();
-                    reservasMostradas[totalMostradas] = &reservas[i];
-                    totalMostradas++;
+                    seleccionables[totalMostrar] = i;
+                    totalMostrar++;
                 }
             }
 
-            if (totalMostradas == 0) {
+            if (totalMostrar == 0) {
                 cout << "No tiene reservaciones activas.\n";
                 break;
             }
 
-            // 2. Elegir cuál anular
-            int opcion;
+            // Solicitar cuál anular
+            int eleccion;
             cout << "Seleccione el número de la reserva a anular (0 para cancelar): ";
-            cin >> opcion;
-
-            if (opcion <= 0 || opcion > totalMostradas) {
-                cout << "Cancelado.\n";
+            cin >> eleccion;
+            if (eleccion < 1 || eleccion > totalMostrar) {
+                cout << "Operación cancelada.\n";
                 break;
             }
 
-            // 3. Anular usando el código
-            string codigo = reservasMostradas[opcion - 1]->getCodigo();
-            anularReservacion(codigo, h, nullptr, reservas, cantReservas);
+            int idxReserva = seleccionables[eleccion - 1];
+            anularReservacion(reservas[idxReserva].getCodigo(), h, nullptr, reservas, cantReservas);
             break;
         }
         case 0:
