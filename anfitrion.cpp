@@ -81,7 +81,7 @@ void Anfitrion::agregarAlojamiento(Alojamiento* nuevo) {
 
 // Mostrar información del anfitrión
 void Anfitrion::mostrar() const {
-    std::cout << "Anfitrión: " << documento
+    std::cout << "\nAnfitrión: " << documento
               << " | Antigüedad: " << antiguedad << " meses"
               << " | Puntuación: " << puntuacion << std::endl;
 

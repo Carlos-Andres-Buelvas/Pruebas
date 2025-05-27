@@ -36,8 +36,7 @@ private:
     void reservarAlojamiento(Huesped* h);
     void anularReservacion(const std::string& codigo,
                            Huesped* h,
-                           Anfitrion* a,
-                           Reserva*& reservas, int& cantReservas);
+                           Anfitrion* a);
     int obtenerSiguienteNumeroReserva();
     void asegurarCapacidadReservas();
 

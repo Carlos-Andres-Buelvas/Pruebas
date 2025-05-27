@@ -20,11 +20,11 @@ Controlador::Controlador() {
     anfitriones = nullptr;
     alojamientos = nullptr;
     huespedes = nullptr;
-    reservas = new Reserva[10];
+    reservas = new Reserva[5];
 
     cantAnfitriones = cantAlojamientos = 0;
     cantHuespedes = cantReservas = 0;
-    capReservas = 10;
+    capReservas = 5;
 
     siguienteNumeroReserva = obtenerSiguienteNumeroReserva();
 
@@ -32,6 +32,10 @@ Controlador::Controlador() {
                     alojamientos, cantAlojamientos,
                     huespedes, cantHuespedes,
                     reservas, cantReservas, capReservas);
+}
+
+void Controlador::iniciar(){
+    menuPrincipal();
 }
 
 void Controlador::menuPrincipal() {
@@ -55,10 +59,6 @@ void Controlador::menuPrincipal() {
         }
 
     } while (opcion != 0);
-}
-
-void Controlador::iniciar(){
-    menuPrincipal();
 }
 
 void Controlador::iniciarSesion(){
@@ -137,7 +137,9 @@ void Controlador::mostrarMenuHuesped(Huesped* h){
             if (eleccion < 1 || eleccion > totalMostrar) break;
 
             int idx = seleccionables[eleccion - 1];
-            anularReservacion(reservas[idx].getCodigo(), h, nullptr, reservas, cantReservas);
+            Reserva* r = &reservas[idx];              // Apunta antes de modificar nada
+            string codigo = r->getCodigo();           // Guarda el código
+            anularReservacion(codigo, h, nullptr);    // Anula por código, ya no usas índices viejos
             break;
         }
         case 0:
@@ -169,14 +171,14 @@ void Controlador::mostrarMenuAnfitrion(Anfitrion* a){
             a->mostrar();
             break;
         case 2:
-            cout << "Antigüedad: " << a->getAntiguedad() << " meses\n";
+            cout << "\nAntigüedad: " << a->getAntiguedad() << " meses\n";
             cout << "Puntuación: " << a->getPuntuacion() << "/5.0\n";
             break;
         case 3: {
             string cod;
             cout << "Código de la reservación a anular: ";
             cin >> cod;
-            anularReservacion(cod, nullptr, a, reservas, cantReservas);
+            anularReservacion(cod, nullptr, a);
             break;
         }
         case 4: {
@@ -239,6 +241,10 @@ void Controlador::asegurarCapacidadReservas() {
             nuevo[i] = reservas[i];
         delete[] reservas;
         reservas = nuevo;
+
+        // Reparar punteros en los huéspedes
+        for (int i = 0; i < cantHuespedes; ++i)
+            huespedes[i].repararPunterosReservas(reservas, cantReservas);
     }
 }
 
@@ -500,19 +506,18 @@ int Controlador::obtenerSiguienteNumeroReserva(){
     return numero + 1;
 }
 
-void Controlador::anularReservacion(const std::string& codigo,
-                                    Huesped* h,
-                                    Anfitrion* a,
-                                    Reserva*& reservas, int& cantReservas){
+void Controlador::anularReservacion(const string& codigo, Huesped* h, Anfitrion* a) {
     for (int i = 0; i < cantReservas; ++i) {
         if (reservas[i].getCodigo() == codigo) {
-            // Validación de autorización
             bool autorizado = false;
+            Huesped* h_afectado = nullptr;
 
             if (h && reservas[i].getHuesped()->getDocumento() == h->getDocumento()) {
                 autorizado = true;
+                h_afectado = h;
             } else if (a && reservas[i].getAlojamiento()->getAnfitrion()->getDocumento() == a->getDocumento()) {
                 autorizado = true;
+                h_afectado = reservas[i].getHuesped();
             }
 
             if (!autorizado) {
@@ -520,14 +525,18 @@ void Controlador::anularReservacion(const std::string& codigo,
                 return;
             }
 
-            // PASO CLAVE: eliminar también del arreglo interno del huésped
-            if (h)
-                h->eliminarReservaPorCodigo(codigo);
+            // Eliminar del huésped
+            if (h_afectado)
+                //h_afectado->eliminarReservaPorCodigo(codigo);
 
-            // Compactar arreglo global
+            // Compactar arreglo global de reservas
             for (int j = i; j < cantReservas - 1; ++j)
                 reservas[j] = reservas[j + 1];
             cantReservas--;
+
+            // Reparar punteros internos del huésped (opcional si ya se eliminó la reserva)
+            if (h_afectado && cantReservas > 0)
+                h_afectado->repararPunterosReservas(reservas, cantReservas);
 
             sobrescribirArchivoReservas();
             cout << "Reservación anulada con éxito.\n";

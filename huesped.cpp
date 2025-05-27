@@ -104,6 +104,7 @@ void Huesped::eliminarReserva(Reserva* r) {
 void Huesped::eliminarReservaPorCodigo(const string& codigo) {
     for (int i = 0; i < cantidadReservas; ++i) {
         if (reservas[i] && reservas[i]->getCodigo() == codigo) {
+            // Evitar uso de puntero inválido
             for (int j = i; j < cantidadReservas - 1; ++j)
                 reservas[j] = reservas[j + 1];
             reservas[--cantidadReservas] = nullptr;
@@ -117,16 +118,15 @@ void Huesped::mostrar() const {
          << " | Antigüedad: " << antiguedad
          << " meses | Puntuación: " << puntuacion << endl;
 
-    bool tiene = false;
-    for (int i = 0; i < cantidadReservas; ++i) {
-        if (reservas[i] && reservas[i]->getHuesped()->getDocumento() == documento) {
-            cout << i + 1 << ". ";
-            reservas[i]->mostrarComprobante();
-            tiene = true;
-        }
-    }
-    if (!tiene)
+    if (cantidadReservas == 0) {
         cout << "No tiene reservaciones activas.\n";
+        return;
+    }
+
+    for (int i = 0; i < cantidadReservas; ++i) {
+        cout << i + 1 << ". ";
+        reservas[i]->mostrarComprobante();
+    }
 }
 
 // ----------- Utilidades -----------
@@ -143,7 +143,7 @@ void Huesped::repararPunterosReservas(Reserva* nuevoArreglo, int cantReservas) {
     for (int i = 0; i < cantReservas; ++i) {
         Reserva* actual = &nuevoArreglo[i];
         for (int j = 0; j < cantidadReservas; ++j) {
-            if (reservas[j]->getCodigo() == actual->getCodigo())
+            if (reservas[j]->getCodigo() == actual->getCodigo()) //PROBLEMA AQUÍ DE DEBUG
                 reservas[j] = actual;
         }
     }
