@@ -32,11 +32,13 @@ Reserva::Reserva(const Reserva& otra)
     duracion(otra.duracion), metodoPago(otra.metodoPago),
     fechaPago(otra.fechaPago), monto(otra.monto)
 {
+    std::cout << "[DEBUG] Constructor de copia - código: " << otra.codigo << "\n";
     std::strcpy(anotacion, otra.anotacion);
 }
 
 // Operador de asignación
 Reserva& Reserva::operator=(const Reserva& otra) {
+    std::cout << "[DEBUG] Operador = - código: " << otra.codigo << "\n";
     if (this != &otra) {
         codigo = otra.codigo;
         alojamiento = otra.alojamiento;

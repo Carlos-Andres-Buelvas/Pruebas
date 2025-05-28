@@ -6,14 +6,14 @@ using namespace std;
 
 Huesped::Huesped() : documento(""), nombre(""), clave(""),
     antiguedad(0), puntuacion(0.0),
-    capacidadReservas(5), cantidadReservas(0) {
+    capacidadReservas(5000), cantidadReservas(0) {
     reservas = new Reserva*[capacidadReservas];
 }
 
 Huesped::Huesped(string doc, string nom, int antig, float punt)
     : documento(doc), nombre(nom), clave(""),
     antiguedad(antig), puntuacion(punt),
-    capacidadReservas(5), cantidadReservas(0) {
+    capacidadReservas(5000), cantidadReservas(0) {
     reservas = new Reserva*[capacidadReservas];
 }
 
@@ -60,6 +60,7 @@ void Huesped::setClave(const string& c) { clave = c; }
 
 // ----------- Reservas -----------
 bool Huesped::agregarReserva(Reserva* nueva) {
+    std::cout << "[DEBUG] Entrando a agregarReserva: " << nueva->getCodigo() << "\n";
     if (hayConflicto(nueva->getFechaEntrada(), nueva->getDuracion()))
         return false;
 

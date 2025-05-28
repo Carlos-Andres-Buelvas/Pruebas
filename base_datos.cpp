@@ -78,10 +78,10 @@ void cargarBaseDatos(Anfitrion*& anfitriones, int& cantAnfitriones,
                      Huesped*& huespedes, int& cantHuespedes,
                      Reserva*& reservas, int& cantReservas, int& capacidad)
 {
-    // ---------- ANFITRIONES ----------
+    cout << "[INFO] Iniciando carga de ANFITRIONES...\n";
     ifstream archAnfit("anfitriones.txt");
     if (!archAnfit) {
-        cerr << "Error abriendo anfitriones.txt\n";
+        cerr << "[ERROR] No se pudo abrir anfitriones.txt\n";
         return;
     }
 
@@ -92,12 +92,14 @@ void cargarBaseDatos(Anfitrion*& anfitriones, int& cantAnfitriones,
     cantAnfitriones = 0;
 
     while (getline(archAnfit, linea)) {
+        //cout << "[INFO] Leyendo anfitrión: " << linea << endl;
         stringstream ss(linea);
         string doc, nombre, clave, antigStr, puntStr;
         getline(ss, doc, ';'); getline(ss, nombre, ';'); getline(ss, antigStr, ';');
         getline(ss, puntStr, ';'); getline(ss, clave, ';');
 
-        Anfitrion nuevo(doc, nombre, stoi(antigStr), stof(puntStr));
+        int antig = stoi(antigStr); float punt = stof(puntStr);
+        Anfitrion nuevo(doc, nombre, antig, punt);
         nuevo.setClave(clave);
 
         if (cantAnfitriones >= capAnfit)
@@ -106,11 +108,13 @@ void cargarBaseDatos(Anfitrion*& anfitriones, int& cantAnfitriones,
         anfitriones[cantAnfitriones++] = nuevo;
     }
     archAnfit.close();
+    cout << "[OK] Anfitriones cargados: " << cantAnfitriones << endl;
 
-    // ---------- ALOJAMIENTOS ----------
+
+    cout << "[INFO] Iniciando carga de ALOJAMIENTOS...\n";
     ifstream archAloj("alojamientos.txt");
     if (!archAloj) {
-        cerr << "Error abriendo alojamientos.txt\n";
+        cerr << "[ERROR] No se pudo abrir alojamientos.txt\n";
         return;
     }
 
@@ -120,6 +124,7 @@ void cargarBaseDatos(Anfitrion*& anfitriones, int& cantAnfitriones,
     cantAlojamientos = 0;
 
     while (getline(archAloj, linea)) {
+        //cout << "[INFO] Leyendo alojamiento: " << linea << endl;
         stringstream ss(linea);
         string cod, nom, docAnfit, dep, mun, tipo, dir, precioStr, amenStr;
         getline(ss, cod, ';'); getline(ss, nom, ';'); getline(ss, docAnfit, ';');
@@ -135,7 +140,7 @@ void cargarBaseDatos(Anfitrion*& anfitriones, int& cantAnfitriones,
 
         Anfitrion* anfitrion = buscarAnfitrion(anfitriones, cantAnfitriones, docAnfit);
         if (!anfitrion) {
-            cerr << "Anfitrión no encontrado para alojamiento " << cod << endl;
+            cerr << "[ERROR] Anfitrión no encontrado para alojamiento " << cod << endl;
             continue;
         }
 
@@ -147,11 +152,13 @@ void cargarBaseDatos(Anfitrion*& anfitriones, int& cantAnfitriones,
         cantAlojamientos++;
     }
     archAloj.close();
+    cout << "[OK] Alojamientos cargados: " << cantAlojamientos << endl;
 
-    // ---------- HUESPEDES ----------
+
+    cout << "[INFO] Iniciando carga de HUESPEDES...\n";
     ifstream archHuesp("huespedes.txt");
     if (!archHuesp) {
-        cerr << "Error abriendo huespedes.txt\n";
+        cerr << "[ERROR] No se pudo abrir huespedes.txt\n";
         return;
     }
 
@@ -161,12 +168,14 @@ void cargarBaseDatos(Anfitrion*& anfitriones, int& cantAnfitriones,
     cantHuespedes = 0;
 
     while (getline(archHuesp, linea)) {
+        //cout << "[INFO] Leyendo huésped: " << linea << endl;
         stringstream ss(linea);
         string doc, nombre, clave, antigStr, puntStr;
         getline(ss, doc, ';'); getline(ss, nombre, ';');
         getline(ss, antigStr, ';'); getline(ss, puntStr, ';'); getline(ss, clave, ';');
 
-        Huesped nuevo(doc, nombre, stoi(antigStr), stof(puntStr));
+        int antig = stoi(antigStr); float punt = stof(puntStr);
+        Huesped nuevo(doc, nombre, antig, punt);
         nuevo.setClave(clave);
 
         if (cantHuespedes >= capHuesp)
@@ -175,11 +184,13 @@ void cargarBaseDatos(Anfitrion*& anfitriones, int& cantAnfitriones,
         huespedes[cantHuespedes++] = nuevo;
     }
     archHuesp.close();
+    cout << "[OK] Huéspedes cargados: " << cantHuespedes << endl;
 
-    // ---------- RESERVAS ----------
+
+    cout << "[INFO] Iniciando carga de RESERVAS...\n";
     ifstream archRes("reservas.txt");
     if (!archRes) {
-        cerr << "Error abriendo reservas.txt\n";
+        cerr << "[ERROR] No se pudo abrir reservas.txt\n";
         return;
     }
 
@@ -190,6 +201,7 @@ void cargarBaseDatos(Anfitrion*& anfitriones, int& cantAnfitriones,
     capacidad = capRes;
 
     while (getline(archRes, linea)) {
+        cout << "[INFO] Leyendo reserva: " << linea << endl;
         stringstream ss(linea);
         string cod, codAloj, docHuesp, fechaIn, durStr, metodo, fechaPag, montoStr, nota;
 
@@ -205,28 +217,30 @@ void cargarBaseDatos(Anfitrion*& anfitriones, int& cantAnfitriones,
         Huesped* h = buscarHuesped(huespedes, cantHuespedes, docHuesp);
         Alojamiento* aObj = buscarAlojamiento(alojamientos, cantAlojamientos, codAloj);
         if (!h || !aObj) {
-            cerr << "Reserva " << cod << " inválida (huésped o alojamiento no encontrado).\n";
+            cerr << "[WARN] Reserva " << cod << " inválida (huésped o alojamiento no encontrado).\n";
             continue;
         }
 
-        if (h->hayConflicto(entrada, stoi(durStr))) {
-            cerr << "Reserva " << cod << " NO agregada por conflicto de fechas.\n";
+        int dur = stoi(durStr);
+        if (h->hayConflicto(entrada, dur)) {
+            cerr << "[WARN] Reserva " << cod << " NO agregada por conflicto de fechas.\n";
             continue;
         }
-
-        if (cantReservas >= capRes)
+        if (cantReservas > capRes-1)
             redimensionarReservas(reservas, capRes);
 
-        reservas[cantReservas] = Reserva(cod, aObj, h, entrada, stoi(durStr), metodo, pago, stoi(montoStr), nota);
+        reservas[cantReservas] = Reserva(cod, aObj, h, entrada, dur, metodo, pago, stoi(montoStr), nota);
+        std::cout << "[DEBUG] Agregando reserva a huésped " << h->getDocumento() << " (idx: " << cantReservas << ")\n";
+        std::cout << "[DEBUG] Reserva creada: " << reservas[cantReservas].getCodigo() << "\n";
         h->agregarReserva(&reservas[cantReservas]);
-        aObj->reservarDias(entrada, stoi(durStr));
+        aObj->reservarDias(entrada, dur);
         cantReservas++;
     }
 
     archRes.close();
     capacidad = capRes;
+    cout << "[OK] Reservas cargadas: " << cantReservas << endl;
 }
-
 // ----------------------------
 // 2. Buscar alojamientos disponibles
 // ----------------------------

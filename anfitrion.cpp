@@ -3,13 +3,13 @@
 
 Anfitrion::Anfitrion()
     : documento(""), nombre(""), clave(""), antiguedad(0), puntuacion(0.0f),
-    capacidadAlojamientos(5), cantidadAlojamientos(0) {
+    capacidadAlojamientos(5000), cantidadAlojamientos(0) {
     alojamientos = new Alojamiento*[capacidadAlojamientos];
 }
 
 Anfitrion::Anfitrion(const std::string& doc, const std::string& nom, int antig, float punt)
     : documento(doc), nombre(nom), clave(""), antiguedad(antig), puntuacion(punt),
-    capacidadAlojamientos(5), cantidadAlojamientos(0) {
+    capacidadAlojamientos(5000), cantidadAlojamientos(0) {
     alojamientos = new Alojamiento*[capacidadAlojamientos];
 }
 

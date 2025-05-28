@@ -3,7 +3,7 @@
 #include <iostream>
 
 Alojamiento::Alojamiento() : anfitrion(nullptr), precioNoche(0.0f),
-    cantFechas(0), capFechas(30), fechasOcupadas(new Fecha[30]) {
+    cantFechas(0), capFechas(5000), fechasOcupadas(new Fecha[30]) {
 
     amenidades[0] = amenidades[1] = amenidades[2] = false;
     amenidades[3] = amenidades[4] = amenidades[5] = false;
@@ -14,7 +14,7 @@ Alojamiento::Alojamiento(std::string cod, std::string dep, std::string mun, std:
                          const bool amen[NUM_AMENIDADES]) :
     codigo(cod), departamento(dep), municipio(mun), nombre(nom), tipo(tipo_),
     direccion(dir), anfitrion(a), precioNoche(precio),
-    cantFechas(0), capFechas(30), fechasOcupadas(new Fecha[30]) {
+    cantFechas(0), capFechas(5000), fechasOcupadas(new Fecha[30]) {
 
     for (int i = 0; i < NUM_AMENIDADES; ++i)
         amenidades[i] = amen[i];
@@ -63,6 +63,8 @@ bool Alojamiento::estaDisponible(const Fecha& entrada, int duracion) const {
 }
 
 void Alojamiento::reservarDias(const Fecha& entrada, int duracion) {
+    int inicio = entrada.aDiaDelAnio();
+    std::cout << "[DEBUG] Reservando desde " << inicio << " por " << duracion << " días\n";
     for (int i = 0; i < duracion; ++i)
         agregarFecha(entrada.sumarDias(i));
 }

@@ -17,14 +17,15 @@ int siguienteNumeroReserva = 1;
 
 
 Controlador::Controlador() {
-    anfitriones = nullptr;
-    alojamientos = nullptr;
-    huespedes = nullptr;
-    reservas = new Reserva[5];
+    //anfitriones = nullptr;
+    //alojamientos = nullptr;
+    //huespedes = nullptr;
+    //reservas = new Reserva[300];
 
-    cantAnfitriones = cantAlojamientos = 0;
-    cantHuespedes = cantReservas = 0;
-    capReservas = 5;
+    //cantAnfitriones = cantAlojamientos = 0;
+    //cantHuespedes =
+    //cantReservas = 300;
+    //capReservas = 300;
 
     siguienteNumeroReserva = obtenerSiguienteNumeroReserva();
 

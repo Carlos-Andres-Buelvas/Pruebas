@@ -99,3 +99,16 @@ Fecha getFechaSistema() {
     std::tm* now = std::localtime(&t);
     return Fecha(now->tm_mday, now->tm_mon + 1, now->tm_year + 1900);
 }
+
+// Constructor de copia
+Fecha::Fecha(const Fecha& otra) : dia(otra.dia), mes(otra.mes), anio(otra.anio) {}
+
+// Operador de asignación
+Fecha& Fecha::operator=(const Fecha& otra) {
+    if (this != &otra) {
+        dia = otra.dia;
+        mes = otra.mes;
+        anio = otra.anio;
+    }
+    return *this;
+}

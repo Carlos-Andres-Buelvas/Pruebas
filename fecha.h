@@ -36,6 +36,10 @@ public:
     bool esMenorQue(const Fecha& otra) const;
     bool esBisiesto() const;
     int aDiaDelAnio() const;              // Retorna el día dentro del año (1-365/366)
+
+    // En fecha.h dentro de la clase Fecha
+    Fecha(const Fecha& otra);               // Constructor de copia
+    Fecha& operator=(const Fecha& otra);   // Operador de asignación
 };
 
 // Devuelve la fecha actual del sistema
