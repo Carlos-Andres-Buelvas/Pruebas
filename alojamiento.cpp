@@ -7,7 +7,7 @@
 #include <QDebug>
 
 Alojamiento::Alojamiento() : anfitrion(nullptr), precioNoche(0.0f),
-    cantFechas(0), capFechas(100), fechasOcupadas(new Fecha[30]) {
+    fechasOcupadas(new Fecha[30]), cantFechas(0), capFechas(100) {
 
     amenidades[0] = amenidades[1] = amenidades[2] = false;
     amenidades[3] = amenidades[4] = amenidades[5] = false;
@@ -18,7 +18,7 @@ Alojamiento::Alojamiento(std::string cod, std::string dep, std::string mun, std:
                          const bool amen[NUM_AMENIDADES]) :
     codigo(cod), departamento(dep), municipio(mun), nombre(nom), tipo(tipo_),
     direccion(dir), anfitrion(a), precioNoche(precio),
-    cantFechas(0), capFechas(10), fechasOcupadas(new Fecha[capFechas]) {
+    fechasOcupadas(new Fecha[capFechas]), cantFechas(0), capFechas(10) {
 
     for (int i = 0; i < NUM_AMENIDADES; ++i)
         amenidades[i] = amen[i];
@@ -67,8 +67,6 @@ bool Alojamiento::estaDisponible(const Fecha& entrada, int duracion) const {
 }
 
 void Alojamiento::reservarDias(const Fecha& entrada, int duracion) {
-    int inicio = entrada.aDiaDelAnio();
-    std::cout << "[DEBUG] Reservando desde " << inicio << " por " << duracion << " días\n";
     for (int i = 0; i < duracion; ++i)
         agregarFecha(entrada.sumarDias(i));
 }
@@ -124,8 +122,8 @@ Alojamiento::Alojamiento(const Alojamiento& otro) :
     codigo(otro.codigo), departamento(otro.departamento), municipio(otro.municipio),
     nombre(otro.nombre), tipo(otro.tipo), direccion(otro.direccion),
     anfitrion(otro.anfitrion), precioNoche(otro.precioNoche),
-    capFechas(otro.capFechas), cantFechas(otro.cantFechas),
-    fechasOcupadas(new Fecha[otro.capFechas]) {
+    fechasOcupadas(new Fecha[otro.capFechas]), cantFechas(otro.cantFechas),
+    capFechas(otro.capFechas){
 
     for (int i = 0; i < NUM_AMENIDADES; ++i)
         amenidades[i] = otro.amenidades[i];
@@ -150,9 +148,9 @@ Alojamiento& Alojamiento::operator=(const Alojamiento& otro) {
         for (int i = 0; i < NUM_AMENIDADES; ++i)
             amenidades[i] = otro.amenidades[i];
 
-        capFechas = otro.capFechas;
-        cantFechas = otro.cantFechas;
         fechasOcupadas = new Fecha[capFechas];
+        cantFechas = otro.cantFechas;
+        capFechas = otro.capFechas;
         for (int i = 0; i < cantFechas; ++i)
             fechasOcupadas[i] = otro.fechasOcupadas[i];
     }
@@ -242,7 +240,6 @@ void Alojamiento::cargarDesdeArchivo(const std::string& archivo,
     }
 
     delete[] anfitrionesTemp;  // ya no se necesita
-    std::cout << "[OK] Alojamientos cargados: " << cantidad << "\n";
 }
 
 // Destructor

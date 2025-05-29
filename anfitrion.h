@@ -11,9 +11,9 @@ private:
     std::string clave;
     int antiguedad;
     float puntuacion;
-    Alojamiento** alojamientos;
     int cantidadAlojamientos;
     int capacidadAlojamientos;
+    Alojamiento** alojamientos;
 
 public:
     // Constructores

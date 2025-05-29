@@ -5,21 +5,21 @@
 
 Anfitrion::Anfitrion()
     : documento(""), nombre(""), clave(""), antiguedad(0), puntuacion(0.0f),
-    capacidadAlojamientos(10), cantidadAlojamientos(0) {
+    cantidadAlojamientos(0), capacidadAlojamientos(10) {
     alojamientos = new Alojamiento*[capacidadAlojamientos];
 }
 
 Anfitrion::Anfitrion(const std::string& doc, const std::string& nom, int antig, float punt)
     : documento(doc), nombre(nom), clave(""), antiguedad(antig), puntuacion(punt),
-    capacidadAlojamientos(10), cantidadAlojamientos(0) {
+    cantidadAlojamientos(0), capacidadAlojamientos(10) {
     alojamientos = new Alojamiento*[capacidadAlojamientos];
 }
 
 Anfitrion::Anfitrion(const Anfitrion& otro)
     : documento(otro.documento), nombre(otro.nombre), clave(otro.clave),
     antiguedad(otro.antiguedad), puntuacion(otro.puntuacion),
-    capacidadAlojamientos(otro.capacidadAlojamientos),
-    cantidadAlojamientos(otro.cantidadAlojamientos) {
+     cantidadAlojamientos(otro.cantidadAlojamientos),
+    capacidadAlojamientos(otro.capacidadAlojamientos) {
     alojamientos = new Alojamiento*[capacidadAlojamientos];
     for (int i = 0; i < cantidadAlojamientos; ++i) {
         alojamientos[i] = otro.alojamientos[i];  // Copia superficial
@@ -89,13 +89,9 @@ void Anfitrion::mostrar() const {
 
     std::cout << "Alojamientos asignados: " << cantidadAlojamientos << std::endl;
 
-
-    std::cout << "[DEBUG] Mostrando alojamientos del anfitrión...\n";
     for (int i = 0; i < cantidadAlojamientos; ++i) {
         for (int i = 0; i < cantidadAlojamientos; ++i) {
-            std::cout << "[DEBUG] Posición " << i << ": ";
             if (alojamientos[i]) {
-                std::cout << "puntero OK → ";
                 alojamientos[i]->mostrar();
             } else {
                 std::cout << "[ERROR] puntero nulo\n";
@@ -150,5 +146,4 @@ void Anfitrion::cargarDesdeArchivo(const std::string& archivo,
     }
 
     in.close();
-    std::cout << "[OK] Anfitriones cargados: " << cantidad << "\n";
 }

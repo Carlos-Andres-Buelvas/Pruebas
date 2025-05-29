@@ -62,7 +62,6 @@ void Huesped::setClave(const string& c) { clave = c; }
 
 // ----------- Reservas -----------
 bool Huesped::agregarReserva(Reserva* nueva) {
-    std::cout << "[DEBUG] Entrando a agregarReserva: " << nueva->getCodigo() << "\n";
     if (hayConflicto(nueva->getFechaEntrada(), nueva->getDuracion()))
         return false;
 
@@ -117,7 +116,7 @@ void Huesped::eliminarReservaPorCodigo(const string& codigo) {
 }
 
 void Huesped::mostrar() const {
-    cout << "Huésped: " << documento
+    cout << "\nHuésped: " << documento
          << " | Antigüedad: " << antiguedad
          << " meses | Puntuación: " << puntuacion << endl;
 
@@ -198,7 +197,6 @@ void Huesped::cargarDesdeArchivo(const std::string& archivo,
     }
 
     in.close();
-    std::cout << "[OK] Huéspedes cargados: " << cantidad << "\n";
 }
 
 Huesped::~Huesped() {

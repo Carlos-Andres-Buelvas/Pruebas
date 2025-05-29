@@ -52,6 +52,7 @@ public:
     Huesped& operator=(const Huesped& otro);
 
     void repararPunterosReservas(Reserva* nuevoArreglo, int cantReservas);
+
     // Carga de datos desde archivo
     static void cargarDesdeArchivo(const std::string& archivo,
                                    Huesped*& arreglo,

@@ -6,7 +6,6 @@
 #include <locale>
 using namespace std;
 
-#include "base_datos.h"
 #include "anfitrion.h"
 #include "huesped.h"
 #include "reserva.h"
@@ -21,7 +20,7 @@ Controlador::Controlador() {
     alojamientos = nullptr;
     huespedes = nullptr;
     reservas = new Reserva[10];
-
+    /*
     cantAnfitriones = cantAlojamientos = 0;
     cantHuespedes = 0;
     cantReservas = 300;
@@ -29,10 +28,8 @@ Controlador::Controlador() {
     capAnfitriones = 0;
     capHuespedes = 0;
     capAlojamientos = 1;
-
+    */
     siguienteNumeroReserva = obtenerSiguienteNumeroReserva();
-
-    //cargarBaseDatos(anfitriones, cantAnfitriones,alojamientos, cantAlojamientos, huespedes, cantHuespedes, reservas, cantReservas, capReservas);
 
     Anfitrion::cargarDesdeArchivo("anfitriones.txt", anfitriones, cantAnfitriones, capAnfitriones);
     Huesped::cargarDesdeArchivo("huespedes.txt", huespedes, cantHuespedes, capHuespedes);
@@ -58,7 +55,7 @@ void Controlador::menuPrincipal() {
             iniciarSesion();
             break;
         case 0:
-            cout << "Gracias por usar el sistema. ¡Hasta luego!\n";
+            cout << "\nGracias por usar el sistema. ¡Hasta luego!\n";
             break;
         default:
             cout << "Opción inválida.\n";
@@ -99,9 +96,8 @@ void Controlador::mostrarMenuHuesped(Huesped* h){
         cout << "Bienvenido, " << h->getNombre() << " (documento: " << h->getDocumento() << ")\n";
         cout << "1. Buscar alojamientos disponibles\n";
         cout << "2. Reservar alojamiento\n";
-        cout << "3. Mostrar mis reservaciones\n";
-        cout << "4. Ver antigüedad y puntuación\n";
-        cout << "5. Anular una reservación\n";
+        cout << "3. Ver antigüedad y puntuación\n";
+        cout << "4. Mostrar y/o anular una reservacion\n";
         cout << "0. Cerrar sesión\n";
         cout << "Opción: ";
         cin >> opcion;
@@ -114,13 +110,10 @@ void Controlador::mostrarMenuHuesped(Huesped* h){
             reservarAlojamiento(h);
             break;
         case 3:
-            h->mostrar();
-            break;
-        case 4:
             cout << "Antigüedad: " << h->getAntiguedad() << " meses\n";
             cout << "Puntuación: " << h->getPuntuacion() << "/5.0\n";
             break;
-        case 5: {
+        case 4: {
             cout << "\n--- Reservaciones activas ---\n";
             int seleccionables[cantReservas], totalMostrar = 0;
 
@@ -361,7 +354,7 @@ void Controlador::buscarYReservarAlojamiento(Huesped* h)
     std::ostringstream oss;
     oss << "RSV" << std::setw(3) << std::setfill('0') << siguienteNumeroReserva++;
     string codigo = oss.str();
-    Fecha fechaPago = entrada;
+    Fecha fechaPago = getFechaSistema();
     float monto = noches * aloj->getPrecioNoche();
 
     // Verificar conflicto antes de crear la reserva
