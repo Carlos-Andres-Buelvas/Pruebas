@@ -1,301 +1,482 @@
 codigo;nombre;docAnfitrion;departamento;municipio;tipo;direccion;precio;amenidades
-ALOJ0001;Alojamiento0002;10000007;Antioquia;Guarne;casa;Calle 33 #10-27;172140;0,1,0,0,1,0
-ALOJ0002;Alojamiento0003;10000030;Antioquia;Jerico;apartamento;Calle 3 #40-60;208515;1,1,0,0,1,1
-ALOJ0003;Alojamiento0004;10000053;Antioquia;Salgar;casa;Calle 96 #41-50;107039;0,0,1,1,0,1
-ALOJ0004;Alojamiento0005;10000082;Antioquia;Santa Rosa de Osos;apartamento;Calle 2 #97-68;223181;0,0,0,0,0,1
-ALOJ0005;Alojamiento0006;10000087;Antioquia;El Retiro;apartamento;Calle 41 #37-93;115413;0,1,1,1,0,0
-ALOJ0006;Alojamiento0007;10000010;Antioquia;Mutata;casa;Calle 24 #33-76;226020;0,1,0,1,0,0
-ALOJ0007;Alojamiento0008;10000025;Antioquia;Girardota;casa;Calle 88 #35-42;86591;1,1,1,1,0,1
-ALOJ0008;Alojamiento0009;10000091;Antioquia;San Jeronimo;casa;Calle 28 #73-95;150383;1,0,1,1,0,1
-ALOJ0009;Alojamiento0010;10000027;Antioquia;Tamesis;apartamento;Calle 23 #82-100;221120;1,1,1,1,1,1
-ALOJ0010;Alojamiento0011;10000029;Antioquia;Santo Domingo;casa;Calle 83 #96-69;124054;0,1,0,0,1,1
-ALOJ0011;Alojamiento0012;10000074;Antioquia;Chigorodo;apartamento;Calle 25 #12-25;94579;0,1,1,0,1,0
-ALOJ0012;Alojamiento0013;10000049;Antioquia;Canasgordas;apartamento;Calle 92 #78-36;207737;0,0,1,1,1,0
-ALOJ0013;Alojamiento0014;10000078;Antioquia;San Andres de Cuerquia;casa;Calle 61 #75-23;247111;0,1,1,0,1,1
-ALOJ0014;Alojamiento0015;10000057;Antioquia;Maceo;casa;Calle 63 #53-91;245644;1,1,0,0,0,1
-ALOJ0015;Alojamiento0016;10000037;Antioquia;La Estrella;apartamento;Calle 8 #97-92;248952;1,1,1,0,1,0
-ALOJ0016;Alojamiento0017;10000071;Antioquia;Mutata;casa;Calle 81 #40-88;141211;1,0,1,1,1,0
-ALOJ0017;Alojamiento0018;10000098;Antioquia;Titiribi;apartamento;Calle 93 #37-33;125397;0,1,1,1,1,1
-ALOJ0018;Alojamiento0019;10000006;Antioquia;Canasgordas;apartamento;Calle 95 #71-53;100935;1,0,1,1,1,0
-ALOJ0019;Alojamiento0020;10000024;Antioquia;Angelopolis;apartamento;Calle 19 #60-53;235381;1,1,1,0,1,1
-ALOJ0020;Alojamiento0021;10000062;Antioquia;Carolina del Principe;apartamento;Calle 24 #33-76;202400;0,1,1,1,1,1
-ALOJ0021;Alojamiento0022;10000043;Antioquia;Apartado;casa;Calle 1 #27-24;205529;1,1,1,0,1,1
-ALOJ0022;Alojamiento0023;10000096;Antioquia;Itagui;apartamento;Calle 74 #60-84;181423;1,0,1,0,0,0
-ALOJ0023;Alojamiento0024;10000070;Antioquia;La Ceja;apartamento;Calle 24 #33-76;109748;1,1,1,1,0,0
-ALOJ0024;Alojamiento0025;10000001;Antioquia;Buritica;casa;Calle 84 #90-18;156521;1,0,0,0,0,1
-ALOJ0025;Alojamiento0026;10000003;Antioquia;Santo Domingo;apartamento;Calle 79 #48-9;187339;1,0,0,0,1,0
-ALOJ0026;Alojamiento0027;10000022;Antioquia;Buritica;apartamento;Calle 28 #73-95;153993;1,1,1,0,1,1
-ALOJ0027;Alojamiento0028;10000023;Antioquia;Montebello;casa;Calle 82 #41-96;116979;0,1,1,1,0,1
-ALOJ0028;Alojamiento0029;10000073;Antioquia;El Penol;casa;Calle 70 #36-53;203227;1,0,0,0,1,0
-ALOJ0029;Alojamiento0030;10000014;Antioquia;Barbosa;casa;Calle 20 #17-70;96365;0,1,1,0,1,1
-ALOJ0030;Alojamiento0031;10000054;Antioquia;El Retiro;casa;Calle 40 #31-40;208065;0,0,0,0,1,1
-ALOJ0031;Alojamiento0032;10000045;Antioquia;San Rafael;apartamento;Calle 56 #59-50;117028;0,0,0,0,1,0
-ALOJ0032;Alojamiento0033;10000024;Antioquia;Caceres;apartamento;Calle 56 #59-50;207134;0,0,0,0,0,1
-ALOJ0033;Alojamiento0034;10000091;Antioquia;Betulia;apartamento;Calle 4 #83-55;173446;0,1,1,0,0,0
-ALOJ0034;Alojamiento0035;10000088;Antioquia;Abriaqui;casa;Calle 48 #28-27;143651;1,0,0,1,1,0
-ALOJ0035;Alojamiento0036;10000099;Antioquia;Puerto Triunfo;casa;Calle 37 #11-47;192177;1,0,0,0,1,0
-ALOJ0036;Alojamiento0037;10000025;Antioquia;Entrerrios;apartamento;Calle 80 #6-88;113576;0,1,1,0,1,0
-ALOJ0037;Alojamiento0038;10000017;Antioquia;Dabeiba;casa;Calle 56 #59-50;169655;0,0,0,1,0,1
-ALOJ0038;Alojamiento0039;10000075;Antioquia;Cocorna;casa;Calle 3 #40-60;176717;0,0,1,0,1,1
-ALOJ0039;Alojamiento0040;10000064;Antioquia;Caicedo;apartamento;Calle 1 #27-24;142540;1,0,0,0,0,0
-ALOJ0040;Alojamiento0041;10000010;Antioquia;Murindo;apartamento;Calle 98 #10-79;118691;1,1,0,0,1,0
-ALOJ0041;Alojamiento0042;10000023;Antioquia;Maceo;casa;Calle 89 #88-97;115845;0,0,1,1,1,1
-ALOJ0042;Alojamiento0043;10000026;Antioquia;Belen de Bajira;apartamento;Calle 27 #21-90;219300;1,0,0,0,0,0
-ALOJ0043;Alojamiento0044;10000023;Antioquia;Buritica;casa;Calle 26 #34-61;129434;0,0,0,0,0,0
-ALOJ0044;Alojamiento0045;10000039;Antioquia;Vigia del Fuerte;casa;Calle 32 #5-20;197807;1,0,0,1,0,1
-ALOJ0045;Alojamiento0046;10000068;Antioquia;Angelopolis;casa;Calle 2 #97-68;86738;0,0,0,0,1,1
-ALOJ0046;Alojamiento0047;10000037;Antioquia;Maceo;apartamento;Calle 51 #34-41;153434;1,0,1,0,1,1
-ALOJ0047;Alojamiento0048;10000022;Antioquia;Girardota;casa;Calle 26 #34-61;112310;0,0,1,1,1,0
-ALOJ0048;Alojamiento0049;10000100;Antioquia;Zaragoza;casa;Calle 22 #36-97;104658;1,0,1,1,1,1
-ALOJ0049;Alojamiento0050;10000067;Antioquia;Dabeiba;casa;Calle 26 #34-61;101526;0,1,0,0,0,1
-ALOJ0050;Alojamiento0051;10000073;Antioquia;San Rafael;apartamento;Calle 79 #48-9;182322;0,0,1,0,0,0
-ALOJ0051;Alojamiento0052;10000081;Antioquia;El Bagre;casa;Calle 55 #69-49;119784;1,0,0,0,1,0
-ALOJ0052;Alojamiento0053;10000065;Antioquia;Vegachi;apartamento;Calle 72 #20-12;212603;0,1,0,1,0,1
-ALOJ0053;Alojamiento0054;10000014;Antioquia;Liborina;apartamento;Calle 34 #48-31;90751;0,1,0,1,1,1
-ALOJ0054;Alojamiento0055;10000014;Antioquia;Chigorodo;casa;Calle 1 #27-24;159367;0,1,0,0,0,0
-ALOJ0055;Alojamiento0056;10000064;Antioquia;Alejandria;apartamento;Calle 60 #74-67;228437;0,0,1,1,0,1
-ALOJ0056;Alojamiento0057;10000027;Antioquia;Titiribi;apartamento;Calle 26 #34-61;114182;0,0,0,1,0,0
-ALOJ0057;Alojamiento0058;10000079;Antioquia;Valparaiso;apartamento;Calle 72 #20-12;195306;0,0,0,0,0,1
-ALOJ0058;Alojamiento0059;10000025;Antioquia;Cocorna;apartamento;Calle 19 #60-53;88123;0,0,1,0,1,0
-ALOJ0059;Alojamiento0060;10000060;Antioquia;San Pedro;apartamento;Calle 85 #49-93;227277;1,0,1,0,0,0
-ALOJ0060;Alojamiento0061;10000017;Antioquia;Uramita;apartamento;Calle 17 #18-5;116926;0,1,0,0,1,0
-ALOJ0061;Alojamiento0062;10000082;Antioquia;Caldas;casa;Calle 63 #53-91;112964;1,0,0,0,0,0
-ALOJ0062;Alojamiento0063;10000040;Antioquia;Maceo;apartamento;Calle 86 #32-60;236797;1,0,1,1,1,1
-ALOJ0063;Alojamiento0064;10000029;Antioquia;Urrao;apartamento;Calle 39 #16-20;95417;0,0,1,0,1,1
-ALOJ0064;Alojamiento0065;10000030;Antioquia;Armenia;apartamento;Calle 80 #6-88;172402;1,0,1,1,1,1
-ALOJ0065;Alojamiento0066;10000011;Antioquia;Briceno;casa;Calle 2 #97-68;239353;0,0,1,0,0,1
-ALOJ0066;Alojamiento0067;10000026;Antioquia;Valparaiso;casa;Calle 67 #30-98;220665;0,0,1,0,0,1
-ALOJ0067;Alojamiento0068;10000013;Antioquia;Guatape;apartamento;Calle 73 #26-80;183663;1,1,0,1,0,0
-ALOJ0068;Alojamiento0069;10000011;Antioquia;Santa Barbara;casa;Calle 45 #43-22;154108;1,1,1,0,0,1
-ALOJ0069;Alojamiento0070;10000043;Antioquia;Tarso;casa;Calle 21 #93-16;223784;0,1,1,0,0,0
-ALOJ0070;Alojamiento0071;10000042;Antioquia;Caracoli;casa;Calle 76 #76-82;155970;1,0,1,1,0,1
-ALOJ0071;Alojamiento0072;10000052;Antioquia;San Vicente;casa;Calle 38 #52-93;97258;0,0,1,1,1,0
-ALOJ0072;Alojamiento0073;10000029;Antioquia;Amalfi;apartamento;Calle 81 #40-88;96988;0,0,1,1,0,0
-ALOJ0073;Alojamiento0074;10000064;Antioquia;Tarso;apartamento;Calle 67 #30-98;245168;1,1,0,1,0,1
-ALOJ0074;Alojamiento0075;10000035;Antioquia;Uramita;apartamento;Calle 56 #59-50;146605;1,0,1,0,0,1
-ALOJ0075;Alojamiento0076;10000003;Antioquia;Caicedo;casa;Calle 43 #36-18;230830;1,1,1,1,0,1
-ALOJ0076;Alojamiento0077;10000079;Antioquia;Taraza;casa;Calle 16 #25-43;140298;1,1,0,1,0,1
-ALOJ0077;Alojamiento0078;10000093;Antioquia;Chigorodo;apartamento;Calle 78 #13-79;198051;1,0,1,1,0,1
-ALOJ0078;Alojamiento0079;10000040;Antioquia;Montebello;casa;Calle 40 #31-40;171812;0,0,0,0,0,1
-ALOJ0079;Alojamiento0080;10000031;Antioquia;Taraza;apartamento;Calle 11 #75-79;101115;1,1,1,1,0,0
-ALOJ0080;Alojamiento0081;10000072;Antioquia;Urrao;apartamento;Calle 74 #60-84;228645;0,1,1,0,1,0
-ALOJ0081;Alojamiento0082;10000020;Antioquia;San Luis;apartamento;Calle 54 #22-86;190895;1,1,0,0,0,1
-ALOJ0082;Alojamiento0083;10000007;Antioquia;San Jose de la Montana;apartamento;Calle 26 #34-61;227496;0,0,1,0,0,0
-ALOJ0083;Alojamiento0084;10000021;Antioquia;Yali;apartamento;Calle 90 #49-58;112419;0,0,0,1,0,1
-ALOJ0084;Alojamiento0085;10000049;Antioquia;Andes;apartamento;Calle 89 #88-97;143587;1,0,1,1,0,0
-ALOJ0085;Alojamiento0086;10000047;Antioquia;Caucasia;apartamento;Calle 70 #36-53;123159;0,1,0,1,0,1
-ALOJ0086;Alojamiento0087;10000038;Antioquia;Titiribi;apartamento;Calle 67 #30-98;93019;0,0,0,1,1,0
-ALOJ0087;Alojamiento0088;10000099;Antioquia;Yali;casa;Calle 14 #42-64;197497;1,0,0,0,1,0
-ALOJ0088;Alojamiento0089;10000038;Antioquia;Titiribi;apartamento;Calle 17 #18-5;140322;0,0,0,1,0,0
-ALOJ0089;Alojamiento0090;10000060;Antioquia;La Ceja;apartamento;Calle 90 #49-58;201931;1,1,1,1,1,0
-ALOJ0090;Alojamiento0091;10000064;Antioquia;Marinilla;casa;Calle 82 #41-96;206629;0,0,1,0,1,0
-ALOJ0091;Alojamiento0092;10000067;Antioquia;Bolivar;apartamento;Calle 95 #71-53;166230;0,1,1,0,1,0
-ALOJ0092;Alojamiento0093;10000080;Antioquia;Vegachi;casa;Calle 37 #11-47;154067;0,1,0,1,1,1
-ALOJ0093;Alojamiento0094;10000085;Antioquia;Caucasia;casa;Calle 10 #69-17;241335;1,0,1,1,1,1
-ALOJ0094;Alojamiento0095;10000075;Antioquia;San Pedro;apartamento;Calle 72 #20-12;116823;0,1,1,1,1,0
-ALOJ0095;Alojamiento0096;10000030;Antioquia;Argelia;apartamento;Calle 100 #19-96;134815;0,1,1,0,1,1
-ALOJ0096;Alojamiento0097;10000046;Antioquia;Maceo;casa;Calle 27 #21-90;199153;1,0,0,0,0,0
-ALOJ0097;Alojamiento0098;10000011;Antioquia;Copacabana;apartamento;Calle 95 #71-53;184459;1,0,1,0,0,0
-ALOJ0098;Alojamiento0099;10000038;Antioquia;Sopetran;apartamento;Calle 66 #13-22;82308;0,1,1,0,1,1
-ALOJ0099;Alojamiento0100;10000034;Antioquia;Barbosa;apartamento;Calle 7 #78-52;175766;0,0,1,0,1,1
-ALOJ0100;Alojamiento0101;10000017;Antioquia;Santa Rosa de Osos;apartamento;Calle 47 #68-22;98039;1,0,1,0,1,1
-ALOJ0101;Alojamiento0102;10000029;Antioquia;Campamento;apartamento;Calle 31 #25-10;187497;1,1,1,1,1,1
-ALOJ0102;Alojamiento0103;10000095;Antioquia;Itagui;apartamento;Calle 69 #20-28;207911;0,0,0,1,1,1
-ALOJ0103;Alojamiento0104;10000094;Antioquia;Fredonia;casa;Calle 55 #69-49;186897;0,1,0,0,0,1
-ALOJ0104;Alojamiento0105;10000099;Antioquia;Dabeiba;casa;Calle 72 #20-12;182177;1,1,1,0,0,1
-ALOJ0105;Alojamiento0106;10000048;Antioquia;Titiribi;apartamento;Calle 63 #53-91;178687;0,1,0,0,0,0
-ALOJ0106;Alojamiento0107;10000016;Antioquia;Santa Barbara;apartamento;Calle 85 #49-93;164782;0,0,1,0,0,0
-ALOJ0107;Alojamiento0108;10000017;Antioquia;Medellin;casa;Calle 14 #42-64;244314;0,0,0,0,1,0
-ALOJ0108;Alojamiento0109;10000070;Antioquia;El Bagre;casa;Calle 63 #53-91;168541;1,1,0,0,0,1
-ALOJ0109;Alojamiento0110;10000094;Antioquia;El Retiro;apartamento;Calle 32 #5-20;206317;1,1,0,0,1,1
-ALOJ0110;Alojamiento0111;10000024;Antioquia;San Rafael;apartamento;Calle 48 #28-27;166695;0,1,0,1,0,1
-ALOJ0111;Alojamiento0112;10000084;Antioquia;Carolina del Principe;apartamento;Calle 11 #75-79;172625;1,1,0,0,0,0
-ALOJ0112;Alojamiento0113;10000036;Antioquia;Medellin;casa;Calle 85 #49-93;177396;1,1,1,0,1,0
-ALOJ0113;Alojamiento0114;10000054;Antioquia;Girardota;apartamento;Calle 3 #40-60;201078;0,1,0,1,1,1
-ALOJ0114;Alojamiento0115;10000068;Antioquia;Uramita;casa;Calle 86 #32-60;99647;0,0,0,0,1,0
-ALOJ0115;Alojamiento0116;10000018;Antioquia;Puerto Berrio;casa;Calle 59 #25-82;119013;1,0,0,1,1,1
-ALOJ0116;Alojamiento0117;10000077;Antioquia;Montebello;apartamento;Calle 8 #97-92;161178;1,0,1,0,1,0
-ALOJ0117;Alojamiento0118;10000032;Antioquia;Argelia;apartamento;Calle 40 #31-40;141913;1,0,1,0,0,0
-ALOJ0118;Alojamiento0119;10000092;Antioquia;Tamesis;apartamento;Calle 56 #59-50;176049;0,1,0,0,1,1
-ALOJ0119;Alojamiento0120;10000031;Antioquia;Heliconia;casa;Calle 21 #93-16;243064;1,0,0,0,0,1
-ALOJ0120;Alojamiento0121;10000079;Antioquia;Yolombo;casa;Calle 1 #27-24;149006;0,0,0,0,1,0
-ALOJ0121;Alojamiento0122;10000045;Antioquia;Cocorna;apartamento;Calle 40 #31-40;112955;0,1,0,0,1,0
-ALOJ0122;Alojamiento0123;10000074;Antioquia;San Francisco;casa;Calle 37 #11-47;108131;1,0,0,0,0,0
-ALOJ0123;Alojamiento0124;10000042;Antioquia;Caldas;apartamento;Calle 10 #69-17;193377;0,0,0,0,1,0
-ALOJ0124;Alojamiento0125;10000085;Antioquia;Puerto Berrio;apartamento;Calle 63 #53-91;215551;1,0,0,1,1,0
-ALOJ0125;Alojamiento0126;10000058;Antioquia;San Rafael;casa;Calle 95 #71-53;80244;0,0,1,0,1,0
-ALOJ0126;Alojamiento0127;10000010;Antioquia;El Carmen de Viboral;apartamento;Calle 39 #16-20;173817;1,0,1,1,0,0
-ALOJ0127;Alojamiento0128;10000053;Antioquia;San Francisco;casa;Calle 55 #69-49;204123;0,0,1,0,1,0
-ALOJ0128;Alojamiento0129;10000005;Antioquia;Don Matias;apartamento;Calle 66 #13-22;239869;1,0,1,1,0,1
-ALOJ0129;Alojamiento0130;10000069;Antioquia;La Union;casa;Calle 76 #76-82;131183;1,0,1,1,0,1
-ALOJ0130;Alojamiento0131;10000023;Antioquia;Chigorodo;apartamento;Calle 66 #13-22;210058;0,1,1,0,1,1
-ALOJ0131;Alojamiento0132;10000061;Antioquia;Abriaqui;casa;Calle 23 #82-100;136915;1,1,1,0,1,1
-ALOJ0132;Alojamiento0133;10000025;Antioquia;Itagui;casa;Calle 65 #42-30;134737;0,1,0,1,0,1
-ALOJ0133;Alojamiento0134;10000100;Antioquia;Salgar;apartamento;Calle 70 #36-53;217423;0,0,1,0,0,0
-ALOJ0134;Alojamiento0135;10000085;Antioquia;Santa Barbara;apartamento;Calle 99 #28-15;222302;1,0,1,0,0,0
-ALOJ0135;Alojamiento0136;10000020;Antioquia;Concepcion;apartamento;Calle 51 #34-41;147346;1,1,0,1,0,0
-ALOJ0136;Alojamiento0137;10000001;Antioquia;El Penol;casa;Calle 83 #96-69;192868;0,1,0,0,0,1
-ALOJ0137;Alojamiento0138;10000080;Antioquia;Apartado;apartamento;Calle 9 #97-55;149964;0,1,1,1,1,0
-ALOJ0138;Alojamiento0139;10000024;Antioquia;Dabeiba;apartamento;Calle 75 #13-88;81176;0,0,0,0,1,1
-ALOJ0139;Alojamiento0140;10000006;Antioquia;Giraldo;apartamento;Calle 31 #25-10;159702;1,0,0,1,1,0
-ALOJ0140;Alojamiento0141;10000079;Antioquia;San Juan de Uraba;apartamento;Calle 96 #41-50;237530;0,1,0,1,1,0
-ALOJ0141;Alojamiento0142;10000078;Antioquia;Bolivar;casa;Calle 32 #5-20;164324;1,1,1,0,0,0
-ALOJ0142;Alojamiento0143;10000079;Antioquia;Puerto Nare;apartamento;Calle 60 #74-67;99952;1,1,1,0,0,0
-ALOJ0143;Alojamiento0144;10000097;Antioquia;Guadalupe;casa;Calle 13 #79-38;125506;1,1,0,1,1,0
-ALOJ0144;Alojamiento0145;10000055;Antioquia;Amalfi;apartamento;Calle 95 #71-53;111500;1,1,0,1,0,0
-ALOJ0145;Alojamiento0146;10000033;Antioquia;Amalfi;apartamento;Calle 21 #93-16;146848;0,1,1,1,0,0
-ALOJ0146;Alojamiento0147;10000095;Antioquia;Bello;casa;Calle 52 #12-24;198569;0,1,1,1,0,0
-ALOJ0147;Alojamiento0148;10000099;Antioquia;Abejorral;apartamento;Calle 16 #25-43;107828;1,0,0,0,0,0
-ALOJ0148;Alojamiento0149;10000086;Antioquia;Guarne;apartamento;Calle 88 #35-42;163111;1,1,0,1,0,1
-ALOJ0149;Alojamiento0150;10000075;Antioquia;Valparaiso;casa;Calle 88 #35-42;191622;1,0,1,0,0,0
-ALOJ0150;Alojamiento0151;10000093;Antioquia;Briceno;apartamento;Calle 59 #25-82;171993;0,0,0,0,0,0
-ALOJ0151;Alojamiento0152;10000071;Antioquia;Tarso;apartamento;Calle 63 #53-91;104582;0,0,0,1,1,1
-ALOJ0152;Alojamiento0153;10000073;Antioquia;Murindo;apartamento;Calle 53 #25-90;103784;1,0,0,1,1,0
-ALOJ0153;Alojamiento0154;10000070;Antioquia;Sabaneta;casa;Calle 25 #12-25;94986;0,0,1,1,0,0
-ALOJ0154;Alojamiento0155;10000058;Antioquia;Alejandria;apartamento;Calle 73 #26-80;137323;0,0,0,0,0,1
-ALOJ0155;Alojamiento0156;10000005;Antioquia;Frontino;casa;Calle 67 #30-98;196561;0,0,0,1,0,1
-ALOJ0156;Alojamiento0157;10000086;Antioquia;Entrerrios;casa;Calle 88 #35-42;141201;0,0,0,1,0,0
-ALOJ0157;Alojamiento0158;10000029;Antioquia;Murindo;apartamento;Calle 17 #18-5;155985;1,1,0,0,0,1
-ALOJ0158;Alojamiento0159;10000063;Antioquia;El Santuario;casa;Calle 73 #26-80;203692;1,1,1,0,1,1
-ALOJ0159;Alojamiento0160;10000019;Antioquia;Taraza;apartamento;Calle 96 #41-50;174522;1,1,0,0,0,0
-ALOJ0160;Alojamiento0161;10000051;Antioquia;Betania;apartamento;Calle 70 #36-53;228202;0,1,0,1,0,0
-ALOJ0161;Alojamiento0162;10000015;Antioquia;Valparaiso;apartamento;Calle 39 #16-20;219465;1,0,1,0,0,0
-ALOJ0162;Alojamiento0163;10000069;Antioquia;Fredonia;casa;Calle 20 #17-70;125353;0,1,1,1,1,1
-ALOJ0163;Alojamiento0164;10000067;Antioquia;Uramita;apartamento;Calle 14 #42-64;183166;1,1,1,1,1,0
-ALOJ0164;Alojamiento0165;10000095;Antioquia;Puerto Berrio;casa;Calle 91 #87-92;244256;0,0,0,1,1,1
-ALOJ0165;Alojamiento0166;10000094;Antioquia;Carepa;casa;Calle 13 #79-38;165366;1,0,1,1,0,0
-ALOJ0166;Alojamiento0167;10000057;Antioquia;Frontino;apartamento;Calle 42 #92-65;234208;0,0,1,0,0,1
-ALOJ0167;Alojamiento0168;10000006;Antioquia;Belen de Bajira;casa;Calle 66 #13-22;142357;0,1,1,1,1,1
-ALOJ0168;Alojamiento0169;10000042;Antioquia;Taraza;casa;Calle 57 #65-39;136527;0,1,0,1,1,1
-ALOJ0169;Alojamiento0170;10000025;Antioquia;Vigia del Fuerte;apartamento;Calle 48 #28-27;186446;0,1,0,1,0,0
-ALOJ0170;Alojamiento0171;10000018;Antioquia;Guatape;apartamento;Calle 72 #20-12;157685;1,0,1,1,1,0
-ALOJ0171;Alojamiento0172;10000011;Antioquia;Uramita;apartamento;Calle 55 #69-49;83992;1,1,0,1,0,1
-ALOJ0172;Alojamiento0173;10000076;Antioquia;San Luis;casa;Calle 41 #37-93;104522;1,0,1,1,1,0
-ALOJ0173;Alojamiento0174;10000011;Antioquia;Buritica;apartamento;Calle 57 #65-39;240060;1,0,1,1,0,1
-ALOJ0174;Alojamiento0175;10000007;Antioquia;Mutata;apartamento;Calle 9 #97-55;83883;0,1,1,0,1,0
-ALOJ0175;Alojamiento0176;10000034;Antioquia;Caucasia;casa;Calle 83 #96-69;138859;0,0,1,1,1,1
-ALOJ0176;Alojamiento0177;10000013;Antioquia;Cisneros;apartamento;Calle 58 #98-18;212802;0,1,1,0,1,0
-ALOJ0177;Alojamiento0178;10000018;Antioquia;Sabanalarga;casa;Calle 96 #41-50;88602;0,0,1,1,0,0
-ALOJ0178;Alojamiento0179;10000054;Antioquia;Medellin;apartamento;Calle 81 #40-88;244140;0,0,0,0,0,0
-ALOJ0179;Alojamiento0180;10000069;Antioquia;Briceno;casa;Calle 95 #71-53;88273;0,1,0,1,1,1
-ALOJ0180;Alojamiento0181;10000010;Antioquia;Tarso;apartamento;Calle 74 #60-84;221261;1,0,1,0,0,0
-ALOJ0181;Alojamiento0182;10000074;Antioquia;Don Matias;casa;Calle 22 #36-97;162570;0,1,1,0,0,1
-ALOJ0182;Alojamiento0183;10000072;Antioquia;Briceno;apartamento;Calle 7 #78-52;236867;0,1,1,1,0,1
-ALOJ0183;Alojamiento0184;10000088;Antioquia;San Francisco;casa;Calle 23 #82-100;112390;1,1,0,0,0,0
-ALOJ0184;Alojamiento0185;10000046;Antioquia;Betulia;apartamento;Calle 81 #40-88;126728;0,0,0,1,0,1
-ALOJ0185;Alojamiento0186;10000061;Antioquia;Liborina;casa;Calle 34 #48-31;117338;0,1,0,0,1,1
-ALOJ0186;Alojamiento0187;10000071;Antioquia;Rionegro;apartamento;Calle 55 #69-49;223024;1,0,0,1,1,1
-ALOJ0187;Alojamiento0188;10000083;Antioquia;Belen de Bajira;apartamento;Calle 8 #97-92;150259;1,0,1,1,0,1
-ALOJ0188;Alojamiento0189;10000074;Antioquia;Santa Barbara;casa;Calle 36 #83-72;177253;1,1,1,1,1,1
-ALOJ0189;Alojamiento0190;10000067;Antioquia;Vegachi;apartamento;Calle 47 #68-22;110897;0,0,1,0,0,0
-ALOJ0190;Alojamiento0191;10000075;Antioquia;La Estrella;casa;Calle 94 #42-86;206413;1,1,0,0,0,0
-ALOJ0191;Alojamiento0192;10000021;Antioquia;Jardin;casa;Calle 8 #97-92;123553;1,0,0,0,0,1
-ALOJ0192;Alojamiento0193;10000077;Antioquia;Mutata;apartamento;Calle 92 #78-36;90962;1,0,0,1,1,1
-ALOJ0193;Alojamiento0194;10000058;Antioquia;Abejorral;casa;Calle 26 #34-61;211781;1,1,1,0,1,1
-ALOJ0194;Alojamiento0195;10000026;Antioquia;Guatape;apartamento;Calle 13 #79-38;221778;1,0,0,1,1,0
-ALOJ0195;Alojamiento0196;10000046;Antioquia;Guarne;casa;Calle 64 #71-31;200066;1,1,0,1,1,0
-ALOJ0196;Alojamiento0197;10000047;Antioquia;Liborina;casa;Calle 98 #10-79;150738;1,0,0,0,1,0
-ALOJ0197;Alojamiento0198;10000054;Antioquia;Dabeiba;apartamento;Calle 86 #32-60;209479;0,1,0,0,1,0
-ALOJ0198;Alojamiento0199;10000064;Antioquia;Nechi;apartamento;Calle 7 #78-52;200221;1,0,1,0,1,1
-ALOJ0199;Alojamiento0200;10000067;Antioquia;Murindo;casa;Calle 66 #13-22;237215;1,0,1,1,1,0
-ALOJ0200;Alojamiento0001;10000088;Antioquia;Urrao;apartamento;Calle 27 #21-90;100147;1,1,1,0,1,1
-ALOJ0201;Alojamiento0002;10000015;Antioquia;Puerto Berrio;casa;Calle 54 #22-86;88613;1,1,0,0,0,0
-ALOJ0202;Alojamiento0003;10000006;Antioquia;Concepcion;casa;Calle 22 #36-97;168562;0,1,1,0,0,0
-ALOJ0203;Alojamiento0004;10000004;Antioquia;Itagui;apartamento;Calle 11 #75-79;205437;0,1,0,1,1,1
-ALOJ0204;Alojamiento0005;10000098;Antioquia;Santa Fe de Antioquia;apartamento;Calle 50 #14-13;136711;0,1,1,1,0,0
-ALOJ0205;Alojamiento0006;10000078;Antioquia;Amalfi;casa;Calle 7 #78-52;170941;0,1,1,0,0,1
-ALOJ0206;Alojamiento0007;10000087;Antioquia;Narino;casa;Calle 68 #14-46;151923;0,0,1,1,0,0
-ALOJ0207;Alojamiento0008;10000059;Antioquia;Taraza;apartamento;Calle 33 #10-27;136532;1,1,1,0,1,0
-ALOJ0208;Alojamiento0009;10000058;Antioquia;Santa Rosa de Osos;apartamento;Calle 46 #66-81;179631;0,1,0,1,1,1
-ALOJ0209;Alojamiento0010;10000067;Antioquia;Dabeiba;apartamento;Calle 88 #35-42;157543;0,0,1,1,0,0
-ALOJ0210;Alojamiento0011;10000009;Antioquia;Canasgordas;casa;Calle 5 #45-57;86006;1,1,0,0,0,1
-ALOJ0211;Alojamiento0012;10000037;Antioquia;Puerto Nare;apartamento;Calle 3 #40-60;195499;0,0,1,1,0,0
-ALOJ0212;Alojamiento0013;10000034;Antioquia;Sopetran;apartamento;Calle 6 #34-53;187948;1,1,0,1,1,1
-ALOJ0213;Alojamiento0014;10000061;Antioquia;Anza;apartamento;Calle 14 #42-64;189269;0,0,1,1,0,1
-ALOJ0214;Alojamiento0015;10000004;Antioquia;Venecia;casa;Calle 35 #29-40;197043;0,1,1,0,0,1
-ALOJ0215;Alojamiento0016;10000093;Antioquia;Medellin;apartamento;Calle 16 #25-43;215886;1,0,1,0,0,1
-ALOJ0216;Alojamiento0017;10000091;Antioquia;Giraldo;apartamento;Calle 53 #25-90;233792;1,0,1,0,1,1
-ALOJ0217;Alojamiento0018;10000008;Antioquia;Andes;apartamento;Calle 77 #51-11;120053;1,0,1,1,0,1
-ALOJ0218;Alojamiento0019;10000057;Antioquia;Maceo;apartamento;Calle 5 #45-57;96413;1,1,1,0,0,0
-ALOJ0219;Alojamiento0020;10000042;Antioquia;Andes;apartamento;Calle 52 #12-24;239913;0,0,1,1,1,1
-ALOJ0220;Alojamiento0021;10000019;Antioquia;Mutata;casa;Calle 14 #42-64;84545;0,1,0,1,1,0
-ALOJ0221;Alojamiento0022;10000094;Antioquia;Itagui;casa;Calle 55 #69-49;229569;0,0,0,0,0,0
-ALOJ0222;Alojamiento0023;10000025;Antioquia;San Pedro;apartamento;Calle 72 #20-12;200215;1,1,1,0,0,1
-ALOJ0223;Alojamiento0024;10000032;Antioquia;Medellin;casa;Calle 100 #19-96;91609;1,1,1,1,1,1
-ALOJ0224;Alojamiento0025;10000065;Antioquia;Santo Domingo;casa;Calle 71 #90-81;139082;1,1,0,1,0,1
-ALOJ0225;Alojamiento0026;10000063;Antioquia;Caldas;casa;Calle 13 #79-38;100486;1,0,1,0,0,0
-ALOJ0226;Alojamiento0027;10000094;Antioquia;Fredonia;casa;Calle 4 #83-55;173955;1,0,1,1,1,0
-ALOJ0227;Alojamiento0028;10000029;Antioquia;Santa Rosa de Osos;casa;Calle 74 #60-84;206825;1,0,0,0,1,1
-ALOJ0228;Alojamiento0029;10000036;Antioquia;La Pintada;apartamento;Calle 15 #81-40;206278;0,1,1,0,0,1
-ALOJ0229;Alojamiento0030;10000030;Antioquia;Alejandria;apartamento;Calle 79 #48-9;130484;0,1,1,0,0,0
-ALOJ0230;Alojamiento0031;10000007;Antioquia;Rionegro;casa;Calle 16 #25-43;249042;1,1,1,0,1,1
-ALOJ0231;Alojamiento0032;10000013;Antioquia;Jerico;casa;Calle 52 #12-24;203125;0,0,1,0,1,1
-ALOJ0232;Alojamiento0033;10000079;Antioquia;San Rafael;casa;Calle 33 #10-27;99382;1,1,1,0,0,1
-ALOJ0233;Alojamiento0034;10000075;Antioquia;Tamesis;apartamento;Calle 18 #100-33;220130;1,1,1,0,0,0
-ALOJ0234;Alojamiento0035;10000049;Antioquia;Sabanalarga;apartamento;Calle 60 #74-67;203102;1,1,0,1,0,1
-ALOJ0235;Alojamiento0036;10000033;Antioquia;Remedios;casa;Calle 8 #97-92;178146;0,1,0,0,1,1
-ALOJ0236;Alojamiento0037;10000049;Antioquia;Santa Rosa de Osos;casa;Calle 44 #61-92;149149;1,1,1,0,1,1
-ALOJ0237;Alojamiento0038;10000021;Antioquia;Girardota;apartamento;Calle 79 #48-9;93909;0,1,0,0,1,0
-ALOJ0238;Alojamiento0039;10000068;Antioquia;Uramita;casa;Calle 46 #66-81;107483;0,0,1,0,0,1
-ALOJ0239;Alojamiento0040;10000011;Antioquia;Guatape;apartamento;Calle 82 #41-96;176704;0,1,1,0,0,1
-ALOJ0240;Alojamiento0041;10000068;Antioquia;Caracoli;casa;Calle 32 #5-20;201937;0,0,0,1,0,1
-ALOJ0241;Alojamiento0042;10000011;Antioquia;Tarso;casa;Calle 19 #60-53;111645;0,1,0,0,0,0
-ALOJ0242;Alojamiento0043;10000021;Antioquia;San Jeronimo;apartamento;Calle 55 #69-49;122368;0,1,0,0,0,0
-ALOJ0243;Alojamiento0044;10000077;Antioquia;Dabeiba;apartamento;Calle 33 #10-27;153002;0,0,1,0,0,0
-ALOJ0244;Alojamiento0045;10000004;Antioquia;Puerto Berrio;casa;Calle 37 #11-47;195705;1,0,1,0,1,1
-ALOJ0245;Alojamiento0046;10000052;Antioquia;San Pedro de Uraba;apartamento;Calle 5 #45-57;104018;0,0,0,1,0,1
-ALOJ0246;Alojamiento0047;10000050;Antioquia;Cisneros;apartamento;Calle 52 #12-24;160604;0,1,1,0,1,0
-ALOJ0247;Alojamiento0048;10000085;Antioquia;Girardota;casa;Calle 100 #19-96;107078;1,1,1,1,0,1
-ALOJ0248;Alojamiento0049;10000089;Antioquia;Sabaneta;apartamento;Calle 73 #26-80;222783;0,1,0,1,0,0
-ALOJ0249;Alojamiento0050;10000071;Antioquia;La Estrella;apartamento;Calle 34 #48-31;193958;0,1,0,1,1,1
-ALOJ0250;Alojamiento0051;10000045;Antioquia;San Luis;casa;Calle 1 #27-24;115610;0,0,0,1,1,0
-ALOJ0251;Alojamiento0052;10000052;Antioquia;Chigorodo;casa;Calle 75 #13-88;181263;1,0,1,0,0,0
-ALOJ0252;Alojamiento0053;10000043;Antioquia;Entrerrios;apartamento;Calle 61 #75-23;219830;1,0,0,0,0,0
-ALOJ0253;Alojamiento0054;10000018;Antioquia;El Penol;apartamento;Calle 18 #100-33;189756;1,1,0,0,0,0
-ALOJ0254;Alojamiento0055;10000078;Antioquia;Tarso;apartamento;Calle 38 #52-93;177759;0,0,1,1,0,1
-ALOJ0255;Alojamiento0056;10000097;Antioquia;El Santuario;apartamento;Calle 70 #36-53;148777;0,1,0,0,1,1
-ALOJ0256;Alojamiento0057;10000097;Antioquia;Caucasia;casa;Calle 71 #90-81;95516;1,1,1,0,1,0
-ALOJ0257;Alojamiento0058;10000020;Antioquia;Apartado;casa;Calle 13 #79-38;98058;0,0,1,0,0,1
-ALOJ0258;Alojamiento0059;10000017;Antioquia;Peque;apartamento;Calle 38 #52-93;133208;1,1,0,1,1,1
-ALOJ0259;Alojamiento0060;10000029;Antioquia;Montebello;apartamento;Calle 37 #11-47;185655;0,0,1,0,0,0
-ALOJ0260;Alojamiento0061;10000020;Antioquia;Maceo;casa;Calle 58 #98-18;105646;1,0,1,0,1,0
-ALOJ0261;Alojamiento0062;10000090;Antioquia;Campamento;casa;Calle 49 #45-98;98933;1,1,1,1,1,1
-ALOJ0262;Alojamiento0063;10000080;Antioquia;Medellin;casa;Calle 59 #25-82;138585;1,0,1,0,0,1
-ALOJ0263;Alojamiento0064;10000094;Antioquia;Pueblorrico;casa;Calle 52 #12-24;94248;0,0,0,0,0,0
-ALOJ0264;Alojamiento0065;10000018;Antioquia;Alejandria;casa;Calle 40 #31-40;172122;1,1,1,1,0,1
-ALOJ0265;Alojamiento0066;10000020;Antioquia;Fredonia;casa;Calle 16 #25-43;213770;0,0,1,0,1,1
-ALOJ0266;Alojamiento0067;10000003;Antioquia;Marinilla;apartamento;Calle 30 #63-86;190527;0,1,0,1,1,0
-ALOJ0267;Alojamiento0068;10000097;Antioquia;Liborina;casa;Calle 72 #20-12;133268;0,1,1,1,1,1
-ALOJ0268;Alojamiento0069;10000044;Antioquia;Carolina del Principe;apartamento;Calle 30 #63-86;119272;0,0,1,1,1,0
-ALOJ0269;Alojamiento0070;10000071;Antioquia;San Pedro de Uraba;apartamento;Calle 90 #49-58;147320;0,0,0,0,0,0
-ALOJ0270;Alojamiento0071;10000087;Antioquia;Titiribi;apartamento;Calle 2 #97-68;210589;1,1,0,1,1,0
-ALOJ0271;Alojamiento0072;10000077;Antioquia;Jardin;casa;Calle 4 #83-55;155906;1,1,0,0,0,1
-ALOJ0272;Alojamiento0073;10000049;Antioquia;Buritica;casa;Calle 66 #13-22;212565;0,1,1,1,0,0
-ALOJ0273;Alojamiento0074;10000051;Antioquia;Caceres;apartamento;Calle 42 #92-65;210866;1,1,1,0,0,0
-ALOJ0274;Alojamiento0075;10000056;Antioquia;Urrao;casa;Calle 21 #93-16;208709;1,1,1,1,1,0
-ALOJ0275;Alojamiento0076;10000027;Antioquia;Venecia;casa;Calle 65 #42-30;115810;1,0,0,0,0,0
-ALOJ0276;Alojamiento0077;10000070;Antioquia;Valparaiso;apartamento;Calle 6 #34-53;248227;0,1,1,1,1,1
-ALOJ0277;Alojamiento0078;10000009;Antioquia;Betania;casa;Calle 50 #14-13;120245;0,1,0,0,0,1
-ALOJ0278;Alojamiento0079;10000035;Antioquia;Don Matias;apartamento;Calle 13 #79-38;179156;1,1,1,0,1,0
-ALOJ0279;Alojamiento0080;10000032;Antioquia;Caucasia;apartamento;Calle 78 #13-79;244780;1,0,1,1,0,1
-ALOJ0280;Alojamiento0081;10000087;Antioquia;Jerico;apartamento;Calle 40 #31-40;90646;0,0,0,1,0,1
-ALOJ0281;Alojamiento0082;10000056;Antioquia;Chigorodo;casa;Calle 39 #16-20;246003;0,0,1,0,1,1
-ALOJ0282;Alojamiento0083;10000098;Antioquia;Concordia;casa;Calle 92 #78-36;235091;1,1,0,0,0,0
-ALOJ0283;Alojamiento0084;10000049;Antioquia;La Union;casa;Calle 59 #25-82;88052;0,1,0,1,1,1
-ALOJ0284;Alojamiento0085;10000056;Antioquia;Liborina;apartamento;Calle 13 #79-38;245423;0,1,1,1,1,0
-ALOJ0285;Alojamiento0086;10000074;Antioquia;Titiribi;casa;Calle 14 #42-64;198917;0,1,1,1,1,1
-ALOJ0286;Alojamiento0087;10000052;Antioquia;Amalfi;apartamento;Calle 79 #48-9;191054;0,0,1,0,1,0
-ALOJ0287;Alojamiento0088;10000040;Antioquia;Abejorral;casa;Calle 83 #96-69;229712;0,1,0,0,1,1
-ALOJ0288;Alojamiento0089;10000042;Antioquia;Segovia;apartamento;Calle 29 #72-72;94835;0,1,0,1,0,0
-ALOJ0289;Alojamiento0090;10000034;Antioquia;Caucasia;apartamento;Calle 45 #43-22;81862;1,0,0,0,1,1
-ALOJ0290;Alojamiento0091;10000092;Antioquia;Santa Rosa de Osos;apartamento;Calle 28 #73-95;165841;1,0,0,1,1,1
-ALOJ0291;Alojamiento0092;10000067;Antioquia;San Rafael;apartamento;Calle 93 #37-33;249890;1,1,0,0,1,1
-ALOJ0292;Alojamiento0093;10000099;Antioquia;Medellin;casa;Calle 52 #12-24;185180;0,1,0,1,1,0
-ALOJ0293;Alojamiento0094;10000023;Antioquia;Ebejico;apartamento;Calle 18 #100-33;220549;0,1,1,0,1,1
-ALOJ0294;Alojamiento0095;10000087;Antioquia;Alejandria;casa;Calle 73 #26-80;105216;0,1,0,0,0,0
-ALOJ0295;Alojamiento0096;10000073;Antioquia;Yarumal;apartamento;Calle 82 #41-96;104046;0,0,1,1,0,0
-ALOJ0296;Alojamiento0097;10000060;Antioquia;Envigado;casa;Calle 23 #82-100;214802;0,1,1,1,0,1
-ALOJ0297;Alojamiento0098;10000015;Antioquia;Gomez Plata;casa;Calle 65 #42-30;243412;0,0,0,0,1,0
-ALOJ0298;Alojamiento0099;10000055;Antioquia;Guadalupe;apartamento;Calle 91 #87-92;173548;0,1,0,1,1,1
-ALOJ0299;Alojamiento0100;10000096;Antioquia;Gomez Plata;casa;Calle 1 #27-24;175606;1,0,1,1,1,0
-ALOJ0300;Alojamiento0101;10000012;Antioquia;El Retiro;apartamento;Calle 58 #98-18;98153;1,1,0,1,0,0
+ALOJ0001;Alojamiento0001;100000001;Antioquia;Titiribi;casa;Calle 1 #99-13;142134;1,1,1,0,1,0
+ALOJ0002;Alojamiento0002;100000001;Antioquia;Angostura;apartamento;Calle 2 #15-9;111725;0,1,0,1,0,1
+ALOJ0003;Alojamiento0003;100000001;Antioquia;Rionegro;casa;Calle 3 #13-29;229593;1,1,1,0,1,0
+ALOJ0004;Alojamiento0004;100000001;Antioquia;Belen de Bajira;casa;Calle 4 #84-37;114236;1,0,1,0,1,0
+ALOJ0005;Alojamiento0005;100000002;Antioquia;Ebejico;apartamento;Calle 5 #57-16;191818;1,1,1,1,1,0
+ALOJ0006;Alojamiento0006;100000002;Antioquia;Yali;casa;Calle 6 #49-96;185660;1,0,1,1,1,1
+ALOJ0007;Alojamiento0007;100000002;Antioquia;Yondo;apartamento;Calle 7 #96-83;125525;1,1,1,0,1,0
+ALOJ0008;Alojamiento0008;100000002;Antioquia;Sopetran;casa;Calle 8 #38-74;154113;1,1,0,0,1,1
+ALOJ0009;Alojamiento0009;100000003;Antioquia;Angostura;casa;Calle 9 #51-30;161434;1,0,1,0,1,1
+ALOJ0010;Alojamiento0010;100000003;Antioquia;Caucasia;apartamento;Calle 10 #87-89;248527;0,1,1,1,1,1
+ALOJ0011;Alojamiento0011;100000003;Antioquia;Envigado;casa;Calle 11 #21-38;229300;1,0,1,1,0,0
+ALOJ0012;Alojamiento0012;100000004;Antioquia;Jardin;casa;Calle 12 #89-32;169250;0,0,0,0,0,0
+ALOJ0013;Alojamiento0013;100000004;Antioquia;Belen de Bajira;casa;Calle 13 #63-37;179316;1,0,0,1,0,1
+ALOJ0014;Alojamiento0014;100000004;Antioquia;Bolivar;casa;Calle 14 #3-85;215520;0,1,0,1,0,1
+ALOJ0015;Alojamiento0015;100000005;Antioquia;Maceo;casa;Calle 15 #69-45;236821;1,1,0,1,1,1
+ALOJ0016;Alojamiento0016;100000006;Antioquia;Yondo;apartamento;Calle 16 #15-81;166853;0,0,0,1,1,1
+ALOJ0017;Alojamiento0017;100000006;Antioquia;Ebejico;casa;Calle 17 #60-65;120802;0,1,0,1,1,0
+ALOJ0018;Alojamiento0018;100000007;Antioquia;Concordia;casa;Calle 18 #23-93;140194;0,0,1,0,1,1
+ALOJ0019;Alojamiento0019;100000007;Antioquia;Toledo;apartamento;Calle 19 #28-90;121272;0,0,1,0,1,1
+ALOJ0020;Alojamiento0020;100000008;Antioquia;Santa Rosa de Osos;apartamento;Calle 20 #78-77;134057;1,1,0,1,1,0
+ALOJ0021;Alojamiento0021;100000009;Antioquia;Narino;casa;Calle 21 #26-69;148021;0,0,1,1,1,1
+ALOJ0022;Alojamiento0022;100000009;Antioquia;Jardin;apartamento;Calle 22 #62-1;238271;1,1,1,1,1,1
+ALOJ0023;Alojamiento0023;100000009;Antioquia;Briceno;apartamento;Calle 23 #15-93;101997;0,1,0,1,1,1
+ALOJ0024;Alojamiento0024;100000009;Antioquia;Yondo;casa;Calle 24 #13-52;179772;1,0,0,1,0,1
+ALOJ0025;Alojamiento0025;100000010;Antioquia;Abriaqui;apartamento;Calle 25 #87-79;101671;0,1,1,0,0,1
+ALOJ0026;Alojamiento0026;100000011;Antioquia;Buritica;casa;Calle 26 #65-23;226776;1,0,0,1,0,1
+ALOJ0027;Alojamiento0027;100000011;Antioquia;Titiribi;casa;Calle 27 #33-86;145406;0,1,0,1,0,1
+ALOJ0028;Alojamiento0028;100000012;Antioquia;Angostura;apartamento;Calle 28 #62-74;140957;0,1,0,0,0,0
+ALOJ0029;Alojamiento0029;100000012;Antioquia;Bello;apartamento;Calle 29 #82-18;238942;1,1,1,0,0,0
+ALOJ0030;Alojamiento0030;100000013;Antioquia;Santo Domingo;casa;Calle 30 #92-19;193224;0,0,1,1,1,0
+ALOJ0031;Alojamiento0031;100000014;Antioquia;Santo Domingo;casa;Calle 31 #88-31;105516;1,0,0,1,0,0
+ALOJ0032;Alojamiento0032;100000014;Antioquia;Hispania;apartamento;Calle 32 #75-27;194046;1,1,0,1,0,1
+ALOJ0033;Alojamiento0033;100000014;Antioquia;Mutata;apartamento;Calle 33 #35-11;219861;0,1,0,0,0,0
+ALOJ0034;Alojamiento0034;100000015;Antioquia;Granada;casa;Calle 34 #27-62;85192;0,0,1,0,1,0
+ALOJ0035;Alojamiento0035;100000016;Antioquia;Yolombo;apartamento;Calle 35 #81-10;219226;1,0,0,0,1,0
+ALOJ0036;Alojamiento0036;100000016;Antioquia;Betania;casa;Calle 36 #8-9;124577;1,0,1,0,0,1
+ALOJ0037;Alojamiento0037;100000016;Antioquia;Nechi;apartamento;Calle 37 #56-38;139258;1,1,1,0,1,0
+ALOJ0038;Alojamiento0038;100000016;Antioquia;Caldas;apartamento;Calle 38 #9-43;107524;0,0,0,0,1,0
+ALOJ0039;Alojamiento0039;100000017;Antioquia;Caldas;apartamento;Calle 39 #59-83;126568;1,1,1,1,0,0
+ALOJ0040;Alojamiento0040;100000018;Antioquia;Turbo;apartamento;Calle 40 #39-8;227017;0,1,1,1,0,1
+ALOJ0041;Alojamiento0041;100000018;Antioquia;Abejorral;apartamento;Calle 41 #39-54;225568;1,0,0,0,0,0
+ALOJ0042;Alojamiento0042;100000019;Antioquia;Apartado;casa;Calle 42 #95-31;137967;1,1,1,0,0,1
+ALOJ0043;Alojamiento0043;100000019;Antioquia;Yolombo;casa;Calle 43 #89-47;238076;0,1,0,1,0,0
+ALOJ0044;Alojamiento0044;100000019;Antioquia;Apartado;apartamento;Calle 44 #94-46;176433;1,1,0,1,1,1
+ALOJ0045;Alojamiento0045;100000020;Antioquia;Zaragoza;casa;Calle 45 #12-59;235988;0,1,0,1,1,0
+ALOJ0046;Alojamiento0046;100000020;Antioquia;Vigia del Fuerte;casa;Calle 46 #74-81;146493;0,0,0,0,1,0
+ALOJ0047;Alojamiento0047;100000020;Antioquia;Titiribi;apartamento;Calle 47 #69-90;114799;0,0,1,0,0,0
+ALOJ0048;Alojamiento0048;100000021;Antioquia;Girardota;casa;Calle 48 #53-86;83083;0,0,1,0,0,1
+ALOJ0049;Alojamiento0049;100000021;Antioquia;Remedios;casa;Calle 49 #79-85;85979;1,1,1,0,1,1
+ALOJ0050;Alojamiento0050;100000022;Antioquia;El Carmen de Viboral;apartamento;Calle 50 #68-69;117541;0,1,1,0,0,1
+ALOJ0051;Alojamiento0051;100000022;Antioquia;Murindo;apartamento;Calle 51 #75-31;206425;1,1,0,1,1,0
+ALOJ0052;Alojamiento0052;100000022;Antioquia;Girardota;casa;Calle 52 #96-23;184616;1,0,0,0,0,1
+ALOJ0053;Alojamiento0053;100000022;Antioquia;Girardota;casa;Calle 53 #21-16;186096;0,0,1,1,0,1
+ALOJ0054;Alojamiento0054;100000023;Antioquia;San Carlos;apartamento;Calle 54 #23-67;226174;0,0,1,1,0,0
+ALOJ0055;Alojamiento0055;100000023;Antioquia;Olaya;casa;Calle 55 #82-29;175570;0,0,0,1,1,0
+ALOJ0056;Alojamiento0056;100000024;Antioquia;Copacabana;apartamento;Calle 56 #55-9;144590;0,1,0,0,1,0
+ALOJ0057;Alojamiento0057;100000025;Antioquia;Giraldo;casa;Calle 57 #35-96;230464;1,0,1,1,1,0
+ALOJ0058;Alojamiento0058;100000025;Antioquia;Frontino;apartamento;Calle 58 #15-16;137497;0,0,0,1,1,0
+ALOJ0059;Alojamiento0059;100000026;Antioquia;Briceno;casa;Calle 59 #3-84;94252;1,1,1,1,0,1
+ALOJ0060;Alojamiento0060;100000027;Antioquia;Arboletes;casa;Calle 60 #7-6;152753;0,1,1,1,0,0
+ALOJ0061;Alojamiento0061;100000027;Antioquia;Caramanta;casa;Calle 61 #54-51;157966;0,0,1,0,1,0
+ALOJ0062;Alojamiento0062;100000027;Antioquia;Hispania;casa;Calle 62 #91-56;182342;0,0,1,0,1,1
+ALOJ0063;Alojamiento0063;100000027;Antioquia;Granada;casa;Calle 63 #37-36;155504;1,1,0,1,0,1
+ALOJ0064;Alojamiento0064;100000028;Antioquia;Turbo;casa;Calle 64 #19-53;198661;0,1,0,0,0,0
+ALOJ0065;Alojamiento0065;100000028;Antioquia;Peque;apartamento;Calle 65 #60-32;127417;0,1,0,0,1,0
+ALOJ0066;Alojamiento0066;100000028;Antioquia;San Luis;casa;Calle 66 #55-17;107909;1,0,0,0,1,0
+ALOJ0067;Alojamiento0067;100000029;Antioquia;Sabanalarga;apartamento;Calle 67 #89-3;133631;0,0,0,1,1,1
+ALOJ0068;Alojamiento0068;100000029;Antioquia;Valparaiso;casa;Calle 68 #41-62;140637;0,0,1,0,0,1
+ALOJ0069;Alojamiento0069;100000029;Antioquia;Santa Rosa de Osos;apartamento;Calle 69 #93-86;103894;0,1,0,0,1,0
+ALOJ0070;Alojamiento0070;100000029;Antioquia;Canasgordas;casa;Calle 70 #50-90;110221;1,1,0,0,1,0
+ALOJ0071;Alojamiento0071;100000030;Antioquia;Gomez Plata;apartamento;Calle 71 #70-92;177548;1,1,0,1,1,0
+ALOJ0072;Alojamiento0072;100000030;Antioquia;Buritica;casa;Calle 72 #52-48;151943;1,1,0,1,0,1
+ALOJ0073;Alojamiento0073;100000030;Antioquia;Caracoli;casa;Calle 73 #67-94;228025;1,1,1,0,1,1
+ALOJ0074;Alojamiento0074;100000030;Antioquia;Yondo;casa;Calle 74 #57-88;92339;1,0,1,0,0,1
+ALOJ0075;Alojamiento0075;100000031;Antioquia;Betulia;casa;Calle 75 #58-32;193994;0,0,0,0,0,1
+ALOJ0076;Alojamiento0076;100000031;Antioquia;Sopetran;casa;Calle 76 #47-32;84496;0,0,0,1,0,1
+ALOJ0077;Alojamiento0077;100000031;Antioquia;Puerto Berrio;casa;Calle 77 #86-87;236236;0,0,1,0,1,1
+ALOJ0078;Alojamiento0078;100000032;Antioquia;Abriaqui;apartamento;Calle 78 #27-50;124265;0,0,0,1,1,1
+ALOJ0079;Alojamiento0079;100000032;Antioquia;Gomez Plata;apartamento;Calle 79 #30-11;103185;0,1,1,0,0,0
+ALOJ0080;Alojamiento0080;100000033;Antioquia;Cocorna;apartamento;Calle 80 #40-82;117168;1,1,0,0,0,1
+ALOJ0081;Alojamiento0081;100000033;Antioquia;Granada;apartamento;Calle 81 #25-11;233956;1,1,0,0,0,0
+ALOJ0082;Alojamiento0082;100000033;Antioquia;Remedios;apartamento;Calle 82 #25-45;233632;1,1,1,1,1,1
+ALOJ0083;Alojamiento0083;100000033;Antioquia;Rionegro;casa;Calle 83 #43-94;81363;1,1,1,1,0,1
+ALOJ0084;Alojamiento0084;100000034;Antioquia;San Francisco;apartamento;Calle 84 #17-11;200268;0,1,1,0,1,1
+ALOJ0085;Alojamiento0085;100000034;Antioquia;Armenia;casa;Calle 85 #40-37;185341;0,0,0,1,1,0
+ALOJ0086;Alojamiento0086;100000034;Antioquia;Puerto Berrio;casa;Calle 86 #95-17;248523;1,1,0,1,1,0
+ALOJ0087;Alojamiento0087;100000035;Antioquia;Yondo;apartamento;Calle 87 #39-2;85638;1,1,1,1,0,0
+ALOJ0088;Alojamiento0088;100000036;Antioquia;Yolombo;casa;Calle 88 #64-4;162807;1,1,1,1,1,1
+ALOJ0089;Alojamiento0089;100000037;Antioquia;Armenia;casa;Calle 89 #98-55;168371;0,0,1,0,0,0
+ALOJ0090;Alojamiento0090;100000037;Antioquia;Maceo;apartamento;Calle 90 #18-28;156765;1,1,1,0,0,1
+ALOJ0091;Alojamiento0091;100000037;Antioquia;El Retiro;casa;Calle 91 #9-71;88798;1,1,1,1,1,1
+ALOJ0092;Alojamiento0092;100000037;Antioquia;Yali;apartamento;Calle 92 #50-53;123549;0,1,1,0,0,1
+ALOJ0093;Alojamiento0093;100000038;Antioquia;Argelia;casa;Calle 93 #76-37;171028;0,0,0,1,0,0
+ALOJ0094;Alojamiento0094;100000038;Antioquia;Taraza;apartamento;Calle 94 #87-23;226166;1,0,1,0,0,1
+ALOJ0095;Alojamiento0095;100000038;Antioquia;San Vicente;apartamento;Calle 95 #99-10;146293;0,0,0,0,1,0
+ALOJ0096;Alojamiento0096;100000038;Antioquia;Guarne;apartamento;Calle 96 #98-92;210116;1,0,0,1,0,1
+ALOJ0097;Alojamiento0097;100000039;Antioquia;Santa Fe de Antioquia;casa;Calle 97 #35-62;132919;1,0,1,1,1,1
+ALOJ0098;Alojamiento0098;100000040;Antioquia;Entrerrios;casa;Calle 98 #25-26;239462;0,1,1,1,0,0
+ALOJ0099;Alojamiento0099;100000040;Antioquia;Girardota;casa;Calle 99 #61-55;245785;1,1,0,1,0,1
+ALOJ0100;Alojamiento0100;100000041;Antioquia;Guarne;casa;Calle 100 #63-90;151452;0,1,1,1,1,0
+ALOJ0101;Alojamiento0101;100000041;Antioquia;Alejandria;apartamento;Calle 101 #23-52;94365;0,0,1,1,0,0
+ALOJ0102;Alojamiento0102;100000041;Antioquia;Yarumal;casa;Calle 102 #86-42;134080;0,1,0,0,1,1
+ALOJ0103;Alojamiento0103;100000041;Antioquia;La Ceja;casa;Calle 103 #31-49;206738;0,0,0,0,0,1
+ALOJ0104;Alojamiento0104;100000042;Antioquia;Briceno;apartamento;Calle 104 #81-39;90516;1,0,0,0,1,0
+ALOJ0105;Alojamiento0105;100000042;Antioquia;Pueblorrico;apartamento;Calle 105 #13-96;190201;0,0,0,0,1,0
+ALOJ0106;Alojamiento0106;100000042;Antioquia;Jerico;casa;Calle 106 #18-52;139877;1,1,0,1,0,0
+ALOJ0107;Alojamiento0107;100000042;Antioquia;Armenia;casa;Calle 107 #80-91;133227;0,1,1,0,0,0
+ALOJ0108;Alojamiento0108;100000043;Antioquia;Hispania;apartamento;Calle 108 #41-2;184912;1,1,1,1,0,1
+ALOJ0109;Alojamiento0109;100000044;Antioquia;San Pedro;casa;Calle 109 #43-62;137190;0,1,0,0,1,0
+ALOJ0110;Alojamiento0110;100000044;Antioquia;Olaya;apartamento;Calle 110 #16-53;160972;0,1,0,0,1,0
+ALOJ0111;Alojamiento0111;100000045;Antioquia;Anori;casa;Calle 111 #92-19;182347;0,0,0,0,0,0
+ALOJ0112;Alojamiento0112;100000046;Antioquia;Tarso;casa;Calle 112 #10-23;225714;1,1,1,0,0,1
+ALOJ0113;Alojamiento0113;100000046;Antioquia;Jerico;apartamento;Calle 113 #69-35;89517;1,1,0,1,1,0
+ALOJ0114;Alojamiento0114;100000046;Antioquia;Puerto Triunfo;casa;Calle 114 #76-4;223033;0,1,1,0,0,1
+ALOJ0115;Alojamiento0115;100000047;Antioquia;Cisneros;apartamento;Calle 115 #80-99;97847;0,1,0,1,1,0
+ALOJ0116;Alojamiento0116;100000047;Antioquia;San Luis;casa;Calle 116 #37-23;246956;0,0,0,1,1,0
+ALOJ0117;Alojamiento0117;100000047;Antioquia;Yondo;casa;Calle 117 #92-13;136503;0,0,1,1,1,1
+ALOJ0118;Alojamiento0118;100000047;Antioquia;Sabanalarga;casa;Calle 118 #4-41;216296;0,1,0,1,0,0
+ALOJ0119;Alojamiento0119;100000048;Antioquia;Puerto Triunfo;casa;Calle 119 #33-82;202298;0,1,1,1,1,1
+ALOJ0120;Alojamiento0120;100000048;Antioquia;El Penol;apartamento;Calle 120 #51-58;161676;0,0,1,1,1,1
+ALOJ0121;Alojamiento0121;100000049;Antioquia;Murindo;apartamento;Calle 121 #74-10;186465;1,0,1,0,0,1
+ALOJ0122;Alojamiento0122;100000050;Antioquia;Caicedo;casa;Calle 122 #67-14;112295;0,0,0,1,1,0
+ALOJ0123;Alojamiento0123;100000051;Antioquia;Sabaneta;casa;Calle 123 #1-40;224609;1,0,1,0,1,0
+ALOJ0124;Alojamiento0124;100000051;Antioquia;Hispania;casa;Calle 124 #18-10;103366;1,0,1,1,1,0
+ALOJ0125;Alojamiento0125;100000051;Antioquia;Canasgordas;casa;Calle 125 #40-21;185819;0,0,1,0,0,0
+ALOJ0126;Alojamiento0126;100000051;Antioquia;Chigorodo;apartamento;Calle 126 #25-21;104563;0,0,1,0,1,1
+ALOJ0127;Alojamiento0127;100000052;Antioquia;Granada;apartamento;Calle 127 #77-39;223050;0,1,0,0,0,0
+ALOJ0128;Alojamiento0128;100000052;Antioquia;Girardota;casa;Calle 128 #19-49;214076;1,1,1,0,1,1
+ALOJ0129;Alojamiento0129;100000053;Antioquia;Concordia;casa;Calle 129 #95-35;89716;0,0,1,1,1,1
+ALOJ0130;Alojamiento0130;100000054;Antioquia;Caicedo;casa;Calle 130 #28-15;161202;0,1,1,1,0,1
+ALOJ0131;Alojamiento0131;100000054;Antioquia;Barbosa;casa;Calle 131 #93-75;95286;1,1,0,0,1,1
+ALOJ0132;Alojamiento0132;100000055;Antioquia;Caceres;apartamento;Calle 132 #26-68;169576;0,0,1,0,1,0
+ALOJ0133;Alojamiento0133;100000056;Antioquia;San Luis;apartamento;Calle 133 #61-58;116357;1,1,1,1,0,0
+ALOJ0134;Alojamiento0134;100000057;Antioquia;San Roque;apartamento;Calle 134 #29-99;206095;0,1,1,0,0,1
+ALOJ0135;Alojamiento0135;100000058;Antioquia;Montebello;apartamento;Calle 135 #40-60;88811;0,0,0,0,0,1
+ALOJ0136;Alojamiento0136;100000059;Antioquia;Girardota;apartamento;Calle 136 #56-12;200484;1,1,1,0,0,1
+ALOJ0137;Alojamiento0137;100000059;Antioquia;Briceno;apartamento;Calle 137 #27-21;247422;1,0,1,0,1,1
+ALOJ0138;Alojamiento0138;100000059;Antioquia;Caceres;apartamento;Calle 138 #29-11;143541;0,1,1,1,0,1
+ALOJ0139;Alojamiento0139;100000060;Antioquia;Anori;casa;Calle 139 #22-10;201699;0,1,0,0,1,0
+ALOJ0140;Alojamiento0140;100000060;Antioquia;Pueblorrico;apartamento;Calle 140 #56-97;131639;1,0,0,1,1,1
+ALOJ0141;Alojamiento0141;100000061;Antioquia;Campamento;apartamento;Calle 141 #92-57;132104;0,1,0,1,0,0
+ALOJ0142;Alojamiento0142;100000061;Antioquia;Hispania;apartamento;Calle 142 #45-40;80250;1,0,0,1,1,0
+ALOJ0143;Alojamiento0143;100000061;Antioquia;Urrao;casa;Calle 143 #26-30;80539;0,0,1,1,0,0
+ALOJ0144;Alojamiento0144;100000061;Antioquia;Sopetran;apartamento;Calle 144 #57-30;162210;1,1,1,0,0,1
+ALOJ0145;Alojamiento0145;100000062;Antioquia;Marinilla;apartamento;Calle 145 #80-25;152107;0,0,0,0,1,1
+ALOJ0146;Alojamiento0146;100000062;Antioquia;Murindo;apartamento;Calle 146 #78-72;93134;1,1,1,0,0,1
+ALOJ0147;Alojamiento0147;100000062;Antioquia;San Jose de la Montana;apartamento;Calle 147 #97-77;116162;1,1,0,1,1,1
+ALOJ0148;Alojamiento0148;100000063;Antioquia;El Carmen de Viboral;apartamento;Calle 148 #73-88;139913;1,0,0,0,0,1
+ALOJ0149;Alojamiento0149;100000064;Antioquia;San Roque;apartamento;Calle 149 #10-5;119059;0,1,1,0,1,0
+ALOJ0150;Alojamiento0150;100000064;Antioquia;Guatape;apartamento;Calle 150 #18-52;126341;1,0,0,1,0,1
+ALOJ0151;Alojamiento0151;100000064;Antioquia;Nechi;casa;Calle 151 #25-97;99719;1,0,1,0,1,0
+ALOJ0152;Alojamiento0152;100000064;Antioquia;Itagui;apartamento;Calle 152 #18-76;206204;0,0,1,1,1,1
+ALOJ0153;Alojamiento0153;100000065;Antioquia;Betulia;apartamento;Calle 153 #75-31;232793;1,0,0,1,0,0
+ALOJ0154;Alojamiento0154;100000065;Antioquia;Angelopolis;apartamento;Calle 154 #27-77;80835;1,0,1,0,0,0
+ALOJ0155;Alojamiento0155;100000065;Antioquia;San Roque;apartamento;Calle 155 #42-27;208040;1,0,0,1,0,1
+ALOJ0156;Alojamiento0156;100000065;Antioquia;Angostura;casa;Calle 156 #59-83;86895;1,1,1,1,1,1
+ALOJ0157;Alojamiento0157;100000066;Antioquia;Yondo;apartamento;Calle 157 #42-83;227870;0,0,0,0,0,1
+ALOJ0158;Alojamiento0158;100000066;Antioquia;Campamento;casa;Calle 158 #15-34;247647;0,1,0,1,1,1
+ALOJ0159;Alojamiento0159;100000066;Antioquia;Abriaqui;apartamento;Calle 159 #44-77;233701;0,0,1,1,1,0
+ALOJ0160;Alojamiento0160;100000067;Antioquia;Valparaiso;casa;Calle 160 #20-11;164027;0,0,0,1,0,1
+ALOJ0161;Alojamiento0161;100000067;Antioquia;Caldas;casa;Calle 161 #13-38;236952;1,1,1,1,0,0
+ALOJ0162;Alojamiento0162;100000067;Antioquia;Marinilla;casa;Calle 162 #43-63;118325;0,0,0,1,1,0
+ALOJ0163;Alojamiento0163;100000068;Antioquia;Hispania;casa;Calle 163 #29-32;247653;0,0,1,1,1,0
+ALOJ0164;Alojamiento0164;100000068;Antioquia;Apartado;apartamento;Calle 164 #75-15;143696;0,0,0,1,0,0
+ALOJ0165;Alojamiento0165;100000069;Antioquia;El Penol;apartamento;Calle 165 #89-34;228562;1,1,0,1,0,1
+ALOJ0166;Alojamiento0166;100000069;Antioquia;Tamesis;apartamento;Calle 166 #50-15;120590;0,1,0,0,1,1
+ALOJ0167;Alojamiento0167;100000069;Antioquia;San Andres de Cuerquia;casa;Calle 167 #62-8;103295;1,0,1,0,1,0
+ALOJ0168;Alojamiento0168;100000069;Antioquia;Santa Rosa de Osos;casa;Calle 168 #40-16;200321;1,0,0,1,0,0
+ALOJ0169;Alojamiento0169;100000070;Antioquia;Valparaiso;apartamento;Calle 169 #16-43;185512;0,1,1,1,1,1
+ALOJ0170;Alojamiento0170;100000071;Antioquia;Montebello;apartamento;Calle 170 #51-84;118637;0,1,1,1,0,0
+ALOJ0171;Alojamiento0171;100000071;Antioquia;Angostura;casa;Calle 171 #82-14;150299;0,0,0,0,0,1
+ALOJ0172;Alojamiento0172;100000072;Antioquia;Sabaneta;apartamento;Calle 172 #39-74;91385;1,0,1,0,0,1
+ALOJ0173;Alojamiento0173;100000072;Antioquia;Caicedo;casa;Calle 173 #35-39;191404;1,1,0,1,1,1
+ALOJ0174;Alojamiento0174;100000072;Antioquia;La Pintada;casa;Calle 174 #24-63;222844;0,1,0,0,1,0
+ALOJ0175;Alojamiento0175;100000072;Antioquia;San Pedro de Uraba;apartamento;Calle 175 #2-87;160431;1,0,1,1,1,0
+ALOJ0176;Alojamiento0176;100000073;Antioquia;Jerico;apartamento;Calle 176 #78-22;173594;1,0,0,1,0,1
+ALOJ0177;Alojamiento0177;100000073;Antioquia;Belen de Bajira;casa;Calle 177 #94-20;186510;1,0,0,0,0,0
+ALOJ0178;Alojamiento0178;100000073;Antioquia;El Penol;apartamento;Calle 178 #22-35;151519;0,1,1,1,0,1
+ALOJ0179;Alojamiento0179;100000073;Antioquia;San Juan de Uraba;casa;Calle 179 #92-82;119812;1,0,0,0,0,1
+ALOJ0180;Alojamiento0180;100000074;Antioquia;Arboletes;apartamento;Calle 180 #92-90;212589;0,0,0,1,1,0
+ALOJ0181;Alojamiento0181;100000074;Antioquia;Guatape;apartamento;Calle 181 #17-40;210923;0,1,0,0,1,1
+ALOJ0182;Alojamiento0182;100000074;Antioquia;Envigado;casa;Calle 182 #12-47;215714;0,0,0,1,1,1
+ALOJ0183;Alojamiento0183;100000075;Antioquia;Turbo;apartamento;Calle 183 #3-73;92401;0,1,0,1,0,0
+ALOJ0184;Alojamiento0184;100000075;Antioquia;San Rafael;casa;Calle 184 #65-31;203576;1,0,0,0,0,1
+ALOJ0185;Alojamiento0185;100000075;Antioquia;San Pedro de Uraba;casa;Calle 185 #20-56;216524;1,0,1,0,0,1
+ALOJ0186;Alojamiento0186;100000075;Antioquia;Taraza;apartamento;Calle 186 #59-57;108757;0,0,1,0,1,0
+ALOJ0187;Alojamiento0187;100000076;Antioquia;Frontino;apartamento;Calle 187 #92-16;217079;1,1,1,0,1,1
+ALOJ0188;Alojamiento0188;100000076;Antioquia;Caldas;casa;Calle 188 #10-71;133499;1,0,1,1,0,0
+ALOJ0189;Alojamiento0189;100000076;Antioquia;La Union;casa;Calle 189 #25-2;91760;1,1,0,1,1,1
+ALOJ0190;Alojamiento0190;100000077;Antioquia;Jardin;apartamento;Calle 190 #2-55;146762;1,1,0,1,0,1
+ALOJ0191;Alojamiento0191;100000077;Antioquia;Salgar;apartamento;Calle 191 #34-75;141816;1,0,1,1,1,0
+ALOJ0192;Alojamiento0192;100000078;Antioquia;Vegachi;apartamento;Calle 192 #40-54;220914;0,0,1,0,0,0
+ALOJ0193;Alojamiento0193;100000078;Antioquia;Sabanalarga;casa;Calle 193 #85-59;176847;0,0,0,1,0,1
+ALOJ0194;Alojamiento0194;100000079;Antioquia;Andes;apartamento;Calle 194 #95-38;226451;0,0,1,1,0,0
+ALOJ0195;Alojamiento0195;100000079;Antioquia;Zaragoza;apartamento;Calle 195 #28-37;230004;0,0,0,1,0,1
+ALOJ0196;Alojamiento0196;100000079;Antioquia;Betania;casa;Calle 196 #17-77;227564;1,0,1,0,0,1
+ALOJ0197;Alojamiento0197;100000080;Antioquia;Apartado;apartamento;Calle 197 #20-54;178751;1,0,1,1,0,0
+ALOJ0198;Alojamiento0198;100000080;Antioquia;Murindo;apartamento;Calle 198 #30-15;113436;1,0,1,0,0,1
+ALOJ0199;Alojamiento0199;100000080;Antioquia;Medellin;apartamento;Calle 199 #39-74;82257;0,0,1,0,0,1
+ALOJ0200;Alojamiento0200;100000080;Antioquia;Vegachi;apartamento;Calle 200 #88-13;194561;0,0,1,0,1,1
+ALOJ0201;Alojamiento0201;100000081;Antioquia;La Union;casa;Calle 201 #8-50;128432;1,0,1,0,0,1
+ALOJ0202;Alojamiento0202;100000081;Antioquia;La Union;casa;Calle 202 #66-90;158613;1,0,1,1,0,0
+ALOJ0203;Alojamiento0203;100000081;Antioquia;Barbosa;apartamento;Calle 203 #4-41;173545;0,0,0,1,1,1
+ALOJ0204;Alojamiento0204;100000082;Antioquia;San Pedro de Uraba;casa;Calle 204 #16-38;247534;1,0,1,1,0,1
+ALOJ0205;Alojamiento0205;100000082;Antioquia;Caicedo;apartamento;Calle 205 #61-83;90314;0,0,1,0,1,1
+ALOJ0206;Alojamiento0206;100000083;Antioquia;Bello;apartamento;Calle 206 #33-69;109531;0,1,0,1,1,1
+ALOJ0207;Alojamiento0207;100000083;Antioquia;San Francisco;apartamento;Calle 207 #80-32;208125;0,0,0,1,1,1
+ALOJ0208;Alojamiento0208;100000084;Antioquia;Puerto Triunfo;casa;Calle 208 #78-56;242359;1,0,1,1,0,1
+ALOJ0209;Alojamiento0209;100000084;Antioquia;Caramanta;apartamento;Calle 209 #67-70;103845;1,0,0,0,1,1
+ALOJ0210;Alojamiento0210;100000084;Antioquia;Amalfi;casa;Calle 210 #95-17;179169;0,1,1,1,1,0
+ALOJ0211;Alojamiento0211;100000085;Antioquia;Guarne;apartamento;Calle 211 #38-67;193504;0,0,0,1,0,1
+ALOJ0212;Alojamiento0212;100000085;Antioquia;San Jose de la Montana;casa;Calle 212 #54-23;238094;0,0,0,0,0,1
+ALOJ0213;Alojamiento0213;100000085;Antioquia;Ebejico;casa;Calle 213 #71-14;248177;1,0,1,0,0,0
+ALOJ0214;Alojamiento0214;100000085;Antioquia;Yolombo;casa;Calle 214 #85-27;232389;1,1,1,0,0,1
+ALOJ0215;Alojamiento0215;100000086;Antioquia;Jardin;apartamento;Calle 215 #4-16;216514;0,1,0,1,0,0
+ALOJ0216;Alojamiento0216;100000086;Antioquia;Segovia;casa;Calle 216 #58-54;185927;0,1,0,1,0,1
+ALOJ0217;Alojamiento0217;100000086;Antioquia;San Pedro;apartamento;Calle 217 #18-29;209217;1,1,1,0,1,1
+ALOJ0218;Alojamiento0218;100000087;Antioquia;Venecia;apartamento;Calle 218 #88-55;99813;1,0,1,0,0,1
+ALOJ0219;Alojamiento0219;100000087;Antioquia;Hispania;casa;Calle 219 #49-9;151821;0,0,1,1,1,1
+ALOJ0220;Alojamiento0220;100000088;Antioquia;El Retiro;casa;Calle 220 #89-52;140428;1,0,0,1,1,1
+ALOJ0221;Alojamiento0221;100000088;Antioquia;Narino;apartamento;Calle 221 #27-72;172788;0,0,1,0,0,0
+ALOJ0222;Alojamiento0222;100000088;Antioquia;San Juan de Uraba;apartamento;Calle 222 #92-19;125360;0,1,1,1,0,1
+ALOJ0223;Alojamiento0223;100000089;Antioquia;Puerto Nare;casa;Calle 223 #49-69;84226;0,0,1,0,0,1
+ALOJ0224;Alojamiento0224;100000089;Antioquia;Anza;apartamento;Calle 224 #7-79;107060;1,1,0,0,1,0
+ALOJ0225;Alojamiento0225;100000090;Antioquia;Jerico;apartamento;Calle 225 #60-85;143040;0,0,0,0,1,0
+ALOJ0226;Alojamiento0226;100000090;Antioquia;Campamento;casa;Calle 226 #45-9;175519;0,1,0,1,1,1
+ALOJ0227;Alojamiento0227;100000091;Antioquia;Briceno;casa;Calle 227 #26-38;150915;0,0,1,0,0,1
+ALOJ0228;Alojamiento0228;100000091;Antioquia;Dabeiba;casa;Calle 228 #49-86;206315;1,1,1,1,0,0
+ALOJ0229;Alojamiento0229;100000091;Antioquia;El Penol;apartamento;Calle 229 #76-90;245376;1,1,0,1,1,1
+ALOJ0230;Alojamiento0230;100000092;Antioquia;El Bagre;casa;Calle 230 #69-4;188965;0,0,0,0,1,0
+ALOJ0231;Alojamiento0231;100000093;Antioquia;Segovia;apartamento;Calle 231 #28-7;129038;1,0,1,1,1,0
+ALOJ0232;Alojamiento0232;100000093;Antioquia;La Union;apartamento;Calle 232 #2-98;102024;0,0,0,1,0,0
+ALOJ0233;Alojamiento0233;100000093;Antioquia;Rionegro;apartamento;Calle 233 #24-61;240209;1,1,1,0,0,1
+ALOJ0234;Alojamiento0234;100000093;Antioquia;Murindo;apartamento;Calle 234 #50-68;213675;1,0,1,1,0,1
+ALOJ0235;Alojamiento0235;100000094;Antioquia;Arboletes;casa;Calle 235 #19-89;131564;0,1,1,0,0,0
+ALOJ0236;Alojamiento0236;100000095;Antioquia;Angostura;apartamento;Calle 236 #8-8;138446;0,1,1,1,1,1
+ALOJ0237;Alojamiento0237;100000095;Antioquia;Sonson;apartamento;Calle 237 #76-24;130219;0,1,1,0,1,1
+ALOJ0238;Alojamiento0238;100000095;Antioquia;Medellin;apartamento;Calle 238 #50-77;171584;0,1,1,0,1,1
+ALOJ0239;Alojamiento0239;100000095;Antioquia;Tamesis;apartamento;Calle 239 #5-39;108031;0,0,1,0,0,0
+ALOJ0240;Alojamiento0240;100000096;Antioquia;Concordia;casa;Calle 240 #5-1;206297;0,1,0,0,1,0
+ALOJ0241;Alojamiento0241;100000096;Antioquia;La Pintada;apartamento;Calle 241 #14-48;118164;0,0,1,0,0,1
+ALOJ0242;Alojamiento0242;100000096;Antioquia;Venecia;casa;Calle 242 #86-49;101337;1,1,1,1,0,1
+ALOJ0243;Alojamiento0243;100000097;Antioquia;La Ceja;casa;Calle 243 #6-3;126769;1,0,1,0,1,0
+ALOJ0244;Alojamiento0244;100000097;Antioquia;Briceno;casa;Calle 244 #78-24;143737;0,0,1,1,1,1
+ALOJ0245;Alojamiento0245;100000097;Antioquia;Abejorral;apartamento;Calle 245 #85-64;220948;0,1,0,1,1,0
+ALOJ0246;Alojamiento0246;100000098;Antioquia;La Estrella;apartamento;Calle 246 #97-51;134931;1,1,0,1,1,1
+ALOJ0247;Alojamiento0247;100000098;Antioquia;San Luis;apartamento;Calle 247 #22-36;112050;1,0,0,0,1,0
+ALOJ0248;Alojamiento0248;100000098;Antioquia;Carepa;apartamento;Calle 248 #48-39;165849;0,0,0,1,1,1
+ALOJ0249;Alojamiento0249;100000099;Antioquia;Jerico;apartamento;Calle 249 #14-75;136600;0,0,0,1,0,1
+ALOJ0250;Alojamiento0250;100000099;Antioquia;Vegachi;casa;Calle 250 #31-42;209740;1,0,0,1,1,0
+ALOJ0251;Alojamiento0251;100000100;Antioquia;Angelopolis;apartamento;Calle 251 #38-60;108188;1,0,0,0,0,0
+ALOJ0252;Alojamiento0252;100000100;Antioquia;Copacabana;apartamento;Calle 252 #20-43;195412;1,1,0,0,0,1
+ALOJ0253;Alojamiento0253;100000100;Antioquia;Peque;apartamento;Calle 253 #7-57;131193;0,0,1,1,0,1
+ALOJ0254;Alojamiento0254;100000100;Antioquia;Yarumal;casa;Calle 254 #82-29;199071;1,1,0,0,1,1
+ALOJ0255;Alojamiento0255;100000101;Antioquia;Toledo;casa;Calle 255 #22-97;95258;0,0,0,1,1,0
+ALOJ0256;Alojamiento0256;100000101;Antioquia;Gomez Plata;casa;Calle 256 #36-31;175433;0,0,1,0,0,0
+ALOJ0257;Alojamiento0257;100000101;Antioquia;Caramanta;casa;Calle 257 #84-88;162120;0,0,0,1,1,1
+ALOJ0258;Alojamiento0258;100000102;Antioquia;El Carmen de Viboral;casa;Calle 258 #18-73;218792;1,0,1,0,0,0
+ALOJ0259;Alojamiento0259;100000103;Antioquia;Valparaiso;apartamento;Calle 259 #79-86;104316;1,1,0,0,1,1
+ALOJ0260;Alojamiento0260;100000104;Antioquia;Tamesis;apartamento;Calle 260 #58-40;143388;0,1,0,1,1,0
+ALOJ0261;Alojamiento0261;100000104;Antioquia;Segovia;apartamento;Calle 261 #27-51;207843;0,0,0,1,1,1
+ALOJ0262;Alojamiento0262;100000105;Antioquia;Guarne;casa;Calle 262 #33-92;246136;0,0,1,1,0,0
+ALOJ0263;Alojamiento0263;100000105;Antioquia;San Carlos;casa;Calle 263 #6-96;234590;0,1,0,1,1,0
+ALOJ0264;Alojamiento0264;100000106;Antioquia;Armenia;casa;Calle 264 #76-19;229730;1,0,1,1,1,1
+ALOJ0265;Alojamiento0265;100000106;Antioquia;Mutata;apartamento;Calle 265 #22-98;161755;0,1,0,0,1,1
+ALOJ0266;Alojamiento0266;100000106;Antioquia;Cocorna;casa;Calle 266 #47-77;218457;0,1,1,1,1,0
+ALOJ0267;Alojamiento0267;100000107;Antioquia;Frontino;apartamento;Calle 267 #35-41;207407;0,1,0,1,1,0
+ALOJ0268;Alojamiento0268;100000107;Antioquia;Angostura;apartamento;Calle 268 #14-68;170791;1,0,1,1,1,0
+ALOJ0269;Alojamiento0269;100000108;Antioquia;Olaya;apartamento;Calle 269 #6-52;192248;0,1,0,1,1,0
+ALOJ0270;Alojamiento0270;100000109;Antioquia;Canasgordas;casa;Calle 270 #99-81;225118;1,1,1,1,1,1
+ALOJ0271;Alojamiento0271;100000110;Antioquia;Caicedo;casa;Calle 271 #77-59;110973;1,0,1,0,0,1
+ALOJ0272;Alojamiento0272;100000110;Antioquia;Chigorodo;casa;Calle 272 #39-1;190265;0,0,0,0,1,1
+ALOJ0273;Alojamiento0273;100000111;Antioquia;Tarso;apartamento;Calle 273 #83-10;103279;1,1,0,0,1,1
+ALOJ0274;Alojamiento0274;100000112;Antioquia;Puerto Nare;apartamento;Calle 274 #33-89;236090;0,0,0,1,0,1
+ALOJ0275;Alojamiento0275;100000113;Antioquia;Betania;casa;Calle 275 #28-76;130137;1,1,1,0,1,0
+ALOJ0276;Alojamiento0276;100000114;Antioquia;Narino;apartamento;Calle 276 #3-24;180581;0,1,0,0,1,1
+ALOJ0277;Alojamiento0277;100000114;Antioquia;Frontino;casa;Calle 277 #17-40;159299;1,1,0,0,0,1
+ALOJ0278;Alojamiento0278;100000114;Antioquia;La Union;apartamento;Calle 278 #18-37;100389;0,1,1,1,0,1
+ALOJ0279;Alojamiento0279;100000115;Antioquia;Jerico;casa;Calle 279 #77-22;152953;0,0,0,0,0,0
+ALOJ0280;Alojamiento0280;100000116;Antioquia;Titiribi;casa;Calle 280 #31-45;114140;0,1,1,1,0,0
+ALOJ0281;Alojamiento0281;100000116;Antioquia;El Santuario;apartamento;Calle 281 #64-95;194577;1,1,1,0,1,0
+ALOJ0282;Alojamiento0282;100000116;Antioquia;Bello;casa;Calle 282 #16-94;139145;0,0,0,1,1,1
+ALOJ0283;Alojamiento0283;100000117;Antioquia;Nechi;casa;Calle 283 #81-42;193130;1,1,0,1,0,1
+ALOJ0284;Alojamiento0284;100000118;Antioquia;Granada;apartamento;Calle 284 #30-68;180666;1,1,0,1,0,1
+ALOJ0285;Alojamiento0285;100000118;Antioquia;La Pintada;casa;Calle 285 #33-92;234654;0,1,0,1,0,0
+ALOJ0286;Alojamiento0286;100000118;Antioquia;El Retiro;casa;Calle 286 #12-95;222647;1,0,0,1,0,0
+ALOJ0287;Alojamiento0287;100000118;Antioquia;El Carmen de Viboral;apartamento;Calle 287 #31-23;123154;0,1,0,0,1,1
+ALOJ0288;Alojamiento0288;100000119;Antioquia;Envigado;casa;Calle 288 #94-10;102325;0,0,1,1,0,0
+ALOJ0289;Alojamiento0289;100000119;Antioquia;Yali;apartamento;Calle 289 #89-53;82196;1,1,1,1,0,0
+ALOJ0290;Alojamiento0290;100000120;Antioquia;Tamesis;apartamento;Calle 290 #52-68;220433;1,0,0,1,1,1
+ALOJ0291;Alojamiento0291;100000121;Antioquia;Mutata;apartamento;Calle 291 #50-95;106638;0,0,1,0,0,0
+ALOJ0292;Alojamiento0292;100000121;Antioquia;Briceno;apartamento;Calle 292 #65-50;201513;0,1,1,0,1,1
+ALOJ0293;Alojamiento0293;100000122;Antioquia;Carolina del Principe;apartamento;Calle 293 #5-29;134440;0,1,1,0,1,0
+ALOJ0294;Alojamiento0294;100000122;Antioquia;Concordia;apartamento;Calle 294 #43-39;244882;0,0,0,1,1,0
+ALOJ0295;Alojamiento0295;100000122;Antioquia;Puerto Berrio;apartamento;Calle 295 #19-18;213658;1,0,0,0,0,0
+ALOJ0296;Alojamiento0296;100000122;Antioquia;Taraza;casa;Calle 296 #9-29;222620;0,1,0,1,1,1
+ALOJ0297;Alojamiento0297;100000123;Antioquia;Gomez Plata;casa;Calle 297 #43-83;130725;1,0,0,1,0,0
+ALOJ0298;Alojamiento0298;100000123;Antioquia;El Santuario;apartamento;Calle 298 #62-48;142256;0,0,0,1,0,0
+ALOJ0299;Alojamiento0299;100000123;Antioquia;San Juan de Uraba;casa;Calle 299 #92-2;98441;0,0,0,1,0,1
+ALOJ0300;Alojamiento0300;100000123;Antioquia;Alejandria;casa;Calle 300 #60-19;94725;1,1,0,0,0,1
+ALOJ0301;Alojamiento0301;100000124;Antioquia;Vegachi;casa;Calle 301 #9-81;152081;0,0,1,0,0,1
+ALOJ0302;Alojamiento0302;100000125;Antioquia;Anza;apartamento;Calle 302 #37-84;125740;1,0,0,0,1,1
+ALOJ0303;Alojamiento0303;100000125;Antioquia;Murindo;casa;Calle 303 #30-72;166425;0,0,1,0,0,0
+ALOJ0304;Alojamiento0304;100000126;Antioquia;San Andres de Cuerquia;apartamento;Calle 304 #73-29;119528;0,0,0,1,1,0
+ALOJ0305;Alojamiento0305;100000127;Antioquia;Jardin;apartamento;Calle 305 #18-76;160313;0,1,1,1,0,0
+ALOJ0306;Alojamiento0306;100000127;Antioquia;Barbosa;apartamento;Calle 306 #81-52;85388;0,0,1,0,0,0
+ALOJ0307;Alojamiento0307;100000127;Antioquia;Puerto Triunfo;casa;Calle 307 #49-18;214223;0,1,0,0,0,1
+ALOJ0308;Alojamiento0308;100000128;Antioquia;La Union;apartamento;Calle 308 #30-54;108802;1,1,0,0,0,0
+ALOJ0309;Alojamiento0309;100000128;Antioquia;La Ceja;apartamento;Calle 309 #49-98;80175;0,0,0,1,1,1
+ALOJ0310;Alojamiento0310;100000129;Antioquia;San Jeronimo;apartamento;Calle 310 #37-24;90134;0,0,0,1,0,1
+ALOJ0311;Alojamiento0311;100000129;Antioquia;Arboletes;apartamento;Calle 311 #21-58;173021;1,0,1,1,1,0
+ALOJ0312;Alojamiento0312;100000129;Antioquia;Cocorna;casa;Calle 312 #15-72;214750;0,1,0,0,0,1
+ALOJ0313;Alojamiento0313;100000130;Antioquia;Abriaqui;apartamento;Calle 313 #22-95;98019;1,1,1,0,1,1
+ALOJ0314;Alojamiento0314;100000130;Antioquia;San Jose de la Montana;casa;Calle 314 #48-49;195481;0,1,1,1,1,1
+ALOJ0315;Alojamiento0315;100000130;Antioquia;Apartado;casa;Calle 315 #17-61;97366;0,1,1,0,0,1
+ALOJ0316;Alojamiento0316;100000131;Antioquia;Yondo;apartamento;Calle 316 #47-56;83786;0,1,1,0,1,1
+ALOJ0317;Alojamiento0317;100000131;Antioquia;Rionegro;apartamento;Calle 317 #57-97;196183;0,0,0,1,1,1
+ALOJ0318;Alojamiento0318;100000131;Antioquia;Entrerrios;casa;Calle 318 #42-71;105884;0,0,1,1,1,1
+ALOJ0319;Alojamiento0319;100000132;Antioquia;Yolombo;casa;Calle 319 #84-46;189065;0,1,1,1,0,0
+ALOJ0320;Alojamiento0320;100000132;Antioquia;Carepa;casa;Calle 320 #45-50;122829;1,0,1,0,0,1
+ALOJ0321;Alojamiento0321;100000132;Antioquia;San Jeronimo;apartamento;Calle 321 #57-7;101178;1,0,0,1,1,0
+ALOJ0322;Alojamiento0322;100000132;Antioquia;Fredonia;apartamento;Calle 322 #85-95;190118;1,0,0,1,1,0
+ALOJ0323;Alojamiento0323;100000133;Antioquia;Granada;casa;Calle 323 #18-93;132277;1,0,1,1,0,1
+ALOJ0324;Alojamiento0324;100000133;Antioquia;Santa Fe de Antioquia;casa;Calle 324 #84-48;131544;0,0,0,0,1,1
+ALOJ0325;Alojamiento0325;100000134;Antioquia;Puerto Nare;apartamento;Calle 325 #93-1;246923;1,0,0,0,0,1
+ALOJ0326;Alojamiento0326;100000135;Antioquia;Uramita;casa;Calle 326 #37-43;182744;0,0,1,0,1,1
+ALOJ0327;Alojamiento0327;100000135;Antioquia;Sonson;casa;Calle 327 #45-65;226961;0,1,0,0,0,1
+ALOJ0328;Alojamiento0328;100000135;Antioquia;Montebello;apartamento;Calle 328 #1-28;217682;0,0,0,1,1,1
+ALOJ0329;Alojamiento0329;100000136;Antioquia;Caucasia;apartamento;Calle 329 #38-96;179599;1,0,0,0,1,0
+ALOJ0330;Alojamiento0330;100000136;Antioquia;Vigia del Fuerte;apartamento;Calle 330 #67-18;105148;0,0,1,1,0,1
+ALOJ0331;Alojamiento0331;100000136;Antioquia;San Pedro;casa;Calle 331 #24-69;182773;0,1,0,1,0,1
+ALOJ0332;Alojamiento0332;100000136;Antioquia;Tamesis;apartamento;Calle 332 #57-72;249383;0,0,1,0,1,0
+ALOJ0333;Alojamiento0333;100000137;Antioquia;Maceo;apartamento;Calle 333 #67-61;170582;0,1,0,1,1,0
+ALOJ0334;Alojamiento0334;100000137;Antioquia;Granada;apartamento;Calle 334 #70-63;121896;1,1,0,1,1,0
+ALOJ0335;Alojamiento0335;100000138;Antioquia;Don Matias;casa;Calle 335 #51-12;97383;0,1,0,1,0,1
+ALOJ0336;Alojamiento0336;100000139;Antioquia;Yondo;casa;Calle 336 #53-38;108233;1,1,0,1,0,1
+ALOJ0337;Alojamiento0337;100000139;Antioquia;Santa Barbara;casa;Calle 337 #46-31;93773;1,1,1,0,1,1
+ALOJ0338;Alojamiento0338;100000139;Antioquia;Betania;casa;Calle 338 #28-59;92569;0,1,1,1,1,1
+ALOJ0339;Alojamiento0339;100000139;Antioquia;Caramanta;apartamento;Calle 339 #42-98;88766;0,1,0,1,1,1
+ALOJ0340;Alojamiento0340;100000140;Antioquia;Ebejico;casa;Calle 340 #79-35;196976;0,0,1,0,1,1
+ALOJ0341;Alojamiento0341;100000140;Antioquia;Vigia del Fuerte;casa;Calle 341 #77-30;232562;1,1,1,0,1,1
+ALOJ0342;Alojamiento0342;100000140;Antioquia;Arboletes;casa;Calle 342 #43-43;115094;1,0,1,1,1,0
+ALOJ0343;Alojamiento0343;100000141;Antioquia;Armenia;apartamento;Calle 343 #60-45;119514;0,1,1,0,1,0
+ALOJ0344;Alojamiento0344;100000142;Antioquia;Liborina;apartamento;Calle 344 #56-53;231300;1,1,1,0,0,0
+ALOJ0345;Alojamiento0345;100000143;Antioquia;Hispania;casa;Calle 345 #2-33;134079;1,1,1,0,0,0
+ALOJ0346;Alojamiento0346;100000143;Antioquia;Caracoli;apartamento;Calle 346 #54-72;160684;1,0,0,1,0,1
+ALOJ0347;Alojamiento0347;100000143;Antioquia;Mutata;casa;Calle 347 #92-80;125230;0,0,0,0,1,1
+ALOJ0348;Alojamiento0348;100000144;Antioquia;Abejorral;casa;Calle 348 #86-58;143570;0,0,1,1,0,0
+ALOJ0349;Alojamiento0349;100000144;Antioquia;Jerico;casa;Calle 349 #77-42;246560;0,1,0,0,1,0
+ALOJ0350;Alojamiento0350;100000145;Antioquia;Apartado;apartamento;Calle 350 #28-63;194028;1,0,1,0,1,1
+ALOJ0351;Alojamiento0351;100000146;Antioquia;Barbosa;casa;Calle 351 #53-97;235900;0,0,1,0,0,0
+ALOJ0352;Alojamiento0352;100000147;Antioquia;Valdivia;casa;Calle 352 #9-95;215577;0,0,0,0,0,0
+ALOJ0353;Alojamiento0353;100000147;Antioquia;Yarumal;casa;Calle 353 #51-83;237409;0,1,1,0,0,0
+ALOJ0354;Alojamiento0354;100000147;Antioquia;Yolombo;apartamento;Calle 354 #98-75;233888;0,0,0,0,0,1
+ALOJ0355;Alojamiento0355;100000147;Antioquia;San Pedro;apartamento;Calle 355 #32-59;148112;1,0,0,1,1,1
+ALOJ0356;Alojamiento0356;100000148;Antioquia;Puerto Nare;apartamento;Calle 356 #77-86;234603;1,1,1,1,0,0
+ALOJ0357;Alojamiento0357;100000149;Antioquia;Belen de Bajira;apartamento;Calle 357 #67-24;130280;0,0,1,1,0,0
+ALOJ0358;Alojamiento0358;100000149;Antioquia;Mutata;casa;Calle 358 #2-37;200496;1,0,0,1,1,1
+ALOJ0359;Alojamiento0359;100000149;Antioquia;Sonson;apartamento;Calle 359 #47-36;169308;0,1,1,1,0,1
+ALOJ0360;Alojamiento0360;100000150;Antioquia;Marinilla;apartamento;Calle 360 #66-12;147364;0,0,1,0,0,1
+ALOJ0361;Alojamiento0361;100000151;Antioquia;Frontino;apartamento;Calle 361 #87-31;206223;0,0,0,1,1,0
+ALOJ0362;Alojamiento0362;100000151;Antioquia;El Santuario;casa;Calle 362 #33-33;109472;0,0,1,0,1,0
+ALOJ0363;Alojamiento0363;100000151;Antioquia;Gomez Plata;apartamento;Calle 363 #99-21;197595;0,0,1,1,1,1
+ALOJ0364;Alojamiento0364;100000151;Antioquia;Gomez Plata;casa;Calle 364 #18-55;144890;1,0,0,0,0,1
+ALOJ0365;Alojamiento0365;100000152;Antioquia;Abriaqui;apartamento;Calle 365 #71-83;211707;1,0,1,0,0,1
+ALOJ0366;Alojamiento0366;100000152;Antioquia;San Juan de Uraba;casa;Calle 366 #94-54;128687;0,1,1,1,1,1
+ALOJ0367;Alojamiento0367;100000152;Antioquia;San Carlos;casa;Calle 367 #62-14;208595;0,1,1,0,1,0
+ALOJ0368;Alojamiento0368;100000153;Antioquia;San Francisco;casa;Calle 368 #34-74;147135;1,1,0,1,0,0
+ALOJ0369;Alojamiento0369;100000153;Antioquia;Sabaneta;apartamento;Calle 369 #27-51;145089;1,1,0,1,1,0
+ALOJ0370;Alojamiento0370;100000154;Antioquia;Mutata;apartamento;Calle 370 #89-6;134449;0,0,0,0,1,1
+ALOJ0371;Alojamiento0371;100000155;Antioquia;Buritica;casa;Calle 371 #85-41;160402;1,0,1,0,0,1
+ALOJ0372;Alojamiento0372;100000156;Antioquia;Uramita;apartamento;Calle 372 #99-18;82275;1,1,0,0,0,0
+ALOJ0373;Alojamiento0373;100000156;Antioquia;Puerto Berrio;casa;Calle 373 #13-63;109961;0,1,1,1,1,1
+ALOJ0374;Alojamiento0374;100000157;Antioquia;Angelopolis;casa;Calle 374 #97-47;246745;0,0,1,1,1,0
+ALOJ0375;Alojamiento0375;100000157;Antioquia;Argelia;casa;Calle 375 #65-3;127607;0,1,0,0,0,1
+ALOJ0376;Alojamiento0376;100000157;Antioquia;Guarne;apartamento;Calle 376 #17-70;235606;0,1,0,0,0,1
+ALOJ0377;Alojamiento0377;100000157;Antioquia;Entrerrios;casa;Calle 377 #77-87;249319;0,1,0,0,0,0
+ALOJ0378;Alojamiento0378;100000158;Antioquia;Carepa;casa;Calle 378 #43-5;134531;0,0,1,0,0,0
+ALOJ0379;Alojamiento0379;100000158;Antioquia;El Retiro;casa;Calle 379 #23-88;232059;1,0,0,0,1,0
+ALOJ0380;Alojamiento0380;100000159;Antioquia;La Union;casa;Calle 380 #7-11;115805;0,0,1,0,1,1
+ALOJ0381;Alojamiento0381;100000159;Antioquia;Ituango;apartamento;Calle 381 #69-23;103460;0,0,1,1,0,0
+ALOJ0382;Alojamiento0382;100000159;Antioquia;Chigorodo;casa;Calle 382 #91-10;92980;0,1,1,0,0,1
+ALOJ0383;Alojamiento0383;100000160;Antioquia;San Pedro de Uraba;casa;Calle 383 #38-50;229309;1,1,1,1,0,0
+ALOJ0384;Alojamiento0384;100000160;Antioquia;Zaragoza;apartamento;Calle 384 #51-16;90708;1,0,0,1,1,0
+ALOJ0385;Alojamiento0385;100000160;Antioquia;Rionegro;casa;Calle 385 #76-65;105202;0,1,1,0,1,1
+ALOJ0386;Alojamiento0386;100000160;Antioquia;Cocorna;casa;Calle 386 #47-22;136449;0,1,1,0,0,1
+ALOJ0387;Alojamiento0387;100000161;Antioquia;Anza;casa;Calle 387 #58-39;129613;1,1,1,0,0,1
+ALOJ0388;Alojamiento0388;100000161;Antioquia;Vigia del Fuerte;apartamento;Calle 388 #6-50;213236;0,1,1,0,0,1
+ALOJ0389;Alojamiento0389;100000161;Antioquia;Amalfi;casa;Calle 389 #33-2;144972;0,1,0,0,0,0
+ALOJ0390;Alojamiento0390;100000162;Antioquia;Canasgordas;apartamento;Calle 390 #11-48;156189;1,1,1,0,1,0
+ALOJ0391;Alojamiento0391;100000163;Antioquia;Apartado;casa;Calle 391 #11-87;103266;0,0,0,0,1,0
+ALOJ0392;Alojamiento0392;100000164;Antioquia;Remedios;casa;Calle 392 #55-78;202806;0,1,0,0,1,1
+ALOJ0393;Alojamiento0393;100000165;Antioquia;Marinilla;casa;Calle 393 #63-31;248957;0,0,1,1,0,0
+ALOJ0394;Alojamiento0394;100000166;Antioquia;San Andres de Cuerquia;apartamento;Calle 394 #52-39;159588;0,0,1,1,1,1
+ALOJ0395;Alojamiento0395;100000166;Antioquia;Cocorna;casa;Calle 395 #56-83;113318;0,1,1,1,0,0
+ALOJ0396;Alojamiento0396;100000167;Antioquia;San Pedro;casa;Calle 396 #96-16;158056;0,0,0,0,1,0
+ALOJ0397;Alojamiento0397;100000167;Antioquia;Abriaqui;apartamento;Calle 397 #18-76;167066;1,1,1,1,1,0
+ALOJ0398;Alojamiento0398;100000167;Antioquia;Chigorodo;apartamento;Calle 398 #12-3;205821;1,0,1,1,1,1
+ALOJ0399;Alojamiento0399;100000168;Antioquia;Belen de Bajira;apartamento;Calle 399 #16-84;174335;0,0,1,0,1,0
+ALOJ0400;Alojamiento0400;100000168;Antioquia;Liborina;casa;Calle 400 #40-7;176104;0,1,0,1,0,1
+ALOJ0401;Alojamiento0401;100000168;Antioquia;Santa Fe de Antioquia;casa;Calle 401 #11-51;82965;1,1,0,1,0,0
+ALOJ0402;Alojamiento0402;100000168;Antioquia;Murindo;apartamento;Calle 402 #21-46;169251;0,0,0,1,1,1
+ALOJ0403;Alojamiento0403;100000169;Antioquia;Angostura;casa;Calle 403 #47-26;82338;1,1,0,0,0,1
+ALOJ0404;Alojamiento0404;100000169;Antioquia;La Estrella;casa;Calle 404 #13-99;137052;1,0,1,1,1,0
+ALOJ0405;Alojamiento0405;100000169;Antioquia;Concepcion;casa;Calle 405 #85-86;171783;1,0,1,0,0,1
+ALOJ0406;Alojamiento0406;100000169;Antioquia;Santo Domingo;apartamento;Calle 406 #79-59;158169;1,1,1,1,0,0
+ALOJ0407;Alojamiento0407;100000170;Antioquia;Cisneros;casa;Calle 407 #24-18;206924;0,1,1,0,1,0
+ALOJ0408;Alojamiento0408;100000170;Antioquia;Murindo;casa;Calle 408 #93-84;86890;0,1,0,1,1,1
+ALOJ0409;Alojamiento0409;100000170;Antioquia;Vegachi;apartamento;Calle 409 #94-6;133452;1,0,1,0,1,0
+ALOJ0410;Alojamiento0410;100000171;Antioquia;Alejandria;apartamento;Calle 410 #78-85;198421;1,1,1,0,1,1
+ALOJ0411;Alojamiento0411;100000171;Antioquia;Campamento;casa;Calle 411 #87-86;217432;0,0,1,1,0,0
+ALOJ0412;Alojamiento0412;100000171;Antioquia;El Santuario;apartamento;Calle 412 #39-77;244629;0,1,1,1,1,1
+ALOJ0413;Alojamiento0413;100000172;Antioquia;Zaragoza;apartamento;Calle 413 #95-3;141820;1,0,1,0,0,0
+ALOJ0414;Alojamiento0414;100000172;Antioquia;Arboletes;casa;Calle 414 #35-18;106778;0,1,0,1,1,1
+ALOJ0415;Alojamiento0415;100000173;Antioquia;Caramanta;apartamento;Calle 415 #42-82;156736;0,1,1,1,1,0
+ALOJ0416;Alojamiento0416;100000173;Antioquia;Sonson;apartamento;Calle 416 #45-13;168340;0,0,1,1,0,0
+ALOJ0417;Alojamiento0417;100000173;Antioquia;Santo Domingo;apartamento;Calle 417 #42-74;191785;0,0,1,0,0,0
+ALOJ0418;Alojamiento0418;100000174;Antioquia;Canasgordas;casa;Calle 418 #12-7;238442;0,0,1,1,1,1
+ALOJ0419;Alojamiento0419;100000174;Antioquia;Belen de Bajira;casa;Calle 419 #46-88;121509;0,0,0,0,1,1
+ALOJ0420;Alojamiento0420;100000174;Antioquia;Argelia;apartamento;Calle 420 #61-62;248077;0,0,1,0,1,0
+ALOJ0421;Alojamiento0421;100000175;Antioquia;Andes;casa;Calle 421 #50-72;125923;0,1,0,0,0,0
+ALOJ0422;Alojamiento0422;100000176;Antioquia;San Roque;apartamento;Calle 422 #70-67;93426;1,1,0,0,1,1
+ALOJ0423;Alojamiento0423;100000176;Antioquia;Medellin;apartamento;Calle 423 #42-6;148610;0,0,0,1,0,0
+ALOJ0424;Alojamiento0424;100000177;Antioquia;Liborina;casa;Calle 424 #98-46;102367;0,1,0,1,1,0
+ALOJ0425;Alojamiento0425;100000178;Antioquia;San Pedro de Uraba;casa;Calle 425 #56-73;189433;1,1,0,0,0,1
+ALOJ0426;Alojamiento0426;100000178;Antioquia;El Penol;apartamento;Calle 426 #87-69;92779;1,0,0,1,1,1
+ALOJ0427;Alojamiento0427;100000179;Antioquia;Cocorna;apartamento;Calle 427 #34-8;171806;0,0,1,1,1,1
+ALOJ0428;Alojamiento0428;100000179;Antioquia;Sonson;casa;Calle 428 #82-8;132730;1,0,1,0,1,0
+ALOJ0429;Alojamiento0429;100000180;Antioquia;Giraldo;casa;Calle 429 #40-96;91636;0,0,0,0,0,0
+ALOJ0430;Alojamiento0430;100000181;Antioquia;Caucasia;apartamento;Calle 430 #59-16;171914;1,0,1,1,0,0
+ALOJ0431;Alojamiento0431;100000181;Antioquia;Argelia;casa;Calle 431 #15-47;151989;0,0,1,0,0,1
+ALOJ0432;Alojamiento0432;100000182;Antioquia;Zaragoza;casa;Calle 432 #90-63;122368;1,1,0,0,1,1
+ALOJ0433;Alojamiento0433;100000182;Antioquia;Girardota;apartamento;Calle 433 #62-32;135817;0,1,1,0,1,1
+ALOJ0434;Alojamiento0434;100000183;Antioquia;Entrerrios;casa;Calle 434 #8-13;207115;0,0,0,0,1,0
+ALOJ0435;Alojamiento0435;100000184;Antioquia;Segovia;apartamento;Calle 435 #65-51;85628;0,0,0,1,1,0
+ALOJ0436;Alojamiento0436;100000184;Antioquia;Barbosa;casa;Calle 436 #90-2;116368;0,0,0,0,1,1
+ALOJ0437;Alojamiento0437;100000184;Antioquia;Puerto Triunfo;apartamento;Calle 437 #9-38;221399;0,0,0,1,1,1
+ALOJ0438;Alojamiento0438;100000185;Antioquia;Nechi;apartamento;Calle 438 #29-54;193368;0,1,0,0,0,1
+ALOJ0439;Alojamiento0439;100000185;Antioquia;Bolivar;apartamento;Calle 439 #74-90;110205;1,1,0,1,0,1
+ALOJ0440;Alojamiento0440;100000185;Antioquia;San Pedro de Uraba;casa;Calle 440 #26-28;163370;0,1,1,1,1,1
+ALOJ0441;Alojamiento0441;100000186;Antioquia;Olaya;casa;Calle 441 #66-4;246985;0,0,0,1,0,0
+ALOJ0442;Alojamiento0442;100000186;Antioquia;Angelopolis;apartamento;Calle 442 #43-49;163667;1,0,0,0,1,0
+ALOJ0443;Alojamiento0443;100000186;Antioquia;San Vicente;apartamento;Calle 443 #10-12;104941;0,0,0,0,1,0
+ALOJ0444;Alojamiento0444;100000187;Antioquia;El Carmen de Viboral;apartamento;Calle 444 #34-15;165616;0,1,1,1,1,0
+ALOJ0445;Alojamiento0445;100000188;Antioquia;Puerto Nare;apartamento;Calle 445 #46-47;216345;0,0,1,1,1,1
+ALOJ0446;Alojamiento0446;100000188;Antioquia;Heliconia;apartamento;Calle 446 #22-74;106921;1,0,1,0,1,1
+ALOJ0447;Alojamiento0447;100000188;Antioquia;Girardota;casa;Calle 447 #90-37;196639;0,0,1,0,0,1
+ALOJ0448;Alojamiento0448;100000189;Antioquia;Vigia del Fuerte;casa;Calle 448 #4-51;241854;1,0,1,1,0,0
+ALOJ0449;Alojamiento0449;100000189;Antioquia;Yali;apartamento;Calle 449 #41-46;171781;1,1,0,1,0,1
+ALOJ0450;Alojamiento0450;100000189;Antioquia;Betania;apartamento;Calle 450 #57-89;214335;1,0,1,0,1,0
+ALOJ0451;Alojamiento0451;100000189;Antioquia;Caracoli;casa;Calle 451 #20-88;215987;0,0,1,0,0,0
+ALOJ0452;Alojamiento0452;100000190;Antioquia;Medellin;casa;Calle 452 #33-10;99250;0,1,1,1,0,0
+ALOJ0453;Alojamiento0453;100000191;Antioquia;Carolina del Principe;casa;Calle 453 #24-62;120341;1,1,1,1,0,1
+ALOJ0454;Alojamiento0454;100000191;Antioquia;Caceres;casa;Calle 454 #54-94;113908;1,1,1,0,0,1
+ALOJ0455;Alojamiento0455;100000191;Antioquia;El Carmen de Viboral;casa;Calle 455 #98-21;151773;1,0,0,1,1,0
+ALOJ0456;Alojamiento0456;100000191;Antioquia;Anori;casa;Calle 456 #44-71;134096;0,0,1,1,0,0
+ALOJ0457;Alojamiento0457;100000192;Antioquia;Anza;apartamento;Calle 457 #73-96;177611;1,1,1,1,0,0
+ALOJ0458;Alojamiento0458;100000192;Antioquia;Guadalupe;apartamento;Calle 458 #98-72;139537;0,1,1,1,0,0
+ALOJ0459;Alojamiento0459;100000192;Antioquia;Narino;apartamento;Calle 459 #47-16;132298;1,0,0,0,0,0
+ALOJ0460;Alojamiento0460;100000192;Antioquia;Entrerrios;apartamento;Calle 460 #55-51;115930;0,0,0,0,0,1
+ALOJ0461;Alojamiento0461;100000193;Antioquia;Santa Fe de Antioquia;apartamento;Calle 461 #43-83;140745;1,1,0,0,0,0
+ALOJ0462;Alojamiento0462;100000193;Antioquia;Marinilla;apartamento;Calle 462 #76-4;191064;0,0,1,0,0,1
+ALOJ0463;Alojamiento0463;100000193;Antioquia;Bello;casa;Calle 463 #4-53;199540;1,1,0,1,0,0
+ALOJ0464;Alojamiento0464;100000194;Antioquia;Yali;casa;Calle 464 #74-82;196344;1,1,1,0,0,1
+ALOJ0465;Alojamiento0465;100000194;Antioquia;Santa Rosa de Osos;casa;Calle 465 #15-60;233905;1,1,0,0,1,0
+ALOJ0466;Alojamiento0466;100000195;Antioquia;Santa Rosa de Osos;casa;Calle 466 #95-95;164414;1,0,0,1,0,0
+ALOJ0467;Alojamiento0467;100000195;Antioquia;Yali;casa;Calle 467 #52-98;115537;0,1,0,1,0,0
+ALOJ0468;Alojamiento0468;100000195;Antioquia;Murindo;apartamento;Calle 468 #60-58;134729;0,0,0,1,1,1
+ALOJ0469;Alojamiento0469;100000195;Antioquia;Nechi;apartamento;Calle 469 #39-58;192268;1,1,1,0,0,0
+ALOJ0470;Alojamiento0470;100000196;Antioquia;Briceno;casa;Calle 470 #77-52;158220;1,1,0,1,0,1
+ALOJ0471;Alojamiento0471;100000196;Antioquia;Don Matias;apartamento;Calle 471 #37-39;93355;0,1,0,0,0,1
+ALOJ0472;Alojamiento0472;100000196;Antioquia;Liborina;apartamento;Calle 472 #68-52;136613;1,0,1,0,1,1
+ALOJ0473;Alojamiento0473;100000196;Antioquia;Fredonia;casa;Calle 473 #67-91;205001;0,0,0,1,0,0
+ALOJ0474;Alojamiento0474;100000197;Antioquia;Ebejico;casa;Calle 474 #69-77;187573;1,1,1,1,0,1
+ALOJ0475;Alojamiento0475;100000197;Antioquia;Abejorral;apartamento;Calle 475 #97-12;237081;0,0,1,0,1,0
+ALOJ0476;Alojamiento0476;100000197;Antioquia;Marinilla;apartamento;Calle 476 #42-40;169900;0,1,1,0,0,0
+ALOJ0477;Alojamiento0477;100000198;Antioquia;Nechi;apartamento;Calle 477 #70-27;198708;1,1,1,0,0,0
+ALOJ0478;Alojamiento0478;100000198;Antioquia;Puerto Triunfo;casa;Calle 478 #72-29;167245;0,1,1,1,1,1
+ALOJ0479;Alojamiento0479;100000199;Antioquia;Puerto Nare;apartamento;Calle 479 #55-98;204489;1,0,1,0,1,0
+ALOJ0480;Alojamiento0480;100000199;Antioquia;Anza;apartamento;Calle 480 #99-82;175699;1,1,1,0,1,1
+ALOJ0481;Alojamiento0481;100000200;Antioquia;Yali;casa;Calle 481 #40-68;239256;0,1,1,0,0,1

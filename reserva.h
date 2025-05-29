@@ -18,7 +18,7 @@ private:
     std::string metodoPago;
     Fecha fechaPago;
     int monto;
-    char anotacion[1001];
+    std::string anotacion;
 
 public:
     // Constructores
@@ -45,6 +45,15 @@ public:
     // Métodos funcionales
     void mostrarComprobante() const;
     bool coincideCon(const Fecha& entrada, int duracion) const;
+    // Cargar desde archivo
+    static void cargarDesdeArchivo(const std::string& archivo,
+                                   Reserva*& arreglo,
+                                   int& cantidad,
+                                   int& capacidad,
+                                   Alojamiento* alojamientos,
+                                   int cantAlojamientos,
+                                   Huesped* huespedes,
+                                   int cantHuespedes);
 };
 
 #endif // RESERVA_H

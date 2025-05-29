@@ -188,7 +188,7 @@ void cargarBaseDatos(Anfitrion*& anfitriones, int& cantAnfitriones,
 
 
     cout << "[INFO] Iniciando carga de RESERVAS...\n";
-    ifstream archRes("reservas.txt");
+    std::ifstream archRes("reservas.txt", std::ios::app | std::ios::binary);
     if (!archRes) {
         cerr << "[ERROR] No se pudo abrir reservas.txt\n";
         return;

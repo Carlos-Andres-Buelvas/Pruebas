@@ -3,6 +3,7 @@
 #include <fstream>
 #include <iomanip>
 #include <ctime>
+#include <locale>
 using namespace std;
 
 #include "base_datos.h"
@@ -13,26 +14,30 @@ using namespace std;
 #include "fecha.h"
 #include "controlador.h"
 
-int siguienteNumeroReserva = 1;
-
+int siguienteNumeroReserva; //modifique 1 a nada
 
 Controlador::Controlador() {
-    //anfitriones = nullptr;
-    //alojamientos = nullptr;
-    //huespedes = nullptr;
-    //reservas = new Reserva[300];
+    anfitriones = nullptr;
+    alojamientos = nullptr;
+    huespedes = nullptr;
+    reservas = new Reserva[10];
 
-    //cantAnfitriones = cantAlojamientos = 0;
-    //cantHuespedes =
-    //cantReservas = 300;
-    //capReservas = 300;
+    cantAnfitriones = cantAlojamientos = 0;
+    cantHuespedes = 0;
+    cantReservas = 300;
+    capReservas = 300;
+    capAnfitriones = 0;
+    capHuespedes = 0;
+    capAlojamientos = 1;
 
     siguienteNumeroReserva = obtenerSiguienteNumeroReserva();
 
-    cargarBaseDatos(anfitriones, cantAnfitriones,
-                    alojamientos, cantAlojamientos,
-                    huespedes, cantHuespedes,
-                    reservas, cantReservas, capReservas);
+    //cargarBaseDatos(anfitriones, cantAnfitriones,alojamientos, cantAlojamientos, huespedes, cantHuespedes, reservas, cantReservas, capReservas);
+
+    Anfitrion::cargarDesdeArchivo("anfitriones.txt", anfitriones, cantAnfitriones, capAnfitriones);
+    Huesped::cargarDesdeArchivo("huespedes.txt", huespedes, cantHuespedes, capHuespedes);
+    Alojamiento::cargarDesdeArchivo("alojamientos.txt", alojamientos, cantAlojamientos, capAlojamientos, anfitriones, cantAnfitriones);
+    Reserva::cargarDesdeArchivo("reservas.txt", reservas, cantReservas, capReservas, alojamientos, cantAlojamientos, huespedes, cantHuespedes);
 }
 
 void Controlador::iniciar(){
@@ -117,7 +122,7 @@ void Controlador::mostrarMenuHuesped(Huesped* h){
             break;
         case 5: {
             cout << "\n--- Reservaciones activas ---\n";
-            int seleccionables[100], totalMostrar = 0;
+            int seleccionables[cantReservas], totalMostrar = 0;
 
             for (int i = 0; i < cantReservas; ++i) {
                 if (reservas[i].getHuesped()->getDocumento() == h->getDocumento()) {
@@ -286,7 +291,7 @@ void Controlador::buscarYReservarAlojamiento(Huesped* h)
     }
 
     // Recolectar disponibles
-    const int MAX_DISPONIBLES = 100;
+    const int MAX_DISPONIBLES = cantReservas;
     Alojamiento* disponibles[MAX_DISPONIBLES];
     int cantDisponibles = 0;
     for (int i = 0; i < cantAlojamientos; ++i) {
@@ -568,7 +573,11 @@ void Controlador::mostrarHistorico() {
 }
 
 void Controlador::guardarReservaIndividual(const Reserva& r) {
-    std::ofstream archivo("reservas.txt", std::ios::app);
+    // (Opcional) Forzar entorno a usar UTF-8
+    std::setlocale(LC_ALL, ""); // Sistema lo define, o usa "es_ES.UTF-8" si es Linux/Mac
+
+    // Abrir archivo en modo binario para evitar corrupción de caracteres
+    std::ofstream archivo("reservas.txt", std::ios::app | std::ios::binary);
     if (!archivo.is_open()) {
         std::cout << "Error al guardar la reserva en archivo.\n";
         return;
@@ -602,6 +611,11 @@ void Controlador::sobrescribirArchivoReservas() {
 
     for (int i = 0; i < cantReservas; ++i) {
         const Reserva& r = reservas[i];
+
+        // Filtrar reservas anuladas
+        if (r.getCodigo() == "" || r.getAlojamiento() == nullptr || r.getHuesped() == nullptr)
+            continue;
+
         archivo << r.getCodigo() << ";"
                 << r.getAlojamiento()->getCodigo() << ";"
                 << r.getHuesped()->getDocumento() << ";"

@@ -49,6 +49,12 @@ public:
     Alojamiento* getAlojamiento(int i) const {
         return (i >= 0 && i < cantidadAlojamientos) ? alojamientos[i] : nullptr;
     }
+
+    // Carga de datos desde archivo
+    static void cargarDesdeArchivo(const std::string& archivo,
+                                   Anfitrion*& arreglo,
+                                   int& cantidad,
+                                   int& capacidad);
 };
 
 #endif // ANFITRION_H

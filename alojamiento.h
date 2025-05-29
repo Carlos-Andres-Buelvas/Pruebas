@@ -57,6 +57,12 @@ public:
 
     // Utilidad
     void mostrar() const;
+    static void cargarDesdeArchivo(const std::string& archivo,
+                                   Alojamiento*& arreglo,
+                                   int& cantidad,
+                                   int& capacidad,
+                                   Anfitrion* anfitriones,
+                                   int cantAnfitriones);
 };
 
 #endif // ALOJAMIENTO_H

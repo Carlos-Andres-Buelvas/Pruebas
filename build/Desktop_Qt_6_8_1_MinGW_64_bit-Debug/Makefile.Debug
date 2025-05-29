@@ -164,13 +164,13 @@ debug/base_datos.o: ../../base_datos.cpp ../../base_datos.h \
 		../../reserva.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\base_datos.o ..\..\base_datos.cpp
 
-debug/controlador.o: ../../controlador.cpp ../../controlador.h \
+debug/controlador.o: ../../controlador.cpp ../../base_datos.h \
 		../../anfitrion.h \
 		../../alojamiento.h \
 		../../fecha.h \
 		../../huesped.h \
 		../../reserva.h \
-		../../base_datos.h
+		../../controlador.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\controlador.o ..\..\controlador.cpp
 
 debug/fecha.o: ../../fecha.cpp ../../fecha.h
@@ -181,13 +181,12 @@ debug/huesped.o: ../../huesped.cpp ../../huesped.h \
 		../../reserva.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\huesped.o ..\..\huesped.cpp
 
-debug/main.o: ../../main.cpp ../../base_datos.h \
+debug/main.o: ../../main.cpp ../../controlador.h \
 		../../anfitrion.h \
 		../../alojamiento.h \
 		../../fecha.h \
 		../../huesped.h \
-		../../reserva.h \
-		../../controlador.h
+		../../reserva.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\main.o ..\..\main.cpp
 
 debug/reserva.o: ../../reserva.cpp ../../reserva.h \

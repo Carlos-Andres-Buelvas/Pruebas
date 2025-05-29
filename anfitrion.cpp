@@ -1,15 +1,17 @@
 #include "anfitrion.h"
 #include <iostream>
+#include <fstream>
+#include <sstream>
 
 Anfitrion::Anfitrion()
     : documento(""), nombre(""), clave(""), antiguedad(0), puntuacion(0.0f),
-    capacidadAlojamientos(5000), cantidadAlojamientos(0) {
+    capacidadAlojamientos(10), cantidadAlojamientos(0) {
     alojamientos = new Alojamiento*[capacidadAlojamientos];
 }
 
 Anfitrion::Anfitrion(const std::string& doc, const std::string& nom, int antig, float punt)
     : documento(doc), nombre(nom), clave(""), antiguedad(antig), puntuacion(punt),
-    capacidadAlojamientos(5000), cantidadAlojamientos(0) {
+    capacidadAlojamientos(10), cantidadAlojamientos(0) {
     alojamientos = new Alojamiento*[capacidadAlojamientos];
 }
 
@@ -87,8 +89,66 @@ void Anfitrion::mostrar() const {
 
     std::cout << "Alojamientos asignados: " << cantidadAlojamientos << std::endl;
 
+
+    std::cout << "[DEBUG] Mostrando alojamientos del anfitrión...\n";
     for (int i = 0; i < cantidadAlojamientos; ++i) {
-        if (alojamientos[i])
-            alojamientos[i]->mostrar();
+        for (int i = 0; i < cantidadAlojamientos; ++i) {
+            std::cout << "[DEBUG] Posición " << i << ": ";
+            if (alojamientos[i]) {
+                std::cout << "puntero OK → ";
+                alojamientos[i]->mostrar();
+            } else {
+                std::cout << "[ERROR] puntero nulo\n";
+            }
+        }
     }
+}
+
+void Anfitrion::cargarDesdeArchivo(const std::string& archivo,
+                                   Anfitrion*& arreglo,
+                                   int& cantidad,
+                                   int& capacidad)
+{
+    std::ifstream in(archivo);
+    if (!in.is_open()) {
+        std::cerr << "[ERROR] No se pudo abrir " << archivo << "\n";
+        return;
+    }
+
+    std::string linea;
+    std::getline(in, linea); // Saltar encabezado
+    cantidad = 0;
+    capacidad = 10;
+    arreglo = new Anfitrion[capacidad];
+
+    while (std::getline(in, linea)) {
+        std::stringstream ss(linea);
+        std::string doc, nombre, clave, antigStr, puntStr;
+
+        std::getline(ss, doc, ';');
+        std::getline(ss, nombre, ';');
+        std::getline(ss, antigStr, ';');
+        std::getline(ss, puntStr, ';');
+        std::getline(ss, clave, ';');
+
+        int antig = std::stoi(antigStr);
+        float punt = std::stof(puntStr);
+
+        Anfitrion nuevo(doc, nombre, antig, punt);
+        nuevo.setClave(clave);
+
+        if (cantidad >= capacidad) {
+            capacidad *= 2;
+            Anfitrion* nuevoArr = new Anfitrion[capacidad];
+            for (int i = 0; i < cantidad; ++i)
+                nuevoArr[i] = arreglo[i];
+            delete[] arreglo;
+            arreglo = nuevoArr;
+        }
+
+        arreglo[cantidad++] = nuevo;
+    }
+
+    in.close();
+    std::cout << "[OK] Anfitriones cargados: " << cantidad << "\n";
 }

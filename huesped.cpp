@@ -2,18 +2,20 @@
 #include "fecha.h"
 #include "reserva.h"
 #include <iostream>
+#include <fstream>
+#include <sstream>
 using namespace std;
 
 Huesped::Huesped() : documento(""), nombre(""), clave(""),
     antiguedad(0), puntuacion(0.0),
-    capacidadReservas(5000), cantidadReservas(0) {
+    capacidadReservas(3000), cantidadReservas(0) {
     reservas = new Reserva*[capacidadReservas];
 }
 
 Huesped::Huesped(string doc, string nom, int antig, float punt)
     : documento(doc), nombre(nom), clave(""),
     antiguedad(antig), puntuacion(punt),
-    capacidadReservas(5000), cantidadReservas(0) {
+    capacidadReservas(3000), cantidadReservas(0) {
     reservas = new Reserva*[capacidadReservas];
 }
 
@@ -148,6 +150,55 @@ void Huesped::repararPunterosReservas(Reserva* nuevoArreglo, int cantReservas) {
                 reservas[j] = actual;
         }
     }
+}
+
+void Huesped::cargarDesdeArchivo(const std::string& archivo,
+                                 Huesped*& arreglo,
+                                 int& cantidad,
+                                 int& capacidad)
+{
+    std::ifstream in(archivo);
+    if (!in.is_open()) {
+        std::cerr << "[ERROR] No se pudo abrir " << archivo << "\n";
+        return;
+    }
+
+    std::string linea;
+    std::getline(in, linea); // Saltar encabezado
+    cantidad = 0;
+    capacidad = 10;
+    arreglo = new Huesped[capacidad];
+
+    while (std::getline(in, linea)) {
+        std::stringstream ss(linea);
+        std::string doc, nombre, clave, antigStr, puntStr;
+
+        std::getline(ss, doc, ';');
+        std::getline(ss, nombre, ';');
+        std::getline(ss, antigStr, ';');
+        std::getline(ss, puntStr, ';');
+        std::getline(ss, clave, ';');
+
+        int antig = std::stoi(antigStr);
+        float punt = std::stof(puntStr);
+
+        Huesped nuevo(doc, nombre, antig, punt);
+        nuevo.setClave(clave);
+
+        if (cantidad >= capacidad) {
+            capacidad *= 2;
+            Huesped* nuevoArr = new Huesped[capacidad];
+            for (int i = 0; i < cantidad; ++i)
+                nuevoArr[i] = arreglo[i];
+            delete[] arreglo;
+            arreglo = nuevoArr;
+        }
+
+        arreglo[cantidad++] = nuevo;
+    }
+
+    in.close();
+    std::cout << "[OK] Huéspedes cargados: " << cantidad << "\n";
 }
 
 Huesped::~Huesped() {
