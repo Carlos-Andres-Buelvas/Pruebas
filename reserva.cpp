@@ -6,6 +6,9 @@
 #include <fstream>
 #include <sstream>
 
+extern int totalIteraciones;
+extern int totalMemoria;
+
 // Constructor por defecto
 Reserva::Reserva()
     : codigo(""), alojamiento(nullptr), huesped(nullptr),
@@ -123,8 +126,16 @@ void Reserva::cargarDesdeArchivo(const std::string& archivo,
     capacidad = 10;
     cantidad = 0;
     arreglo = new Reserva[capacidad];
+    totalMemoria += sizeof(Reserva) * capacidad;
+
+    // Arreglos paralelos para almacenar punteros temporales
+    Huesped** huespedesTemp = new Huesped*[capacidad];
+    totalMemoria += sizeof(Huesped*) * capacidad;
+    Alojamiento** alojamientosTemp = new Alojamiento*[capacidad];
+    totalMemoria += sizeof(Alojamiento*) * capacidad;
 
     while (std::getline(in, linea)) {
+        totalIteraciones++;
         std::stringstream ss(linea);
         std::string cod, codAloj, docHuesp, fechaIn, durStr, metodo, fechaPag, montoStr, nota;
 
@@ -158,18 +169,46 @@ void Reserva::cargarDesdeArchivo(const std::string& archivo,
         if (cantidad >= capacidad) {
             int nuevaCap = capacidad * 2;
             Reserva* nuevoArr = new Reserva[nuevaCap];
-            for (int j = 0; j < cantidad; ++j)
+            totalMemoria += sizeof(Reserva) * nuevaCap;
+            Huesped** nuevoHuesp = new Huesped*[nuevaCap];
+            totalMemoria += sizeof(Huesped*) * nuevaCap;
+            Alojamiento** nuevoAloj = new Alojamiento*[nuevaCap];
+            totalMemoria += sizeof(Alojamiento*) * nuevaCap;
+
+            for (int j = 0; j < cantidad; ++j) {
+                totalIteraciones++;
                 nuevoArr[j] = arreglo[j];
+                nuevoHuesp[j] = huespedesTemp[j];
+                nuevoAloj[j] = alojamientosTemp[j];
+            }
+
             delete[] arreglo;
+            delete[] huespedesTemp;
+            delete[] alojamientosTemp;
+
             arreglo = nuevoArr;
+            huespedesTemp = nuevoHuesp;
+            alojamientosTemp = nuevoAloj;
             capacidad = nuevaCap;
         }
 
         arreglo[cantidad] = Reserva(cod, aObj, h, entrada, dur, metodo, pago, monto, nota);
-        h->agregarReserva(&arreglo[cantidad]);
-        aObj->reservarDias(entrada, dur);
+        huespedesTemp[cantidad] = h;
+        alojamientosTemp[cantidad] = aObj;
         cantidad++;
     }
 
     in.close();
+
+    // Enlazar cada reserva con su huésped y alojamiento
+    for (int i = 0; i < cantidad; ++i) {
+        totalIteraciones++;
+        huespedesTemp[i]->agregarReserva(&arreglo[i]);
+        alojamientosTemp[i]->reservarDias(arreglo[i].getFechaEntrada(), arreglo[i].getDuracion());
+    }
+
+    delete[] huespedesTemp;
+    delete[] alojamientosTemp;
+
+    std::cout << "[OK] Reservas cargadas: " << cantidad << "\n";
 }

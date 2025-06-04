@@ -4,29 +4,37 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
+
+extern int totalIteraciones;
+extern int totalMemoria;
+
 using namespace std;
 
-Huesped::Huesped() : documento(""), nombre(""), clave(""),
-    antiguedad(0), puntuacion(0.0),
-    capacidadReservas(3000), cantidadReservas(0) {
+Huesped::Huesped() : documento(""), nombre(""), antiguedad(0),
+    puntuacion(0.0), clave(""), cantidadReservas(0), capacidadReservas(10)
+    {
     reservas = new Reserva*[capacidadReservas];
+    totalMemoria += sizeof(Reserva*) * capacidadReservas;
 }
 
 Huesped::Huesped(string doc, string nom, int antig, float punt)
-    : documento(doc), nombre(nom), clave(""),
-    antiguedad(antig), puntuacion(punt),
-    capacidadReservas(3000), cantidadReservas(0) {
+    : documento(doc), nombre(nom), antiguedad(antig), puntuacion(punt),
+    clave(""), cantidadReservas(0), capacidadReservas(10) {
     reservas = new Reserva*[capacidadReservas];
+    totalMemoria += sizeof(Reserva*) * capacidadReservas;
 }
 
 Huesped::Huesped(const Huesped& otro)
     : documento(otro.documento), nombre(otro.nombre),
     antiguedad(otro.antiguedad), puntuacion(otro.puntuacion),
-    clave(otro.clave), capacidadReservas(otro.capacidadReservas),
-    cantidadReservas(otro.cantidadReservas) {
+    clave(otro.clave), cantidadReservas(otro.cantidadReservas),
+    capacidadReservas(otro.capacidadReservas) {
     reservas = new Reserva*[capacidadReservas];
-    for (int i = 0; i < cantidadReservas; ++i)
+    totalMemoria += sizeof(Reserva*) * capacidadReservas;
+    for (int i = 0; i < cantidadReservas; ++i){
+        totalIteraciones++;
         reservas[i] = otro.reservas[i];
+    }
 }
 
 Huesped& Huesped::operator=(const Huesped& otro) {
@@ -42,8 +50,11 @@ Huesped& Huesped::operator=(const Huesped& otro) {
         cantidadReservas = otro.cantidadReservas;
 
         reservas = new Reserva*[capacidadReservas];
-        for (int i = 0; i < cantidadReservas; ++i)
+        totalMemoria += sizeof(Reserva*) * capacidadReservas;
+        for (int i = 0; i < cantidadReservas; ++i){
+            totalIteraciones++;
             reservas[i] = otro.reservas[i];
+        }
     }
     return *this;
 }
@@ -78,6 +89,7 @@ bool Huesped::hayConflicto(const Fecha& entrada, int duracion) const {
     int end1 = start1 + duracion;
 
     for (int i = 0; i < cantidadReservas; ++i) {
+        totalIteraciones++;
         Reserva* r = reservas[i];
         Fecha fe = r->getFechaEntrada();
 
@@ -94,9 +106,12 @@ bool Huesped::hayConflicto(const Fecha& entrada, int duracion) const {
 
 void Huesped::eliminarReserva(Reserva* r) {
     for (int i = 0; i < cantidadReservas; ++i) {
+        totalIteraciones++;
         if (reservas[i] == r) {
-            for (int j = i; j < cantidadReservas - 1; ++j)
+            for (int j = i; j < cantidadReservas - 1; ++j){
+                totalIteraciones++;
                 reservas[j] = reservas[j + 1];
+            }
             reservas[--cantidadReservas] = nullptr;
             return;
         }
@@ -105,10 +120,13 @@ void Huesped::eliminarReserva(Reserva* r) {
 
 void Huesped::eliminarReservaPorCodigo(const string& codigo) {
     for (int i = 0; i < cantidadReservas; ++i) {
+        totalIteraciones++;
         if (reservas[i] && reservas[i]->getCodigo() == codigo) {
             // Evitar uso de puntero inválido
-            for (int j = i; j < cantidadReservas - 1; ++j)
+            for (int j = i; j < cantidadReservas - 1; ++j){
+                totalIteraciones++;
                 reservas[j] = reservas[j + 1];
+            }
             reservas[--cantidadReservas] = nullptr;
             return;
         }
@@ -126,6 +144,7 @@ void Huesped::mostrar() const {
     }
 
     for (int i = 0; i < cantidadReservas; ++i) {
+        totalIteraciones++;
         cout << i + 1 << ". ";
         reservas[i]->mostrarComprobante();
     }
@@ -135,17 +154,22 @@ void Huesped::mostrar() const {
 void Huesped::redimensionarReservas() {
     capacidadReservas *= 2;
     Reserva** temp = new Reserva*[capacidadReservas];
-    for (int i = 0; i < cantidadReservas; ++i)
+    totalMemoria += sizeof(Reserva*) * capacidadReservas;
+    for (int i = 0; i < cantidadReservas; ++i){
+        totalIteraciones++;
         temp[i] = reservas[i];
+    }
     delete[] reservas;
     reservas = temp;
 }
 
 void Huesped::repararPunterosReservas(Reserva* nuevoArreglo, int cantReservas) {
     for (int i = 0; i < cantReservas; ++i) {
+        totalIteraciones++;
         Reserva* actual = &nuevoArreglo[i];
         for (int j = 0; j < cantidadReservas; ++j) {
-            if (reservas[j]->getCodigo() == actual->getCodigo()) //PROBLEMA AQUÍ DE DEBUG
+            totalIteraciones++;
+            if (reservas[j]->getCodigo() == actual->getCodigo())
                 reservas[j] = actual;
         }
     }
@@ -167,8 +191,10 @@ void Huesped::cargarDesdeArchivo(const std::string& archivo,
     cantidad = 0;
     capacidad = 10;
     arreglo = new Huesped[capacidad];
+    totalMemoria += sizeof(Huesped) * capacidad;
 
     while (std::getline(in, linea)) {
+        totalIteraciones++;
         std::stringstream ss(linea);
         std::string doc, nombre, clave, antigStr, puntStr;
 
@@ -187,8 +213,11 @@ void Huesped::cargarDesdeArchivo(const std::string& archivo,
         if (cantidad >= capacidad) {
             capacidad *= 2;
             Huesped* nuevoArr = new Huesped[capacidad];
-            for (int i = 0; i < cantidad; ++i)
+            totalMemoria += sizeof(Huesped) * capacidad;
+            for (int i = 0; i < cantidad; ++i){
+                totalIteraciones++;
                 nuevoArr[i] = arreglo[i];
+            }
             delete[] arreglo;
             arreglo = nuevoArr;
         }

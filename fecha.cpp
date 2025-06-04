@@ -3,6 +3,9 @@
 #include <ctime>
 #include <iomanip>
 
+extern int totalIteraciones;
+extern int totalMemoria; // no se usará aquí
+
 // Constructor por defecto
 Fecha::Fecha() : dia(1), mes(1), anio(2000) {}
 
@@ -42,6 +45,7 @@ int Fecha::aDiaDelAnio() const {
                                        31, 31, 30, 31, 30, 31};
     int suma = 0;
     for (int i = 0; i < mes - 1; ++i) {
+        totalIteraciones++;
         suma += diasPorMes[i];
         if (i == 1 && esBisiesto()) suma++; // febrero bisiesto
     }

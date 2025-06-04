@@ -6,11 +6,15 @@
 
 #include <QDebug>
 
+extern int totalIteraciones;
+extern int totalMemoria;
+
 Alojamiento::Alojamiento() : anfitrion(nullptr), precioNoche(0.0f),
-    fechasOcupadas(new Fecha[30]), cantFechas(0), capFechas(100) {
+    fechasOcupadas(new Fecha[30]), cantFechas(0), capFechas(10) {
 
     amenidades[0] = amenidades[1] = amenidades[2] = false;
     amenidades[3] = amenidades[4] = amenidades[5] = false;
+    totalMemoria += sizeof(Fecha) * 30;
 }
 
 Alojamiento::Alojamiento(std::string cod, std::string dep, std::string mun, std::string nom,
@@ -20,6 +24,7 @@ Alojamiento::Alojamiento(std::string cod, std::string dep, std::string mun, std:
     direccion(dir), anfitrion(a), precioNoche(precio),
     fechasOcupadas(new Fecha[capFechas]), cantFechas(0), capFechas(10) {
 
+    totalMemoria += sizeof(Fecha) * capFechas;
     for (int i = 0; i < NUM_AMENIDADES; ++i)
         amenidades[i] = amen[i];
 }
@@ -37,6 +42,7 @@ Anfitrion* Alojamiento::getAnfitrion() const { return anfitrion; }
 // Funciones auxiliares
 bool Alojamiento::contieneFecha(const Fecha& f) const {
     for (int i = 0; i < cantFechas; ++i) {
+        totalIteraciones++;
         if (fechasOcupadas[i].toEntero() == f.toEntero())
             return true;
     }
@@ -49,6 +55,7 @@ void Alojamiento::agregarFecha(const Fecha& f) {
     if (cantFechas >= capFechas) {
         capFechas *= 2;
         Fecha* nuevo = new Fecha[capFechas];
+        totalMemoria += sizeof(Fecha) * capFechas;
         for (int i = 0; i < cantFechas; ++i)
             nuevo[i] = fechasOcupadas[i];
         delete[] fechasOcupadas;
@@ -60,24 +67,32 @@ void Alojamiento::agregarFecha(const Fecha& f) {
 
 // Disponibilidad
 bool Alojamiento::estaDisponible(const Fecha& entrada, int duracion) const {
-    for (int i = 0; i < duracion; ++i)
+    for (int i = 0; i < duracion; ++i){
+        totalIteraciones++;
         if (contieneFecha(entrada.sumarDias(i)))
             return false;
+    }
     return true;
 }
 
 void Alojamiento::reservarDias(const Fecha& entrada, int duracion) {
-    for (int i = 0; i < duracion; ++i)
+    for (int i = 0; i < duracion; ++i){
+        totalIteraciones++;
         agregarFecha(entrada.sumarDias(i));
+    }
 }
 
 void Alojamiento::liberarDias(const Fecha& inicio, int noches) {
     for (int i = 0; i < noches; ++i) {
+        totalIteraciones++;
         Fecha f = inicio.sumarDias(i);
         for (int j = 0; j < cantFechas; ++j) {
+            totalIteraciones++;
             if (fechasOcupadas[j].toEntero() == f.toEntero()) {
-                for (int k = j; k < cantFechas - 1; ++k)
+                for (int k = j; k < cantFechas - 1; ++k){
+                    totalIteraciones++;
                     fechasOcupadas[k] = fechasOcupadas[k + 1];
+                }
                 --cantFechas;
                 break;
             }
@@ -88,11 +103,11 @@ void Alojamiento::liberarDias(const Fecha& inicio, int noches) {
 // Mostrar información
 void Alojamiento::mostrar() const {
     if (codigo.empty()) {
-        std::cout << "[ERROR] Alojamiento con código vacío. Posible dato corrupto.\n";
+        //std::cout << "[ERROR] Alojamiento con código vacío. Posible dato corrupto.\n";
         return;
     }
-    std::cout<<"[DEBUG] En mostrar(): puntero this = " << this << "\n";
-    std::cout << "[DEBUG] Entrando a mostrar() - Código: " << codigo << "\n";
+    //std::cout<<"[DEBUG] En mostrar(): puntero this = " << this << "\n";
+    //std::cout << "[DEBUG] Entrando a mostrar() - Código: " << codigo << "\n";
     std::cout << "Código: " << codigo << '\n'
               << "Nombre: " << nombre << '\n'
               << "Ubicación: " << departamento << ", " << municipio << '\n'
@@ -107,6 +122,7 @@ void Alojamiento::mostrar() const {
 
     bool hayAlguna = false;
     for (int i = 0; i < NUM_AMENIDADES; ++i) {
+        totalIteraciones++;
         if (amenidades[i]) {
             if (hayAlguna) std::cout << ", ";
             std::cout << nombres[i];
@@ -125,6 +141,7 @@ Alojamiento::Alojamiento(const Alojamiento& otro) :
     fechasOcupadas(new Fecha[otro.capFechas]), cantFechas(otro.cantFechas),
     capFechas(otro.capFechas){
 
+    totalMemoria += sizeof(Fecha) * otro.capFechas;
     for (int i = 0; i < NUM_AMENIDADES; ++i)
         amenidades[i] = otro.amenidades[i];
 
@@ -183,12 +200,15 @@ void Alojamiento::cargarDesdeArchivo(const std::string& archivo,
     cantidad = 0;
     capacidad = 10;
     arreglo = new Alojamiento[capacidad];
+    totalMemoria += sizeof(Alojamiento) * capacidad;
 
     // Paso 1: cargar todos los alojamientos sin agregar al anfitrión
     // Creamos un arreglo paralelo para guardar los punteros a anfitriones
     Anfitrion** anfitrionesTemp = new Anfitrion*[capacidad];
+    totalMemoria += sizeof(Alojamiento) * capacidad;
 
     while (std::getline(in, linea)) {
+        totalIteraciones++;
         std::stringstream ss(linea);
         std::string cod, nom, docAnfit, dep, mun, tipo, dir, precioStr, amenStr;
 
@@ -200,8 +220,10 @@ void Alojamiento::cargarDesdeArchivo(const std::string& archivo,
         bool amen[NUM_AMENIDADES] = {false};
         std::stringstream ssAmen(amenStr);
         std::string bit; int i = 0;
-        while (std::getline(ssAmen, bit, ',') && i < NUM_AMENIDADES)
+        while (std::getline(ssAmen, bit, ',') && i < NUM_AMENIDADES){
+            totalIteraciones++;
             amen[i++] = (bit == "1");
+        }
 
         Anfitrion* anfitrion = buscarAnfitrionPorDocumento(anfitriones, cantAnfitriones, docAnfit);
         if (!anfitrion) {
@@ -213,9 +235,12 @@ void Alojamiento::cargarDesdeArchivo(const std::string& archivo,
             // Redimensionar arreglo de alojamientos
             capacidad *= 2;//int nuevaCap = capacidad * 2;
             Alojamiento* nuevoArr = new Alojamiento[capacidad];
+            totalMemoria += sizeof(Alojamiento) * capacidad;
             Anfitrion** nuevoAnfit = new Anfitrion*[capacidad];
+            totalMemoria += sizeof(Anfitrion) * capacidad;
 
             for (int j = 0; j < cantidad; ++j) {
+                totalIteraciones++;
                 nuevoArr[j] = arreglo[j];
                 nuevoAnfit[j] = anfitrionesTemp[j];
             }
@@ -236,6 +261,7 @@ void Alojamiento::cargarDesdeArchivo(const std::string& archivo,
 
     // Paso 2: ahora que el arreglo está completo, asociamos alojamientos a anfitriones
     for (int i = 0; i < cantidad; ++i) {
+        totalIteraciones++;
         anfitrionesTemp[i]->agregarAlojamiento(&arreglo[i]);
     }
 

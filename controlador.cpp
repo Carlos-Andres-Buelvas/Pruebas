@@ -13,22 +13,18 @@ using namespace std;
 #include "fecha.h"
 #include "controlador.h"
 
-int siguienteNumeroReserva; //modifique 1 a nada
+extern int totalIteraciones;
+extern int totalMemoria;
+
+int siguienteNumeroReserva;
 
 Controlador::Controlador() {
     anfitriones = nullptr;
     alojamientos = nullptr;
     huespedes = nullptr;
     reservas = new Reserva[10];
-    /*
-    cantAnfitriones = cantAlojamientos = 0;
-    cantHuespedes = 0;
-    cantReservas = 300;
-    capReservas = 300;
-    capAnfitriones = 0;
-    capHuespedes = 0;
-    capAlojamientos = 1;
-    */
+    totalMemoria += sizeof(Reserva) * 10;
+
     siguienteNumeroReserva = obtenerSiguienteNumeroReserva();
 
     Anfitrion::cargarDesdeArchivo("anfitriones.txt", anfitriones, cantAnfitriones, capAnfitriones);
@@ -73,6 +69,7 @@ void Controlador::iniciarSesion(){
     cin >> claveIngresada;
 
     for (int i = 0; i < cantHuespedes; ++i) {
+        totalIteraciones++;
         if (huespedes[i].getDocumento() == doc && huespedes[i].getClave() == claveIngresada) {
             mostrarMenuHuesped(&huespedes[i]);
             return;
@@ -80,6 +77,7 @@ void Controlador::iniciarSesion(){
     }
 
     for (int i = 0; i < cantAnfitriones; ++i) {
+        totalIteraciones++;
         if (anfitriones[i].getDocumento() == doc && anfitriones[i].getClave() == claveIngresada) {
             mostrarMenuAnfitrion(&anfitriones[i]);
             return;
@@ -118,6 +116,7 @@ void Controlador::mostrarMenuHuesped(Huesped* h){
             int seleccionables[cantReservas], totalMostrar = 0;
 
             for (int i = 0; i < cantReservas; ++i) {
+                totalIteraciones++;
                 if (reservas[i].getHuesped()->getDocumento() == h->getDocumento()) {
                     cout << (totalMostrar + 1) << ". ";
                     reservas[i].mostrarComprobante();
@@ -190,6 +189,7 @@ void Controlador::mostrarMenuAnfitrion(Anfitrion* a){
 
             int total = 0;
             for (int i = 0; i < cantReservas; ++i) {
+                totalIteraciones++;
                 Reserva& r = reservas[i];
                 if (r.getAlojamiento()->getAnfitrion() == a &&
                     r.getFechaEntrada().esMayorQue(ini) &&
@@ -236,6 +236,7 @@ void Controlador::asegurarCapacidadReservas() {
     if (cantReservas >= capReservas) {
         capReservas *= 2;
         Reserva* nuevo = new Reserva[capReservas];
+        totalMemoria += sizeof(Reserva) * capReservas;
         for (int i = 0; i < cantReservas; ++i)
             nuevo[i] = reservas[i];
         delete[] reservas;
@@ -243,7 +244,7 @@ void Controlador::asegurarCapacidadReservas() {
 
         // Reparar punteros en los huéspedes
         for (int i = 0; i < cantHuespedes; ++i)
-            huespedes[i].repararPunterosReservas(reservas, cantReservas);
+            huespedes[i].repararPunterosReservas(reservas, cantReservas);       
     }
 }
 
@@ -288,6 +289,7 @@ void Controlador::buscarYReservarAlojamiento(Huesped* h)
     Alojamiento* disponibles[MAX_DISPONIBLES];
     int cantDisponibles = 0;
     for (int i = 0; i < cantAlojamientos; ++i) {
+        totalIteraciones++;
         Alojamiento& a = alojamientos[i];
 
         if (a.getMunicipio() == municipio &&
@@ -308,6 +310,7 @@ void Controlador::buscarYReservarAlojamiento(Huesped* h)
     // Mostrar lista y elegir
     cout << "\n=== ALOJAMIENTOS DISPONIBLES ===\n";
     for (int i = 0; i < cantDisponibles; ++i) {
+        totalIteraciones++;
         cout << i + 1 << ".\n";
         disponibles[i]->mostrar();
         cout << "Puntuación del anfitrión: "
@@ -402,6 +405,7 @@ void Controlador::reservarAlojamiento(Huesped* h)
 
     Alojamiento* aloj = nullptr;
     for (int i = 0; i < cantAlojamientos; ++i) {
+        totalIteraciones++;
         if (alojamientos[i].getCodigo() == cod) {
             aloj = &alojamientos[i];
             break;
@@ -451,7 +455,7 @@ void Controlador::reservarAlojamiento(Huesped* h)
     std::ostringstream oss;
     oss << "RSV" << std::setw(3) << std::setfill('0') << siguienteNumeroReserva++;
     string codigo = oss.str();
-    Fecha fechaPago = entrada;
+    Fecha fechaPago = getFechaSistema();
     float monto = dur * aloj->getPrecioNoche();
 
     // 1) Creamos la reserva en HEAP para construirla:
@@ -507,6 +511,7 @@ int Controlador::obtenerSiguienteNumeroReserva(){
 
 void Controlador::anularReservacion(const string& codigo, Huesped* h, Anfitrion* a) {
     for (int i = 0; i < cantReservas; ++i) {
+        totalIteraciones++;
         if (reservas[i].getCodigo() == codigo) {
             bool autorizado = false;
             Huesped* h_afectado = nullptr;
@@ -526,7 +531,7 @@ void Controlador::anularReservacion(const string& codigo, Huesped* h, Anfitrion*
 
             // Eliminar del huésped
             if (h_afectado)
-                //h_afectado->eliminarReservaPorCodigo(codigo);
+                h_afectado->eliminarReservaPorCodigo(codigo);
 
             // Compactar arreglo global de reservas
             for (int j = i; j < cantReservas - 1; ++j)

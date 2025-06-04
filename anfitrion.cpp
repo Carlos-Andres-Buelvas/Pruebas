@@ -3,16 +3,21 @@
 #include <fstream>
 #include <sstream>
 
+extern int totalIteraciones;
+extern int totalMemoria;
+
 Anfitrion::Anfitrion()
     : documento(""), nombre(""), clave(""), antiguedad(0), puntuacion(0.0f),
     cantidadAlojamientos(0), capacidadAlojamientos(10) {
     alojamientos = new Alojamiento*[capacidadAlojamientos];
+    totalMemoria += sizeof(Alojamiento) * capacidadAlojamientos;
 }
 
 Anfitrion::Anfitrion(const std::string& doc, const std::string& nom, int antig, float punt)
     : documento(doc), nombre(nom), clave(""), antiguedad(antig), puntuacion(punt),
     cantidadAlojamientos(0), capacidadAlojamientos(10) {
     alojamientos = new Alojamiento*[capacidadAlojamientos];
+    totalMemoria += sizeof(Alojamiento) * capacidadAlojamientos;
 }
 
 Anfitrion::Anfitrion(const Anfitrion& otro)
@@ -21,7 +26,9 @@ Anfitrion::Anfitrion(const Anfitrion& otro)
      cantidadAlojamientos(otro.cantidadAlojamientos),
     capacidadAlojamientos(otro.capacidadAlojamientos) {
     alojamientos = new Alojamiento*[capacidadAlojamientos];
+    totalMemoria += sizeof(Alojamiento) * capacidadAlojamientos;
     for (int i = 0; i < cantidadAlojamientos; ++i) {
+        totalIteraciones++;
         alojamientos[i] = otro.alojamientos[i];  // Copia superficial
     }
 }
@@ -39,7 +46,9 @@ Anfitrion& Anfitrion::operator=(const Anfitrion& otro) {
         cantidadAlojamientos = otro.cantidadAlojamientos;
 
         alojamientos = new Alojamiento*[capacidadAlojamientos];
+        totalMemoria += sizeof(Alojamiento) * capacidadAlojamientos;
         for (int i = 0; i < cantidadAlojamientos; ++i) {
+            totalIteraciones++;
             alojamientos[i] = otro.alojamientos[i];
         }
     }
@@ -69,9 +78,12 @@ void Anfitrion::agregarAlojamiento(Alojamiento* nuevo) {
     if (cantidadAlojamientos >= capacidadAlojamientos) {
         int nuevaCapacidad = capacidadAlojamientos * 2;
         Alojamiento** nuevoArray = new Alojamiento*[nuevaCapacidad];
+        totalMemoria += sizeof(Alojamiento) * nuevaCapacidad;
 
-        for (int i = 0; i < cantidadAlojamientos; ++i)
+        for (int i = 0; i < cantidadAlojamientos; ++i){
+            totalIteraciones++;
             nuevoArray[i] = alojamientos[i];
+        }
 
         delete[] alojamientos;
         alojamientos = nuevoArray;
@@ -90,7 +102,9 @@ void Anfitrion::mostrar() const {
     std::cout << "Alojamientos asignados: " << cantidadAlojamientos << std::endl;
 
     for (int i = 0; i < cantidadAlojamientos; ++i) {
+        totalIteraciones++;
         for (int i = 0; i < cantidadAlojamientos; ++i) {
+            totalIteraciones++;
             if (alojamientos[i]) {
                 alojamientos[i]->mostrar();
             } else {
@@ -116,8 +130,10 @@ void Anfitrion::cargarDesdeArchivo(const std::string& archivo,
     cantidad = 0;
     capacidad = 10;
     arreglo = new Anfitrion[capacidad];
+    totalMemoria += sizeof(Anfitrion) * capacidad;
 
     while (std::getline(in, linea)) {
+        totalIteraciones++;
         std::stringstream ss(linea);
         std::string doc, nombre, clave, antigStr, puntStr;
 
@@ -136,8 +152,11 @@ void Anfitrion::cargarDesdeArchivo(const std::string& archivo,
         if (cantidad >= capacidad) {
             capacidad *= 2;
             Anfitrion* nuevoArr = new Anfitrion[capacidad];
-            for (int i = 0; i < cantidad; ++i)
+            totalMemoria += sizeof(Anfitrion) * capacidad;
+            for (int i = 0; i < cantidad; ++i){
+                totalIteraciones++;
                 nuevoArr[i] = arreglo[i];
+            }
             delete[] arreglo;
             arreglo = nuevoArr;
         }
