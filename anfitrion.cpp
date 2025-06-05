@@ -3,9 +3,14 @@
 #include <fstream>
 #include <sstream>
 
+// Variables globales para seguimiento de eficiencia
 extern int totalIteraciones;
 extern int totalMemoria;
 
+/**
+ * @brief Constructor por defecto de Anfitrión.
+ * Inicializa campos vacíos y crea el arreglo dinámico para alojamientos.
+ */
 Anfitrion::Anfitrion()
     : documento(""), nombre(""), clave(""), antiguedad(0), puntuacion(0.0f),
     cantidadAlojamientos(0), capacidadAlojamientos(10) {
@@ -13,6 +18,13 @@ Anfitrion::Anfitrion()
     totalMemoria += sizeof(Alojamiento) * capacidadAlojamientos;
 }
 
+/**
+ * @brief Constructor parametrizado de Anfitrión.
+ * @param doc Documento de identidad.
+ * @param nom Nombre del anfitrión.
+ * @param antig Antigüedad en meses.
+ * @param punt Puntuación promedio.
+ */
 Anfitrion::Anfitrion(const std::string& doc, const std::string& nom, int antig, float punt)
     : documento(doc), nombre(nom), clave(""), antiguedad(antig), puntuacion(punt),
     cantidadAlojamientos(0), capacidadAlojamientos(10) {
@@ -20,10 +32,14 @@ Anfitrion::Anfitrion(const std::string& doc, const std::string& nom, int antig, 
     totalMemoria += sizeof(Alojamiento) * capacidadAlojamientos;
 }
 
+/**
+ * @brief Constructor de copia.
+ * Realiza copia superficial de punteros a alojamientos.
+ */
 Anfitrion::Anfitrion(const Anfitrion& otro)
     : documento(otro.documento), nombre(otro.nombre), clave(otro.clave),
     antiguedad(otro.antiguedad), puntuacion(otro.puntuacion),
-     cantidadAlojamientos(otro.cantidadAlojamientos),
+    cantidadAlojamientos(otro.cantidadAlojamientos),
     capacidadAlojamientos(otro.capacidadAlojamientos) {
     alojamientos = new Alojamiento*[capacidadAlojamientos];
     totalMemoria += sizeof(Alojamiento) * capacidadAlojamientos;
@@ -33,6 +49,10 @@ Anfitrion::Anfitrion(const Anfitrion& otro)
     }
 }
 
+/**
+ * @brief Operador de asignación.
+ * Libera memoria previa y copia atributos del otro anfitrión.
+ */
 Anfitrion& Anfitrion::operator=(const Anfitrion& otro) {
     if (this != &otro) {
         delete[] alojamientos;
@@ -55,25 +75,33 @@ Anfitrion& Anfitrion::operator=(const Anfitrion& otro) {
     return *this;
 }
 
+/**
+ * @brief Destructor.
+ * Libera la memoria dinámica del arreglo de alojamientos.
+ */
 Anfitrion::~Anfitrion() {
     delete[] alojamientos;
     alojamientos = nullptr;
 }
 
-// Getters
+// ===== Getters =====
 std::string Anfitrion::getDocumento() const { return documento; }
 std::string Anfitrion::getNombre() const { return nombre; }
 std::string Anfitrion::getClave() const { return clave; }
 int Anfitrion::getAntiguedad() const { return antiguedad; }
 float Anfitrion::getPuntuacion() const { return puntuacion; }
 
-// Setters
+// ===== Setters =====
 void Anfitrion::setDocumento(const std::string& doc) { documento = doc; }
 void Anfitrion::setClave(const std::string& c) { clave = c; }
 void Anfitrion::setAntiguedad(int antig) { antiguedad = antig; }
 void Anfitrion::setPuntuacion(float punt) { puntuacion = punt; }
 
-// Función para agregar alojamiento
+/**
+ * @brief Agrega un alojamiento al anfitrión.
+ * Redimensiona el arreglo si es necesario.
+ * @param nuevo Puntero al nuevo alojamiento.
+ */
 void Anfitrion::agregarAlojamiento(Alojamiento* nuevo) {
     if (cantidadAlojamientos >= capacidadAlojamientos) {
         int nuevaCapacidad = capacidadAlojamientos * 2;
@@ -93,7 +121,10 @@ void Anfitrion::agregarAlojamiento(Alojamiento* nuevo) {
     alojamientos[cantidadAlojamientos++] = nuevo;
 }
 
-// Mostrar información del anfitrión
+/**
+ * @brief Muestra la información del anfitrión y sus alojamientos.
+ * Si algún puntero es nulo, se reporta el error.
+ */
 void Anfitrion::mostrar() const {
     std::cout << "\nAnfitrión: " << documento
               << " | Antigüedad: " << antiguedad << " meses"
@@ -115,6 +146,13 @@ void Anfitrion::mostrar() const {
     }
 }
 
+/**
+ * @brief Carga anfitriones desde un archivo TXT.
+ * @param archivo Ruta del archivo.
+ * @param arreglo Puntero al arreglo dinámico de anfitriones.
+ * @param cantidad Número de anfitriones leídos.
+ * @param capacidad Capacidad inicial del arreglo.
+ */
 void Anfitrion::cargarDesdeArchivo(const std::string& archivo,
                                    Anfitrion*& arreglo,
                                    int& cantidad,

@@ -8,27 +8,42 @@
 extern int totalIteraciones;
 extern int totalMemoria;
 
-using namespace std;
-
+/**
+ * @brief Constructor por defecto de Huesped.
+ * Inicializa atributos con valores por defecto y reserva espacio dinámico para las reservas.
+ */
 Huesped::Huesped() : documento(""), nombre(""), antiguedad(0),
     puntuacion(0.0), clave(""), cantidadReservas(0), capacidadReservas(10)
-    {
+{
     reservas = new Reserva*[capacidadReservas];
     totalMemoria += sizeof(Reserva*) * capacidadReservas;
 }
 
+/**
+ * @brief Constructor parametrizado de Huesped.
+ * @param doc Documento del huésped.
+ * @param nom Nombre del huésped.
+ * @param antig Antigüedad en meses.
+ * @param punt Puntuación del huésped.
+ */
 Huesped::Huesped(string doc, string nom, int antig, float punt)
     : documento(doc), nombre(nom), antiguedad(antig), puntuacion(punt),
-    clave(""), cantidadReservas(0), capacidadReservas(10) {
+    clave(""), cantidadReservas(0), capacidadReservas(10)
+{
     reservas = new Reserva*[capacidadReservas];
     totalMemoria += sizeof(Reserva*) * capacidadReservas;
 }
 
+/**
+ * @brief Constructor de copia.
+ * Realiza una copia superficial de los punteros a reservas.
+ */
 Huesped::Huesped(const Huesped& otro)
     : documento(otro.documento), nombre(otro.nombre),
     antiguedad(otro.antiguedad), puntuacion(otro.puntuacion),
     clave(otro.clave), cantidadReservas(otro.cantidadReservas),
-    capacidadReservas(otro.capacidadReservas) {
+    capacidadReservas(otro.capacidadReservas)
+{
     reservas = new Reserva*[capacidadReservas];
     totalMemoria += sizeof(Reserva*) * capacidadReservas;
     for (int i = 0; i < cantidadReservas; ++i){
@@ -37,6 +52,10 @@ Huesped::Huesped(const Huesped& otro)
     }
 }
 
+/**
+ * @brief Operador de asignación.
+ * Libera la memoria previa y copia los atributos desde otro huésped.
+ */
 Huesped& Huesped::operator=(const Huesped& otro) {
     if (this != &otro) {
         delete[] reservas;
@@ -59,19 +78,24 @@ Huesped& Huesped::operator=(const Huesped& otro) {
     return *this;
 }
 
-// ----------- Getters & Setters -----------
+// === Getters ===
 string Huesped::getDocumento() const { return documento; }
 string Huesped::getNombre() const { return nombre; }
 int Huesped::getAntiguedad() const { return antiguedad; }
 float Huesped::getPuntuacion() const { return puntuacion; }
 string Huesped::getClave() const { return clave; }
 
+// === Setters ===
 void Huesped::setDocumento(const string& doc) { documento = doc; }
 void Huesped::setAntiguedad(int antig) { antiguedad = antig; }
 void Huesped::setPuntuacion(float punt) { puntuacion = punt; }
 void Huesped::setClave(const string& c) { clave = c; }
 
-// ----------- Reservas -----------
+/**
+ * @brief Agrega una reserva al huésped si no hay conflicto de fechas.
+ * @param nueva Puntero a la nueva reserva.
+ * @return true si se agregó exitosamente, false si hubo conflicto.
+ */
 bool Huesped::agregarReserva(Reserva* nueva) {
     if (hayConflicto(nueva->getFechaEntrada(), nueva->getDuracion()))
         return false;
@@ -83,6 +107,12 @@ bool Huesped::agregarReserva(Reserva* nueva) {
     return true;
 }
 
+/**
+ * @brief Verifica si hay conflicto de fechas con reservas existentes.
+ * @param entrada Fecha de entrada.
+ * @param duracion Cantidad de noches.
+ * @return true si hay conflicto, false si es posible reservar.
+ */
 bool Huesped::hayConflicto(const Fecha& entrada, int duracion) const {
     int y1 = entrada.getAnio();
     int start1 = entrada.aDiaDelAnio();
@@ -104,6 +134,10 @@ bool Huesped::hayConflicto(const Fecha& entrada, int duracion) const {
     return false;
 }
 
+/**
+ * @brief Elimina una reserva específica del arreglo de reservas.
+ * @param r Puntero a la reserva a eliminar.
+ */
 void Huesped::eliminarReserva(Reserva* r) {
     for (int i = 0; i < cantidadReservas; ++i) {
         totalIteraciones++;
@@ -118,11 +152,14 @@ void Huesped::eliminarReserva(Reserva* r) {
     }
 }
 
+/**
+ * @brief Elimina una reserva con base en su código.
+ * @param codigo Código único de la reserva.
+ */
 void Huesped::eliminarReservaPorCodigo(const string& codigo) {
     for (int i = 0; i < cantidadReservas; ++i) {
         totalIteraciones++;
         if (reservas[i] && reservas[i]->getCodigo() == codigo) {
-            // Evitar uso de puntero inválido
             for (int j = i; j < cantidadReservas - 1; ++j){
                 totalIteraciones++;
                 reservas[j] = reservas[j + 1];
@@ -133,6 +170,9 @@ void Huesped::eliminarReservaPorCodigo(const string& codigo) {
     }
 }
 
+/**
+ * @brief Muestra los datos del huésped y sus reservas activas.
+ */
 void Huesped::mostrar() const {
     cout << "\nHuésped: " << documento
          << " | Antigüedad: " << antiguedad
@@ -150,7 +190,9 @@ void Huesped::mostrar() const {
     }
 }
 
-// ----------- Utilidades -----------
+/**
+ * @brief Redimensiona el arreglo dinámico de reservas al doble.
+ */
 void Huesped::redimensionarReservas() {
     capacidadReservas *= 2;
     Reserva** temp = new Reserva*[capacidadReservas];
@@ -163,6 +205,11 @@ void Huesped::redimensionarReservas() {
     reservas = temp;
 }
 
+/**
+ * @brief Actualiza los punteros de reserva tras una copia profunda.
+ * @param nuevoArreglo Arreglo actualizado de reservas.
+ * @param cantReservas Número de reservas.
+ */
 void Huesped::repararPunterosReservas(Reserva* nuevoArreglo, int cantReservas) {
     for (int i = 0; i < cantReservas; ++i) {
         totalIteraciones++;
@@ -175,6 +222,13 @@ void Huesped::repararPunterosReservas(Reserva* nuevoArreglo, int cantReservas) {
     }
 }
 
+/**
+ * @brief Carga los datos de huéspedes desde archivo.
+ * @param archivo Ruta del archivo.
+ * @param arreglo Arreglo dinámico que contendrá los huéspedes.
+ * @param cantidad Número total cargado.
+ * @param capacidad Capacidad inicial del arreglo.
+ */
 void Huesped::cargarDesdeArchivo(const std::string& archivo,
                                  Huesped*& arreglo,
                                  int& cantidad,
@@ -228,6 +282,9 @@ void Huesped::cargarDesdeArchivo(const std::string& archivo,
     in.close();
 }
 
+/**
+ * @brief Destructor. Libera la memoria de las reservas.
+ */
 Huesped::~Huesped() {
     delete[] reservas;
 }

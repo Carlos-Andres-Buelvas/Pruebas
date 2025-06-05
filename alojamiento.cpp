@@ -4,32 +4,48 @@
 #include <fstream>
 #include <sstream>
 
-#include <QDebug>
-
+// Contadores globales para estadísticas
 extern int totalIteraciones;
 extern int totalMemoria;
 
+/**
+ * @brief Constructor por defecto.
+ * Inicializa un alojamiento vacío con memoria para 30 fechas reservadas y sin amenidades activadas.
+ */
 Alojamiento::Alojamiento() : anfitrion(nullptr), precioNoche(0.0f),
-    fechasOcupadas(new Fecha[30]), cantFechas(0), capFechas(10) {
+    cantFechas(0), capFechas(10), fechasOcupadas(new Fecha[10]) {
 
     amenidades[0] = amenidades[1] = amenidades[2] = false;
     amenidades[3] = amenidades[4] = amenidades[5] = false;
     totalMemoria += sizeof(Fecha) * 30;
 }
 
+/**
+ * @brief Constructor parametrizado de alojamiento.
+ *
+ * @param cod Código del alojamiento.
+ * @param dep Departamento.
+ * @param mun Municipio.
+ * @param nom Nombre del alojamiento.
+ * @param tipo_ Tipo de alojamiento (e.g., Casa, Hotel).
+ * @param dir Dirección del alojamiento.
+ * @param a Puntero al anfitrión dueño.
+ * @param precio Precio por noche.
+ * @param amen Arreglo booleano de amenidades.
+ */
 Alojamiento::Alojamiento(std::string cod, std::string dep, std::string mun, std::string nom,
                          std::string tipo_, std::string dir, Anfitrion* a, float precio,
                          const bool amen[NUM_AMENIDADES]) :
     codigo(cod), departamento(dep), municipio(mun), nombre(nom), tipo(tipo_),
     direccion(dir), anfitrion(a), precioNoche(precio),
-    fechasOcupadas(new Fecha[capFechas]), cantFechas(0), capFechas(10) {
+    cantFechas(0), capFechas(10), fechasOcupadas(new Fecha[capFechas]) {
 
     totalMemoria += sizeof(Fecha) * capFechas;
     for (int i = 0; i < NUM_AMENIDADES; ++i)
         amenidades[i] = amen[i];
 }
 
-// Getters y setters
+// ===== Getters y Setters =====
 std::string Alojamiento::getCodigo() const { return codigo; }
 void Alojamiento::setCodigo(const std::string& cod) { codigo = cod; }
 
@@ -39,7 +55,11 @@ void Alojamiento::setPrecioNoche(float precio) { precioNoche = precio; }
 
 Anfitrion* Alojamiento::getAnfitrion() const { return anfitrion; }
 
-// Funciones auxiliares
+/**
+ * @brief Verifica si una fecha ya está ocupada.
+ * @param f Fecha a verificar.
+ * @return true si la fecha ya está ocupada, false si está libre.
+ */
 bool Alojamiento::contieneFecha(const Fecha& f) const {
     for (int i = 0; i < cantFechas; ++i) {
         totalIteraciones++;
@@ -49,6 +69,10 @@ bool Alojamiento::contieneFecha(const Fecha& f) const {
     return false;
 }
 
+/**
+ * @brief Agrega una nueva fecha ocupada.
+ * @param f Fecha a marcar como reservada.
+ */
 void Alojamiento::agregarFecha(const Fecha& f) {
     if (contieneFecha(f)) return;
 
@@ -65,7 +89,12 @@ void Alojamiento::agregarFecha(const Fecha& f) {
     fechasOcupadas[cantFechas++] = f;
 }
 
-// Disponibilidad
+/**
+ * @brief Verifica si un alojamiento está disponible para una duración a partir de una fecha dada.
+ * @param entrada Fecha de entrada.
+ * @param duracion Número de noches.
+ * @return true si está disponible, false si ya está ocupado.
+ */
 bool Alojamiento::estaDisponible(const Fecha& entrada, int duracion) const {
     for (int i = 0; i < duracion; ++i){
         totalIteraciones++;
@@ -75,6 +104,9 @@ bool Alojamiento::estaDisponible(const Fecha& entrada, int duracion) const {
     return true;
 }
 
+/**
+ * @brief Marca días como ocupados a partir de una fecha y duración.
+ */
 void Alojamiento::reservarDias(const Fecha& entrada, int duracion) {
     for (int i = 0; i < duracion; ++i){
         totalIteraciones++;
@@ -82,6 +114,11 @@ void Alojamiento::reservarDias(const Fecha& entrada, int duracion) {
     }
 }
 
+/**
+ * @brief Libera días previamente reservados.
+ * @param inicio Fecha de inicio.
+ * @param noches Número de noches a liberar.
+ */
 void Alojamiento::liberarDias(const Fecha& inicio, int noches) {
     for (int i = 0; i < noches; ++i) {
         totalIteraciones++;
@@ -100,14 +137,12 @@ void Alojamiento::liberarDias(const Fecha& inicio, int noches) {
     }
 }
 
-// Mostrar información
+/**
+ * @brief Muestra todos los datos del alojamiento por consola.
+ */
 void Alojamiento::mostrar() const {
-    if (codigo.empty()) {
-        //std::cout << "[ERROR] Alojamiento con código vacío. Posible dato corrupto.\n";
-        return;
-    }
-    //std::cout<<"[DEBUG] En mostrar(): puntero this = " << this << "\n";
-    //std::cout << "[DEBUG] Entrando a mostrar() - Código: " << codigo << "\n";
+    if (codigo.empty()) return;
+
     std::cout << "Código: " << codigo << '\n'
               << "Nombre: " << nombre << '\n'
               << "Ubicación: " << departamento << ", " << municipio << '\n'
@@ -133,13 +168,15 @@ void Alojamiento::mostrar() const {
     std::cout << '\n';
 }
 
-// Copia y asignación
+/**
+ * @brief Constructor de copia de alojamiento.
+ */
 Alojamiento::Alojamiento(const Alojamiento& otro) :
     codigo(otro.codigo), departamento(otro.departamento), municipio(otro.municipio),
     nombre(otro.nombre), tipo(otro.tipo), direccion(otro.direccion),
     anfitrion(otro.anfitrion), precioNoche(otro.precioNoche),
-    fechasOcupadas(new Fecha[otro.capFechas]), cantFechas(otro.cantFechas),
-    capFechas(otro.capFechas){
+    cantFechas(otro.cantFechas), capFechas(otro.capFechas),
+    fechasOcupadas(new Fecha[otro.capFechas]) {
 
     totalMemoria += sizeof(Fecha) * otro.capFechas;
     for (int i = 0; i < NUM_AMENIDADES; ++i)
@@ -149,6 +186,9 @@ Alojamiento::Alojamiento(const Alojamiento& otro) :
         fechasOcupadas[i] = otro.fechasOcupadas[i];
 }
 
+/**
+ * @brief Operador de asignación para alojamiento.
+ */
 Alojamiento& Alojamiento::operator=(const Alojamiento& otro) {
     if (this != &otro) {
         delete[] fechasOcupadas;
@@ -165,9 +205,9 @@ Alojamiento& Alojamiento::operator=(const Alojamiento& otro) {
         for (int i = 0; i < NUM_AMENIDADES; ++i)
             amenidades[i] = otro.amenidades[i];
 
-        fechasOcupadas = new Fecha[capFechas];
         cantFechas = otro.cantFechas;
         capFechas = otro.capFechas;
+        fechasOcupadas = new Fecha[capFechas];
         for (int i = 0; i < cantFechas; ++i)
             fechasOcupadas[i] = otro.fechasOcupadas[i];
     }
@@ -182,6 +222,16 @@ static Anfitrion* buscarAnfitrionPorDocumento(Anfitrion* anfitriones, int cantid
     return nullptr;
 }
 
+/**
+ * @brief Carga todos los alojamientos desde un archivo TXT y los enlaza a sus anfitriones.
+ *
+ * @param archivo Ruta del archivo TXT.
+ * @param arreglo Arreglo de alojamientos dinámico.
+ * @param cantidad Número de alojamientos leídos.
+ * @param capacidad Capacidad del arreglo dinámico.
+ * @param anfitriones Arreglo de anfitriones ya cargado.
+ * @param cantAnfitriones Número de anfitriones.
+ */
 void Alojamiento::cargarDesdeArchivo(const std::string& archivo,
                                      Alojamiento*& arreglo,
                                      int& cantidad,
@@ -202,10 +252,8 @@ void Alojamiento::cargarDesdeArchivo(const std::string& archivo,
     arreglo = new Alojamiento[capacidad];
     totalMemoria += sizeof(Alojamiento) * capacidad;
 
-    // Paso 1: cargar todos los alojamientos sin agregar al anfitrión
-    // Creamos un arreglo paralelo para guardar los punteros a anfitriones
     Anfitrion** anfitrionesTemp = new Anfitrion*[capacidad];
-    totalMemoria += sizeof(Alojamiento) * capacidad;
+    totalMemoria += sizeof(Anfitrion) * capacidad;
 
     while (std::getline(in, linea)) {
         totalIteraciones++;
@@ -232,8 +280,7 @@ void Alojamiento::cargarDesdeArchivo(const std::string& archivo,
         }
 
         if (cantidad >= capacidad) {
-            // Redimensionar arreglo de alojamientos
-            capacidad *= 2;//int nuevaCap = capacidad * 2;
+            capacidad *= 2;
             Alojamiento* nuevoArr = new Alojamiento[capacidad];
             totalMemoria += sizeof(Alojamiento) * capacidad;
             Anfitrion** nuevoAnfit = new Anfitrion*[capacidad];
@@ -249,26 +296,26 @@ void Alojamiento::cargarDesdeArchivo(const std::string& archivo,
             delete[] anfitrionesTemp;
             arreglo = nuevoArr;
             anfitrionesTemp = nuevoAnfit;
-            capacidad = capacidad;//nuevaCap;
         }
 
         arreglo[cantidad] = Alojamiento(cod, dep, mun, nom, tipo, dir, anfitrion, precio, amen);
-        anfitrionesTemp[cantidad] = anfitrion;  // Guardamos el puntero al anfitrión
+        anfitrionesTemp[cantidad] = anfitrion;
         cantidad++;
     }
 
     in.close();
 
-    // Paso 2: ahora que el arreglo está completo, asociamos alojamientos a anfitriones
     for (int i = 0; i < cantidad; ++i) {
         totalIteraciones++;
         anfitrionesTemp[i]->agregarAlojamiento(&arreglo[i]);
     }
 
-    delete[] anfitrionesTemp;  // ya no se necesita
+    delete[] anfitrionesTemp;
 }
 
-// Destructor
+/**
+ * @brief Destructor. Libera memoria dinámica de fechas ocupadas.
+ */
 Alojamiento::~Alojamiento() {
     delete[] fechasOcupadas;
 }

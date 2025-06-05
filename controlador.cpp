@@ -18,6 +18,14 @@ extern int totalMemoria;
 
 int siguienteNumeroReserva;
 
+/**
+ * @brief Constructor del controlador principal del sistema.
+ *
+ * Inicializa punteros a arreglos de anfitriones, alojamientos, huéspedes y reservas.
+ * También reserva memoria inicial para el arreglo de reservas, y carga los datos
+ * desde los archivos correspondientes mediante las funciones estáticas de cada clase.
+ * Se establece el número consecutivo de reservas mediante el archivo "reservas.txt".
+ */
 Controlador::Controlador() {
     anfitriones = nullptr;
     alojamientos = nullptr;
@@ -33,10 +41,19 @@ Controlador::Controlador() {
     Reserva::cargarDesdeArchivo("reservas.txt", reservas, cantReservas, capReservas, alojamientos, cantAlojamientos, huespedes, cantHuespedes);
 }
 
+/**
+ * @brief Punto de entrada del sistema. Llama al menú principal.
+ */
 void Controlador::iniciar(){
     menuPrincipal();
 }
 
+/**
+ * @brief Muestra el menú principal del sistema UdeAStay.
+ *
+ * Ofrece opciones para iniciar sesión o salir del programa.
+ * Maneja errores de entrada y excepciones estándar de forma robusta.
+ */
 void Controlador::menuPrincipal() {
     int opcion;
     do {
@@ -73,6 +90,13 @@ void Controlador::menuPrincipal() {
     } while (opcion != 0);
 }
 
+/**
+ * @brief Permite iniciar sesión como huésped o anfitrión.
+ *
+ * Solicita documento y clave, validando su formato. Si se encuentra
+ * coincidencia en los datos cargados, redirige al menú correspondiente
+ * (huésped o anfitrión).
+ */
 void Controlador::iniciarSesion() {
     string doc, claveIngresada;
 
@@ -127,6 +151,18 @@ void Controlador::iniciarSesion() {
     }
 }
 
+/**
+ * @brief Muestra el menú principal para un huésped autenticado.
+ *
+ * Permite al huésped realizar las siguientes acciones:
+ * 1. Buscar alojamientos disponibles con filtros.
+ * 2. Reservar alojamiento mediante código.
+ * 3. Ver su antigüedad y puntuación.
+ * 4. Visualizar y anular una reservación activa.
+ * 0. Cerrar sesión y volver al menú principal.
+ *
+ * @param h Puntero al objeto Huesped que ha iniciado sesión.
+ */
 void Controlador::mostrarMenuHuesped(Huesped* h) {
     int opcion;
 
@@ -208,6 +244,20 @@ void Controlador::mostrarMenuHuesped(Huesped* h) {
     }
 }
 
+/**
+ * @brief Muestra el menú principal para un anfitrión autenticado.
+ *
+ * Permite al anfitrión realizar las siguientes acciones:
+ * 1. Visualizar todos los alojamientos que administra.
+ * 2. Consultar su antigüedad y puntuación.
+ * 3. Anular reservas asociadas a sus alojamientos.
+ * 4. Ver todas las reservas dentro de un rango de fechas.
+ * 5. Depurar reservas antiguas según una fecha de corte.
+ * 6. Mostrar el historial completo de reservas.
+ * 0. Cerrar sesión y volver al menú principal.
+ *
+ * @param a Puntero al objeto Anfitrion que ha iniciado sesión.
+ */
 void Controlador::mostrarMenuAnfitrion(Anfitrion* a) {
     int opcion;
 
@@ -312,6 +362,9 @@ void Controlador::mostrarMenuAnfitrion(Anfitrion* a) {
     }
 }
 
+/**
+ * @brief Redimensiona dinámicamente el arreglo de reservas cuando se alcanza la capacidad máxima.
+ */
 void Controlador::asegurarCapacidadReservas() {
     if (cantReservas >= capReservas) {
         capReservas *= 2;
@@ -328,6 +381,21 @@ void Controlador::asegurarCapacidadReservas() {
     }
 }
 
+/**
+ * @brief Permite al huésped buscar alojamientos disponibles aplicando filtros opcionales
+ *        y reservar el que elija directamente desde un listado.
+ *
+ * Se validan los siguientes criterios:
+ * - Municipio (obligatorio).
+ * - Fecha de entrada (dentro de los próximos 12 meses).
+ * - Duración de la estadía.
+ * - Filtros opcionales de precio máximo y puntuación mínima del anfitrión.
+ *
+ * Luego, el huésped puede seleccionar un alojamiento y completar la reserva
+ * con método de pago y anotación. Se verifica que no haya conflictos de fechas.
+ *
+ * @param h Puntero al huésped que está realizando la operación.
+ */
 void Controlador::buscarYReservarAlojamiento(Huesped* h) {
     try {
         cout << "--- Buscar y reservar alojamiento ---\n";
@@ -456,6 +524,21 @@ void Controlador::buscarYReservarAlojamiento(Huesped* h) {
     }
 }
 
+/**
+ * @brief Permite al huésped crear una reserva directa si conoce el código del alojamiento.
+ *
+ * Solicita los siguientes datos:
+ * - Código del alojamiento.
+ * - Fecha de entrada (entre hoy y los próximos 12 meses).
+ * - Duración en noches.
+ * - Método de pago.
+ * - Anotación adicional.
+ *
+ * Se verifica disponibilidad del alojamiento, conflicto de fechas con otras reservas
+ * del huésped, y se guarda la reserva tanto en memoria como en el archivo de texto.
+ *
+ * @param h Puntero al huésped que realiza la reserva.
+ */
 void Controlador::reservarAlojamiento(Huesped* h) {
     try {
         cout << "--- Reservar alojamiento ---\n";
@@ -551,6 +634,10 @@ void Controlador::reservarAlojamiento(Huesped* h) {
     }
 }
 
+/**
+ * @brief Retorna el siguiente número entero disponible para generar el código de una nueva reserva.
+ * @return El número consecutivo a partir de la última reserva leída.
+ */
 int Controlador::obtenerSiguienteNumeroReserva(){
     ifstream archivo("reservas.txt");
     if (!archivo.is_open()) return 1;
@@ -569,6 +656,20 @@ int Controlador::obtenerSiguienteNumeroReserva(){
     return numero + 1;
 }
 
+/**
+ * @brief Anula una reserva específica del sistema, ya sea solicitada por un huésped
+ *        o por un anfitrión (según el contexto del menú).
+ *
+ * Se actualizan:
+ * - Las reservas del huésped (eliminando la reserva).
+ * - Las fechas ocupadas del alojamiento (liberando los días).
+ * - El arreglo principal de reservas (eliminando la entrada).
+ * - El archivo de texto `reservas.txt` (reescribiéndolo completo).
+ *
+ * @param codigo Código único de la reserva a anular.
+ * @param h Puntero al huésped (si es quien solicita la anulación). Puede ser nullptr.
+ * @param a Puntero al anfitrión (si es quien solicita la anulación). Puede ser nullptr.
+ */
 void Controlador::anularReservacion(const string& codigo, Huesped* h, Anfitrion* a) {
     for (int i = 0; i < cantReservas; ++i) {
         totalIteraciones++;
@@ -611,6 +712,9 @@ void Controlador::anularReservacion(const string& codigo, Huesped* h, Anfitrion*
     cout << "Reservación no encontrada.\n";
 }
 
+/**
+ * @brief Muestra todas las reservas almacenadas en el sistema.
+ */
 void Controlador::mostrarHistorico() {
     std::ifstream archivo("historico_reservas.txt");
     if (!archivo.is_open()) {
@@ -630,10 +734,19 @@ void Controlador::mostrarHistorico() {
     if (contador == 1) std::cout << "No hay reservas históricas registradas.\n";
 }
 
+/**
+ * @brief Guarda una reserva individual en el archivo "reservas.txt".
+ *
+ * El formato del archivo es de texto delimitado por `;`, incluyendo:
+ * código, alojamiento, huésped, fechas, método de pago, monto y anotación.
+ * Usa modo binario para evitar corrupción de caracteres.
+ *
+ * @param r Referencia a la reserva que se desea persistir.
+ */
 void Controlador::guardarReservaIndividual(const Reserva& r) {
 
     // Abrir archivo en modo binario para evitar corrupción de caracteres
-    std::ofstream archivo("reservas.txt", std::ios::app | std::ios::binary);
+    std::ofstream archivo("reservas.txt", std::ios::app);
     if (!archivo.is_open()) {
         std::cout << "Error al guardar la reserva en archivo.\n";
         return;
@@ -656,6 +769,10 @@ void Controlador::guardarReservaIndividual(const Reserva& r) {
     archivo.close();
 }
 
+/**
+ * @brief Sobrescribe completamente el archivo reservas.txt con todas las reservas actuales.
+ *        Se utiliza típicamente tras una depuración del histórico.
+ */
 void Controlador::sobrescribirArchivoReservas() {
     std::ofstream archivo("reservas.txt");
     if (!archivo.is_open()) {
@@ -690,6 +807,10 @@ void Controlador::sobrescribirArchivoReservas() {
     archivo.close();
 }
 
+/**
+ * @brief Elimina todas las reservas cuya fecha de entrada es menor a una fecha de corte dada.
+ * @param fechaCorte Fecha límite para conservar las reservas.
+ */
 void Controlador::depurarReservas(const Fecha& fechaCorte) {
     std::ofstream archivo("historico_reservas.txt", std::ios::app);
     if (!archivo.is_open()) {
@@ -723,7 +844,11 @@ void Controlador::depurarReservas(const Fecha& fechaCorte) {
     archivo.close();
 }
 
-
+/**
+ * @brief Destructor del controlador.
+ *
+ * Libera la memoria dinámica utilizada por los arreglos de reservas, huéspedes, alojamientos y anfitriones.
+ */
 Controlador::~Controlador() {
     delete[] reservas;
     delete[] huespedes;
