@@ -101,15 +101,16 @@ void Anfitrion::mostrar() const {
 
     std::cout << "Alojamientos asignados: " << cantidadAlojamientos << std::endl;
 
+    int totalMostrar = 0;
+
     for (int i = 0; i < cantidadAlojamientos; ++i) {
         totalIteraciones++;
-        for (int i = 0; i < cantidadAlojamientos; ++i) {
-            totalIteraciones++;
-            if (alojamientos[i]) {
-                alojamientos[i]->mostrar();
-            } else {
-                std::cout << "[ERROR] puntero nulo\n";
-            }
+        if (alojamientos[i]) {
+            std::cout << (totalMostrar + 1) << ". \n";
+            totalMostrar++;
+            alojamientos[i]->mostrar();
+        } else {
+            std::cout << "[ERROR] puntero nulo\n";
         }
     }
 }
